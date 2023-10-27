@@ -8,57 +8,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
-    <link href="css/boot.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/fonticon.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/modal.css">
-    <link rel="stylesheet" href="../assets/css/login.css">
-    <link rel="stylesheet" href="../assets/css/header.css">
-    <title>Header</title>
+    <link href="../assets/css/style.css" rel="stylesheet">
+    
 </head>
-
-<body>
-    <!--DOBRA CABEÇALHO-->
-
-    <header class="main_header">
+<header class="main_header">
         <div class="main_header_content">
-            <a href="index.php">
-                <img src="assets/img/logos/logo_borda.png" alt="Olimpo Training" title="Olimpo Training"></a>
+            <a href="/Olimpo_Training/views/index.php">
+                <img src="../assets/img/logos/logo_borda.png" alt="Olimpo Training" title="Olimpo Training"></a>
             <h4>Olimpo Training</h4>
 
             <nav class="main_header_content_menu">
                 <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="">Exercícios</a></li>
-                    <li><a href="">Fichas</a></li>
-                    <li><a href="views/sele.html">Cadastre-se</a></li>
-                    <li><a href="#" class="modal-link">Login</a></li>
+                    <li><a href="/Olimpo_Training/views/index.php">Home</a></li>
+                    <li><a href="/Olimpo_Training/exercicios/index.php">Exercícios</a></li>
+                    <li><a href="/Olimpo_Training/fichaDeTreino/index.php">Fichas</a></li>
+                    <li><a href="/Olimpo_training/views/sele.html">Cadastre-se</a></li>
+                    <li><a href="/Olimpo_Training/auth/logout.php" class="modal-link">Logout</a></li>
                 </ul>
             </nav>
         </div>
-    </header>
-    <!--POP LOGIN-->
-    <?php if (isset($_GET['msg']) || isset($_GET['error'])) : ?>
-                        <div align="center" class="<?= (isset($_GET['error']) ? 'msg__success' : 'msg__error') ?>">
-                            <p><font color="red"><?= $_GET['msg'] ?? $_GET['error'] ?></font></p>
-                        </div>
-                    <?php endif; ?>
-
-    
-    <div class="overlay"></div>
-    <div class="modal">
-        <div class="div_login">
-                <h1>Login</h1>
-                <br>
-                <form action="auth/login.php" method="post">
-                    <input type="email" name="email" placeholder="Nome" class="input" required>
-                    <br><br>
-                    <input type="password" name="password" placeholder="Senha" class="input" required>
-                    <br><br>
-                    <button class="button">Enviar</button>
-                </form>
-        </div>
-    </div>
-</body>
-
-</html>
+</header>

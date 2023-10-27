@@ -3,7 +3,6 @@ session_start();
 
 !empty($_POST['idFichas_treino']) ? $idFichas_treino = $_POST['idFichas_treino'] : $idFichas_treino = 0 ;
 
-echo "Valor do fichas treino: ".$idFichas_treino;
 
 //fazendo a conexão com o banco de dados
 include 'src/conexao.php';
@@ -101,7 +100,7 @@ if(isset($_GET['acao'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar ficha de treino</title>
+    <title>Editar ficha de treino</title>
 </head>
 <style>
     /* INICIO DOBRA EXERCICIOS */
@@ -255,6 +254,8 @@ if(isset($_GET['acao'])) {
 </style>
 
 <body>
+
+<a href="index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
     <!-- INICIO DOBRA EXERCICIOS -->
     <!-- INICIO BLOCO DE CÓDIGO IMUTÁVEL -->
 

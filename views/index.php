@@ -165,13 +165,6 @@ $nomePerfis = $stmt->fetch();
             </section>
 
         </main>
-
-        <footer>
-            <a href="">Instagram</a>
-            <a href="">Facebook</a>
-            <a href="#">FAQ</a>
-            <a href="">Dúvidas e sugestões</a>
-        </footer>
     </div>
 </body>
 

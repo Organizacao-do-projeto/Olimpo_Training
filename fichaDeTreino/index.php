@@ -52,6 +52,8 @@
     flex-direction: row;
     wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 100px;
+    flex-wrap: wrap;
 }
 
 
@@ -147,7 +149,10 @@
 
 </style>
 <body>
-
+<?php
+        $path = getenv('DOCUMENT_ROOT');
+        include_once $path."/Olimpo_Training/teste5/layouts/header.php";
+?>
 <a href="../views/index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
 
     <?php 

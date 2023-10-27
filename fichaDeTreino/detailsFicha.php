@@ -27,17 +27,6 @@ td{
     margin: 0 auto;
 }
 
-.showCabecalho{
-
-}
-
-#spanDesc_exercicios{
-
-}
-
-#spandata_criacao{
-}
-
 a{
     text-decoration: none;
 }
@@ -60,7 +49,6 @@ a{
 <?php
 
 $idFichas_treino = $_POST['idFichas_treino'];
-echo "O número que choegou foi: ".$_POST['idFichas_treino'];
 // echo "O número que choegou no teste foi: ".$_POST['teste'];
 // $idFichas_treino = 70;
 
@@ -88,12 +76,12 @@ $stmtfichas_treino->bindParam(':idFichas_treino', $idFichas_treino);
 $stmtfichas_treino->execute();
 $cabecalhofichas_treino = $stmtfichas_treino->fetch();
 
-// echo "<pre>";
-// var_dump($cabecalhofichas_treino);
-// echo "</pre>";
-
+    $path = getenv('DOCUMENT_ROOT');
+    include_once $path."/Olimpo_Training/teste5/layouts/header.php";
+        
 ?>
-<a href="index.php">Voltar</a>
+<a href="index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
+
 <h1><?=$cabecalhofichas_treino['titulo']?></h1>
 
 <div class='showCabecalho'>

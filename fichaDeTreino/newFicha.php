@@ -251,9 +251,11 @@ if(isset($_GET['acao'])) {
 
 <body>
 
+<a href="index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
+
     <header class="headerInfos">
-        <a href="usuarios.php?idUsuarios=2" target="_blank" >
-            <h2>Jefferson Romero</h2>
+        <a href="../views/perfil.php?idPerfil=10" target="_blank" >
+            <h2>Aluno: Jefferson Romero</h2>
         </a>
 
         <a href="index.php?idUsuarios=2" class="btIndex" target="_blank">Visualizar fichas de treino deste usuário.</a>

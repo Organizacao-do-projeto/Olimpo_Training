@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Editar exercicio </title>
 </head>
-<a href="admPanelExercicios.php">Voltar</a>
+<?php
+        $path = getenv('DOCUMENT_ROOT');
+        include_once $path."/Olimpo_Training/teste5/layouts/header.php";
+?>
+
+<a href="admPanelExercicios.php"><img height="60px" src="../views/assets/img/voltar.svg"></a>
 
 <?php
 

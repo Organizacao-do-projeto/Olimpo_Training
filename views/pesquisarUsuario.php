@@ -8,7 +8,7 @@ if(isset($_GET['nomeBusca'])){
 
     $dbh = Conexao::getConexao();
     
-    $query = "SELECT * FROM olimpo.usuarios WHERE nome LIKE CONCAT('%', :nomeBusca);";
+    $query = "SELECT * FROM olimpo.usuarios WHERE nome LIKE CONCAT('%', :nomeBusca,'%');";
 
     $stmt = $dbh->prepare($query);
     $stmt->bindParam(":nomeBusca", $nomeBusca);
@@ -29,6 +29,12 @@ if(isset($_GET['nomeBusca'])){
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <style>
+    
+    .showUsers{
+        margin-left: 100px;
+        margin-right: 50px;
+
+    }
 
     #wrapperBusca{
         display: flex;
@@ -54,6 +60,7 @@ if(isset($_GET['nomeBusca'])){
         border-radius: 100px 100px;
         border: 4px  solid gold;
         padding: 40px;
+        background-color: #fff;
     }
 
     .limitInput{
@@ -75,8 +82,8 @@ if(isset($_GET['nomeBusca'])){
 
     .linhaUsuario{
         display: flex;
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
+        align-items: start;
         justify-content: space-around;
     }
 
@@ -103,6 +110,10 @@ if(isset($_GET['nomeBusca'])){
     }
 
 </style>
+<?php
+    $path = getenv('DOCUMENT_ROOT');
+    include_once $path."/Olimpo_Training/teste5/layouts/header.php";
+?>
 
 <body>
     <header>
@@ -117,7 +128,7 @@ if(isset($_GET['nomeBusca'])){
         </article>
     <header>
 
-    <section>
+    <section class="showUsers">
         <?php
             if(isset($_GET['nomeBusca'])){
 

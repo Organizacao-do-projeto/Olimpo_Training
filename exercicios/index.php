@@ -8,6 +8,12 @@
 <style>
     /* INICIO DOBRA EXERCICIOS */
 
+
+    .btAdmin{
+        display: flex;
+        justify-content: end;
+    }
+
     .showExercicios{
         display: flex;
         flex-direction: row;
@@ -16,6 +22,8 @@
     }
 
     .wrapbtn{
+        display: flex;
+        align-items: end;
         box-sizing: border-box;
         
         
@@ -119,13 +127,19 @@
 
 
     /* FIM DOBRA EXERCICIOS */
+    /* Teste */
 
 </style>
 <body>
-    <div class="wrapbtn">
-        <a href="admPanelExercicios.php" class="btnCriar">Painel de administrador</a>
-    </div>    
-
+        <?php
+        $path = getenv('DOCUMENT_ROOT');
+        include_once $path."/Olimpo_Training/teste5/layouts/header.php";
+        ?>
+    <section class="btAdmin">
+        <div class="wrapbtn">
+            <a href="admPanelExercicios.php" class="btnCriar">Painel de administrador</a>
+        </div>    
+    </section>
     <section class="showExercicios">
 <?php 
 

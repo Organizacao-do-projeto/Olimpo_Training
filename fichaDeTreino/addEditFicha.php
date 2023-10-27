@@ -71,3 +71,5 @@ $_SESSION['cabecalhoFichaEdit'] = [];
 
 $dbhFicha = null;
 $dbhft_exe = null;
+
+header("Location: index.php");

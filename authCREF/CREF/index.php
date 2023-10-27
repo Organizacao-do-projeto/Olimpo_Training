@@ -32,16 +32,13 @@
         <p>Exercício introdutório exemplificando o crud nas tabelas usuários e perfil. </p>
     </header>
     <nav>
-        <a href="../index.php">Home</a>
+        <a href="../../views/index.php">Home</a>
         <a href="#">Usuários</a>
-        <a href="#">Perfil</a>
     </nav>
 
     <main>
-        <h1>Usuários</h1>
-        <section class="section__btn">
-            <a class="btn" href="new.php">Novo</a>
-        </section>
+        <h1>Personal Trainers</h1>
+
         <section class="section__btn">
             <a class="btn" href="https://www.confef.org.br/confef/" target="_blank">Buscar</a>
         </section>
@@ -63,7 +60,7 @@
                         <th>UF</th>
                         <th>Nome</th>
                         <th>CPF</th>
-                        <th>EMAIL</th>
+                        <th>Email</th>
                         <th>Ação</th>
                     </tr>
                 </thead>
@@ -71,7 +68,7 @@
                 <tbody>
                     <?php if ($quantidadeRegistros == "0"): ?>
                         <tr>
-                            <td colspan="4">Não existem usuários pendentes de autenticação.</td>
+                            <td colspan="8">Não existem usuários pendentes de autenticação.</td>
                         </tr>
                         <?php else: ?>
                         <?php while($row = $stmt->fetch(PDO::FETCH_BOTH)):

@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: #f1f1f1;
+    padding: 5px;
+    min-height: 100vh;
+  }
+  
+  header {
+    padding: 25px;
+    text-align: center;
+    background-color: #e4b828;
+    color: #ddd;
+  }
+  
+  header h1 {
+    font-size: 30px;
+  }
+  
+  nav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  nav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 18px;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    background-color: #ddd;
+    color: #000;
+    font-weight: 600;
+  }
+  
+  main h1 {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  
+  td a1 {
+    color: rgb(87, 87, 207);
+  
+  }
+  
+  .td__operacao {
+    display:flex; 
+  }
+  
+  .section__btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .btn {
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    width: 120px;
+    height: 35px;
+    background-color: rgb(87, 87, 207);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 3px;
+  }
+  
+  .btnalterar {
+    border: none;
+    width: 100px;
+    padding: 5px 0px;
+    background-color: rgb(1, 165, 42);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: .8rem;
+    font-weight: 600;
+    border-radius: 3px;
+    display: inline-block;  
+  }
+  
+  .btnexcluir {
+    border: none;
+    width: 100px;
+    padding: 5px 0px;
+    background-color: rgb(182, 51, 46);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: .8rem;
+    font-weight: 600;
+    border-radius: 3px;
+    display: inline-block;  
+  }
+  
+  main form {
+    margin-top: 20px;
+    padding: 20px 30px;
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form input {
+    display: block;
+    padding: 8px;
+  }
+  
+  form label {
+    font-weight: 600;
+  }

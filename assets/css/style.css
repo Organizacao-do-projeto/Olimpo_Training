@@ -26,9 +26,6 @@ body{
 
 .main_header {
     width: 100%; 
-    border-bottom: solid rgb(0, 0, 0) 0.1px;
-    
-    
    
     
 }
@@ -93,7 +90,7 @@ body{
 .main_header_content_menu ul li a:hover{
     color:#000000;
     background: linear-gradient(to right, rgb(245, 234, 172), rgb(251, 198, 148));
-    
+    transition: 0.9s;
    
 }
 /*FIM - TOPO*/
@@ -106,13 +103,12 @@ body{
     background-image: url('../img/alongamento.jpg');
     background-repeat: no-repeat;
     background-position: center;
+  
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     background-size: cover;
     padding-top: 100px;
     min-height: 600px;
     background-size: 1300px;
-    
-   
-   
 
    
 }  
@@ -140,7 +136,6 @@ body{
     text-align: right;
     font-style: italic;
     margin-right: 140px;
-    font-weight: 500;
     margin-bottom: 20px;
     
 }
@@ -217,8 +212,7 @@ transition: transform 0.5s;
 }
 
 .main_blog article img{
-   width: 280px;
-   height: 300px;
+   width: 100%;
     border-radius: 5%; 
     margin-bottom: 20px;
     align-items: center;
@@ -248,7 +242,7 @@ transition: transform 0.5s;
 
 .opt_in{
     width: 100%;
-    background: linear-gradient(to right, rgb(248, 239, 191), rgb(247, 206, 169));
+    background-color:#d1b57d;
     margin: 40px 0;
 
 }
@@ -309,7 +303,7 @@ transition: transform 0.5s;
 }
 
 .main_course_header img{
-    margin: 0px auto;
+    margin-bottom: 10px;
     width: 150px;
 }
 
@@ -334,7 +328,7 @@ transition: transform 0.5s;
 }
 
 .main_course_content article{
-
+  
     flex-basis:20%;
     margin: 10px 0;
     background-color: #e1e1e1;
@@ -367,7 +361,6 @@ transition: transform 0.5s;
     width: 100%
     
 }
-
 
 
 
@@ -452,18 +445,10 @@ transition: transform 0.5s;
     padding: 40px 0;
     color: #333;
 }
-.main_school_header p{
-    display: flex;
-    justify-content: center;
-    width: 65%;
-}
 
 .main_school_header h1{
     font-size: 2.2em;
-    width: 65%;
     margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
 }
 .main_school_content_left{
     flex-basis: calc(70% - 20px);
@@ -477,17 +462,15 @@ transition: transform 0.5s;
     -webkit-border-radius:5px;
     color:#fff;
     margin-bottom: 20px;
-    
 }
 
 .main_school_content_left_content > header >p span{
-    margin: 10px 90px;
+    margin-left: 20px;
 }
 
 .main_school_content_left_content > header >p a{
 color: #fff;
 font-size: 0.9em;
-
 }
 
 .main_school_content_left_social_network a:hover{
@@ -497,7 +480,6 @@ font-size: 0.9em;
 .main_school_content_left_content > header >h2 {
     font-size: 1.2em;
     margin-bottom: 20px;
-    text-align: center;
 }
 
 .main_school_content_left_content>p{
@@ -533,12 +515,11 @@ font-size: 0.9em;
     flex-basis: 100%;
     color: #d36833;
     margin-bottom: 20px;
-    text-align: center;
 }
 
 .main_school_list >article{
     flex-basis: calc(50% - 10px);
-    margin:8px 0;
+    margin:4px 0;
 }
 
 .main_school_list >article h3{
@@ -612,15 +593,9 @@ font-size: 0.9em;
 .main_footer article ul li a:hover{
     text-decoration: underline;
 }
-.main_footer_our_pages{
-    flex-basis: 50%;
-   
+.main_footer_our_pages, .main_footer_links{
+    flex-basis: 25%;
     
-}
-
-.main_footer_links{
-    flex-basis: 50%;
-
 }
 
 .main_footer_about{
@@ -644,10 +619,6 @@ font-size: 0.9em;
     align-items: end;
 
     width: 20px;
-}
-.main{
-    align-items: center;
-    text-align: center;
 }
 /* FIM DOBRA RODAPÉ */
 
