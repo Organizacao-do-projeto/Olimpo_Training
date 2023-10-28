@@ -58,7 +58,7 @@
 
 
 .showficha{
-    
+    margin-top: 20px;
     color: white;
     border-radius: 5%;
 
