@@ -38,14 +38,14 @@
 
     <header class="main_header">
         <div class="main_header_content">
-            <a href="../index.php" class="logo">
+            <a href="../../../index.php" class="logo">
                 <img src="../assets/img/logo_borda.png" alt="Logo Olimpo"
                     title="Logo Olimpo" a href="../index.html"></a>
                   
 
             <nav class="main_header_content_menu">
                 <ul>
-                    <li><a href="../index.php">Voltar</a></li>
+                    <li><a href="../../../index.php">Voltar</a></li>
                 </ul>
             </nav>
         </div>
@@ -61,7 +61,6 @@
                         <th>Nome</th>
                         <th>E-mail</th>
                         <th>CPF</th>
-                       
                         <th>Ação</th>
                     </tr>
                 </thead>
