@@ -69,12 +69,12 @@
 
 </style>
 <footer class="footerRoot">
-    <a href="../index.php">
-      <div class="container flex">
-        <figure>
-          <img src="../assets/img/logos/logo_branca_alternative.png" />
-        </figure>
-    </a>
+    <div class="container flex">
+        <a href="../index.php">
+            <figure>
+            <img src="../assets/img/logos/logo_branca_alternative.png" />
+            </figure>
+        </a>
         <section class="flex-column">
           <h2>TRANSFORME O SEU TREINO AQUI.</h2>
           <h3>SIGA NOSSAS REDES SOCIAIS</h3>
