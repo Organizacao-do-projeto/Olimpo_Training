@@ -96,7 +96,7 @@
 
             <article>
                 <a href="#">
-                    <img src="assets/img/Mauricio-Rossi-foto-para-site-3.jpg" width="200" alt="Imagem post" title="Imagem Post">
+                    <img src="assets/img/barbara.jpg" width="200" alt="Imagem post" title="Imagem Post">
                 </a>
 
                 <h2><a href="" class="title">
@@ -105,7 +105,7 @@
             </article>
             <article>
                 <a href="#">
-                    <img src="assets/img/Mauricio-Rossi-foto-para-site-3.jpg" width="200" alt="Imagem post" title="Imagem Post">
+                    <img src="assets/img/pm2.jpg" width="200" alt="Imagem post" title="Imagem Post">
                 </a>
 
                 <h2><a href="" class="title">
@@ -114,7 +114,7 @@
             </article>
             <article>
                 <a href="#">
-                    <img src="assets/img/Mauricio-Rossi-foto-para-site-3.jpg" width="200" alt="Imagem post" title="Imagem Post">
+                    <img src="assets/img/pf.jpg" width="200" alt="Imagem post" title="Imagem Post">
                 </a>
 
                 <h2><a href="" class="title">
@@ -123,7 +123,7 @@
             </article>
             <article>
                 <a href="#">
-                    <img src="assets/img/Mauricio-Rossi-foto-para-site-3.jpg" width="200" alt="Imagem post" title="Imagem Post">
+                    <img src="assets/img/pm.jpg" width="200" alt="Imagem post" title="Imagem Post">
                 </a>
 
                 <h2><a href="" class="title">
@@ -191,81 +191,17 @@
                     </header>
                 </article>
             </div>
+            <hr>
             <!-- FIM SESSÃO DOBRA  CURSOS-->
 
             <!--INICIO DOBRA REVIEWS-->
-            <div class="main_course_fullwidth" id="ancora">
-                <div class="main_course_ratting_content">
-                    <article class="main_course_rating_title">
-                        <header>
-                            <h2>Curso considerado 5 estrelas por nossos 100 alunos matriculados</h2>
-                        </header>
-                        <img src="assets/img/star.png" alt="Estrela" title="Estrela">
-                        <img src="assets/img/star.png" alt="Estrela" title="Estrela">
-                        <img src="assets/img/star.png" alt="Estrela" title="Estrela">
-                        <img src="assets/img/star.png" alt="Estrela" title="Estrela">
-                        <img src="assets/img/star.png" alt="Estrela" title="Estrela">
-                    </article>
-
-                    <section class="main_course_ratting_content_comment">
-                        <header>
-                            <h2>Veja o que estão falando sobre o curso</h2>
-                        </header>
-                        <article>
-                            <header>
-                                <h3> Instrutor Web</h3>
-                                <p>03/03/2023</p>
-                                <img src="assets/img/star.png" alt="Imagem" title="Imagem">
-                                <img src="assets/img/star.png" alt="Imagem" title="Imagem">
-                                <img src="assets/img/star.png" alt="Imagem" title="Imagem">
-                                <img src="assets/img/star.png" alt="Imagem" title="Imagem">
-                                <img src="assets/img/star.png" alt="Imagem" title="Imagem">
-                            </header>
-                            <p>O conteúdo é fantático, eu não tinha conhecimento nenhum e agora estou desenvolvendo
-                                minhas
-                                páginas em html5 e Css3</p>
-                        </article>
-
-                        <article>
-                            <header>
-                                <h3> Instrutor Web</h3>
-                                <p>03/03/2023</p>
-                                <img src="assets/img/star.png" alt="Imagem" title="Imagem">
-                                <img src="assets/img/star.png" alt="Imagem" title="Imagem">
-                                <img src="assets/img/star.png" alt="Imagem" title="Imagem">
-                                <img src="assets/img/star.png" alt="Imagem" title="Imagem">
-                                <img src="assets/img/star.png" alt="Imagem" title="Imagem">
-                            </header>
-                            <p>O conteúdo é fantático, eu não tinha conhecimento nenhum e agora estou desenvolvendo
-                                minhas
-                                páginas em html5 e Css3</p>
-                        </article>
-
-                        <article>
-                            <header>
-                                <h3> Instrutor Web</h3>
-                                <p>03/03/2023</p>
-                                <img src="assets/img/star.png" alt="Imagem" title="Imagem">
-                                <img src="assets/img/star.png" alt="Imagem" title="Imagem">
-                                <img src="assets/img/star.png" alt="Imagem" title="Imagem">
-                                <img src="assets/img/star.png" alt="Imagem" title="Imagem">
-                                <img src="assets/img/star.png" alt="Imagem" title="Imagem">
-                            </header>
-                            <p>O conteúdo é fantático, eu não tinha conhecimento nenhum e agora estou desenvolvendo
-                                minhas
-                                páginas em html5 e Css3</p>
-                        </article>
-
-
-                    </section>
-                </div>
-            </div>
-        </section>
+           
         <!--DOBRA A ESCOLA-->
+        <div class="main">
         <div class="main_school">
             <section class="main_school_content">
                 <header class="main_school_header">
-                    <h1>Bem vindo a ETC - Escola técnica de Ceilândia</h1>
+                    <h1>Olimpo</h1>
                     <p>A sua Escola de programação e Marketing Digital</p>
                 </header>
                 <div class="main_school_content_left">
@@ -334,11 +270,11 @@
                     </section>
                 </div>
                 <div class="main_school_content_right">
-                    <img src="assets/img/etclogo.png" width="200" alt="Imagem" title="Imagem">
+                    
                 </div>
                 <article class="main_school_adress">
                     <header>
-                        <h2 class="icon-map2">Nos Encontre</h2>
+                        <h2 class="icon-location">Nossa Localização</h2>
                     </header>
                     <p>St. N, Área Especial QNN 14 - Ceilândia, Brasília - DF</p>
                 </article>
@@ -351,18 +287,7 @@
     </main>
 
     <!-- INICIO DOBRA RODAPÉ -->
-    <section class="main_optin_footer">
-        <div class="main_optin_footer_content">
-            <header>
-                <h1>Quer receber nosso conteúdo exclusivo? Assina nossa lista VIP :)</h1>
-            </header>
-            <article>
-                <header>
-                    <h2><a href="#" class="btn">Entrar para a lista VIP</a></h2>
-                </header>
-            </article>
-        </div>
-    </section>
+   
 
     <section class="main_footer">
         <header>
@@ -371,13 +296,13 @@
 
         <article class="main_footer_our_pages">
             <header>
-                <h2>Nossas Páginas</h2>
+                <h2>Entre em Contato</h2>
             </header>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">A Escola</a></li>
-                <li><a href="#">Contato</a></li>
+                <li class="icon-google3">E-mail: <a href="#">olimpo_training@gmail.com</a></li>
+                <li class="icon-whatsapp">Whatsapp: <a href="#">(61) 9 9589-7654</a></li>
+                <li class="icon-instagram">Instagram: <a href="#">Olimpo_Training</a></li>
+                
             </ul>
         </article>
 
@@ -392,18 +317,13 @@
             </ul>
         </article>
 
-        <article class="main_footer_about">
-            <header>
-                <h2>Sobre o Projeto</h2>
-            </header>
-            <p>Aprenda a trabalhar com HTML5 e CSS3 para desenvolver seus projetos e entregar páginas que estejam dentro
-                dos padrões da WEB seguindo as boas práticas</p>
-        </article>
     </section>
+</div>
     <footer class="main_footer_rights">
         <br>
+        </div>
         <div class="icone">
-            <span class="icon-facebook"><a href="#">Facebook</a>&nbsp;</span><span class="icon-google-plus2"><a href="#">Google+</a></span>&nbsp;<span class="icon-twitter"><a href="#">Twitter</a></span>
+           
         </div>
         <p>Olimpo - Todos os direitos reservados.</p>
     </footer>
