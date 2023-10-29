@@ -44,8 +44,8 @@ $quantidadeRegistros =  $stmt->rowCount();
 <body>
 
 <?php
-        $path = getenv('DOCUMENT_ROOT');
-        include_once $path."/Olimpo_Training/teste5/layouts/header.php";
+       // $path = getenv('DOCUMENT_ROOT');
+      //include_once $path."/Olimpo_Training/teste5/layouts/header.php";
 ?>
 <a href="index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
 <h1>Serviços pendentes</h1>
@@ -69,7 +69,15 @@ $quantidadeRegistros =  $stmt->rowCount();
             <?php else: ?>
                 <?php foreach($usersRequires as $userRequire): ?>
                 <tr>
-                    <td><img class="userPhoto" src="../usuarios/assests/img/<?= $userRequire['foto'];?>" alt="Foto do usuário"></td>
+                    <td><img class="userPhoto" <?php
+                    
+                    if(empty($userRequire['foto'])){
+                      echo "src='../views/assets/img/usuarioGenerico.jpg'";
+                    }else{
+                      echo "src='../usuarios/assests/img/usuarios/".$userRequire['foto']."'";
+                    };
+
+                     ?> alt="Foto do usuário"></td>
                     <td><?= $userRequire['nome'];?></td>
                     <td><?= $userRequire['saldo_solici'];?></td>
                     <td class="td__operacao">

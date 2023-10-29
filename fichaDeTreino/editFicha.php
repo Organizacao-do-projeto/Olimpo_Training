@@ -35,10 +35,6 @@ if(!empty($_POST['idFichas_treino']) && $_POST['idFichas_treino'] != 0 )
 $_SESSION['cabecalhoFichaEdit'] = $cabecalhofichas_treino;
 };
 
-$testeDoFetch = $cabecalhofichas_treino;
-
-
-
 
         
 if(!isset($_SESSION['sessaoFicha']) || empty($_SESSION['sessaoFicha'])) {
@@ -103,7 +99,59 @@ if(isset($_GET['acao'])) {
     <title>Editar ficha de treino</title>
 </head>
 <style>
-    /* INICIO DOBRA EXERCICIOS */
+    /* INCIO INTEGRÇÃO */
+       /* INICIO DOBRA EXERCICIOS */ 
+    
+       .headerInfos{
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .headerInfos a{
+        text-decoration: none;
+        color: black;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    h2{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+
+    .btIndex{
+        border: none;
+        width: 250px;
+        padding: 5px 0px;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;  
+        box-sizing: border-box;
+        margin-bottom: 15px;
+        padding: 12.2362px 36.7085px;
+        gap: 12.24px;
+        background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%);
+        border: 1.22362px solid #F2F2F2;
+        backdrop-filter: blur(2.44724px);
+        border-radius: 83.206px;
+        color: #68521b;
+        font-weight: 800;
+        font-size: 1.1rem;
+        box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+        font-family: 'Rubik';
+        
+    }
+
+    .showExercicios{
+        margin-bottom: 400px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
 
     .blocoExercicio {
         display: flex;
@@ -114,8 +162,13 @@ if(isset($_GET['acao'])) {
         border-radius: 5%;
         overflow: hidden;
         align-items: center;
+        color: #fff;
     }
 
+    .blocoExercicio_content {
+        text-align: center;
+    }
+    
     .blocoExercicio_content_title {
         display: flex;
         flex-direction: row;
@@ -158,6 +211,7 @@ if(isset($_GET['acao'])) {
         height: 28px;
         border-radius: 15%;
         background-color: rgb(44, 223, 44);
+        cursor: pointer;
     }
 
     /* FIM DOBRA EXERCICIOS */
@@ -165,13 +219,33 @@ if(isset($_GET['acao'])) {
 
     /* INICIO DOBRA FICHA */
     .wrapper_preFicha {
+        border: 3px solid #36304a;
+        border-radius: 10px 10px 0 0;
         height: 290px;
         width: 100%;
         position: fixed;
         bottom: 0;
-        Background-color: #fff;
+        background-color: #f4f6fc; 
+    }
 
-
+    .wrapper_preFicha input[type=text]{
+        background: transparent;
+        border: none;
+        margin-left: 10px;
+        font-family: 'Rubik';
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 700;
+        color: black;
+    }
+    
+    .label_tituloFicha{
+        margin-left: 10px;
+        font-family: 'Rubik';
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 700;
+        color: #36304a;
     }
 
     #tituloFicha {
@@ -187,26 +261,93 @@ if(isset($_GET['acao'])) {
     }
 
     #barra {
-        width: 80%;
+        width: 75%;
         height: 100%;
         flex-wrap: wrap;
         overflow: auto;
 
     }
 
+
+/* INCIO DOBRA TABELA */
+    #tabelaExe{
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #36304a;
+        overflow: auto;
+    }
+    
+    #tabelaExe thead td{
+        background-color: #36304a;
+        color: #fff;
+        font-weight: 500;
+        border: 1px solid #ccc;
+
+    }
+
+    #tabelaExe td, th{
+        font-family: 'Rubik';
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .primeirotd{
+        margin-left: 8px;
+    }
+    
+
+    /* ##########  */
+
     #barraExe {
         width: 100%;
         height: 100%;
+        overflow: auto;
     }
 
-    #exerciciosAdd {
-        width: 100%;
-        height: 100%;
+    #barraExe tr{
+        font-family: 'Rubik';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        color: black;
+    }
+
+    .remover{
+        
+        background-color: black;
+        color: white;
+        padding: 1px 20px;
+        text-decoration: none;
+        border-radius: 15%;
+        
+    }
+
+    .remover:hover{
+        filter: invert(1);
 
     }
+    
+    #barraExe table:nth-child(odd){
+        background: #fff;
+    }
+    
+    #barraExe table:nth-child(even){
+        background: #f0f0f0;
+    }
+    
+    #barraExe tr:hover{
+        background: #f0f0f0;
+
+    }
+
+    /* ########### */
+
+    /* INICIO DOBRA CABEÇALHO DA FICHA */
 
     .cabecalhoFicha {
         height: 100%;
+        width: 25%;
     }
 
     .wrapper_dados_ficha {
@@ -217,178 +358,265 @@ if(isset($_GET['acao'])) {
         height: 100%;
     }
 
+    .labelIntervaloExe{
+        font-family: 'Rubik';
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 600;
+        color: #36304a;
+    }
+    .wrapper_dados_ficha input[type=number]{
+        width: 30px;
+
+    }
+    
+    .labelObs{
+        font-family: 'Rubik';
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 600;
+        color: #36304a;
+
+    }
+
+    
     #observacoes {
-        width: 300px;
-        height: 130px;
-    }
-
-    .row_exercicio {
         width: 100%;
-        height: 30px;
+        height: 120px;
+    }
+    
+    .wrapEnviar{
+        text-align: end;
     }
 
-    .row_exercicio div {
-        display: inline-block;
+    #Enviar{
+    font-family: 'Rubik';
+    font-size: 14px;
+    font-style: normal;
+    align-self: end;
+    font-weight: 600;
+    background: #7CFC00;
+    border: transparent;
+    border-radius: 10px;
+    width: 80px;
+    height: 30px;
+    color: black;
+    cursor: pointer;
+    margin: 0px;
+
     }
-
-    .row_exercicio_titulo {
-        width: 60%;
-    }
-
-    .row_exercicio_complements {
-        width: 9%;
-
-    }
-
-.remover{
-
-  background-color: black;
-  color: white;
-  padding: 1px 20px;
-  text-decoration: none;
-  border-radius: 15%;
-
-}
 
     /* FIM DOBRA FICHA */
+    /* FIM INTEGRÇÃO */
+
 </style>
 
 <body>
-
 <a href="index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
-    <!-- INICIO DOBRA EXERCICIOS -->
-    <!-- INICIO BLOCO DE CÓDIGO IMUTÁVEL -->
 
-    <div class="blocoExercicio" id="1">
-        <div class="blocoExercicio_content">
-            <div class="blocoExercicio_content_title">
-                <h1>Flexão diamante</h1>
-            </div>
-            <a href="detalhesExercicio.php?id=1" target="_blank">
-            <img src="https://i0.wp.com/homemnoespelho.com.br/wp-content/uploads/2021/07/Homem-No-Espelho-Flexao-de-braco-diamante.gif?resize=480%2C270&ssl=1">
-            </a>
-            <br>
-        </div>
-        <div class="blocoExercicio_form">
-            Modo:&nbsp;
-            <input type="radio" name="modo" value="REPETICOES" checked="checked" class="radioRep" id="radioRep">Repeticoes
-            <input type="radio" name="modo" value="TEMPO">Tempo
-            <span class="blocoExercicio_form_seriesRep">
-                Series<input type="number" id="series" value="3">&nbsp;
-                Rep<input type="number" id="repeticoes" value="12">
-            </span>
-            <span class="blocoExercicio_form_intervaloCarga">
-                Carga <input type="number" id="carga" value="0">kg &nbsp;&nbsp;&nbsp;&nbsp;
-                Intervalo <input type="number" id="intervaloSeries" value="30">s
-            </span>
-            <br>
-        </div>
-        <button onclick="addExercicio(this)" id="addExercicio">+</button>
-    </div>
+    <header class="headerInfos">
+        <a href="../views/perfil.php?idPerfil=10" target="_blank" >
+            <h2>Aluno: Jefferson Romero</h2>
+        </a>
 
-    <div class="blocoExercicio" id="2">
-        <div class="blocoExercicio_content">
-            <div class="blocoExercicio_content_title">
-                <h1>Polichinelo</h1>
-            </div>
-            <a href="detalhesExercicio.php?id=1" target="_blank">
-            <img src="https://www.hipertrofia.org/blog/wp-content/uploads/2020/05/polichinelos-execu%C3%A7%C3%A3o-1.gif">
-            </a>
-            <br>
-        </div>
-        <div class="blocoExercicio_form">
-            Modo:&nbsp;
-            <input type="radio" name="modo" value="REPETICOES" checked="checked" class="radioRep" id="radioRep">Repeticoes
-            <input type="radio" name="modo" value="TEMPO">Tempo
-            <span class="blocoExercicio_form_seriesRep">
-                Series<input type="number" id="series" value="3">&nbsp;
-                Rep<input type="number" id="repeticoes" value="12">
-            </span>
-            <span class="blocoExercicio_form_intervaloCarga">
-                Carga <input type="number" id="carga" value="0">kg &nbsp;&nbsp;&nbsp;&nbsp;
-                Intervalo <input type="number" id="intervaloSeries" value="30">s
-            </span>
-            <br>
-        </div>
-        <button onclick="addExercicio(this)" id="addExercicio">+</button>
-    </div>
+        <a href="index.php?idUsuarios=2" class="btIndex" target="_blank">Fichas de treino do aluno</a>
+    </header>
 
-    <div class="blocoExercicio" id="3">
-        <div class="blocoExercicio_content">
-            <div class="blocoExercicio_content_title">
-                <h1>Agachamento búlgaro</h1>
+    <main>
+    <div class="showExercicios"> 
+    <form action="" method="GET">
+        <div class="blocoExercicio" id="3">
+            <div class="blocoExercicio_content">
+                <div class="blocoExercicio_content_title">
+                    <h1>Agachamento búlgaro</h1>
+                    <input type="hidden" name="nome" value="Agachamento búlgaro"> 
+                    <input type="hidden" name="id" value="3">
+                    <input type="hidden" name="acao" value="addExercicio">
+                </div>
+                <a href="detalhesExercicio.php?id=3" target="_blank">
+                <img src="https://i.pinimg.com/originals/cf/69/7a/cf697a042d827afe23090ad23af1c181.gif">
+                </a>
+                <br>
             </div>
-            <a href="detalhesExercicio.php?id=1" target="_blank">
-            <img src="https://i.pinimg.com/originals/cf/69/7a/cf697a042d827afe23090ad23af1c181.gif">
-            </a>
-            <br>
+            <div class="blocoExercicio_form">
+                <label>Modo</label>:&nbsp;
+                
+                <input type="radio" name="modo" value="REPETICOES" checked="checked" class="radioRep" id="radioRep"><label>Repeticoes</label>
+                <input type="radio" name="modo" value="TEMPO"><label>Tempo</label>
+                <span class="blocoExercicio_form_seriesRep">
+                <label>Series</label><input type="number" id="series" name="series" value="3">&nbsp;
+                <label>Rep</label><input type="number" id="repeticoes" name="repeticoes" value="12">
+                </span>
+                <span class="blocoExercicio_form_intervaloCarga">
+                <label>Carga </label><input type="number" id="carga" name="carga" value="0">kg &nbsp;&nbsp;&nbsp;&nbsp;
+                <label>Intervalo </label><input type="number" id="intervaloSeries" name="intervaloSeries" value="30">s
+                </span>
+                <br>
+            </div>
+            <button type="submit" id="addExercicio">+</button>
         </div>
-        <div class="blocoExercicio_form">
-            Modo:&nbsp;
-            <input type="radio" name="modo" value="REPETICOES" checked="checked" class="radioRep" id="radioRep">Repeticoes
-            <input type="radio" name="modo" value="TEMPO">Tempo
-            <span class="blocoExercicio_form_seriesRep">
-                Series<input type="number" id="series" value="3">&nbsp;
-                Rep<input type="number" id="repeticoes" value="12">
-            </span>
-            <span class="blocoExercicio_form_intervaloCarga">
-                Carga <input type="number" id="carga" value="0">kg &nbsp;&nbsp;&nbsp;&nbsp;
-                Intervalo <input type="number" id="intervaloSeries" value="30">s
-            </span>
-            <br>
+    </form>
+    
+    <form action="" method="GET">
+        <div class="blocoExercicio" id="3">
+            <div class="blocoExercicio_content">
+                <div class="blocoExercicio_content_title">
+                    <h1>Polichinelo</h1>
+                    <input type="hidden" name="nome" value="Polichinelo"> 
+                    <input type="hidden" name="id" value="3">
+                    <input type="hidden" name="acao" value="addExercicio">
+                </div>
+                <a href="detalhesExercicio.php?id=3" target="_blank">
+                <img src="https://www.hipertrofia.org/blog/wp-content/uploads/2020/05/polichinelos-execu%C3%A7%C3%A3o-1.gif">
+                </a>
+                <br>
+            </div>
+            <div class="blocoExercicio_form">
+                <label>Modo</label>:&nbsp;
+                
+                <input type="radio" name="modo" value="REPETICOES" checked="checked" class="radioRep" id="radioRep"><label>Repeticoes</label>
+                <input type="radio" name="modo" value="TEMPO"><label>Tempo</label>
+                <span class="blocoExercicio_form_seriesRep">
+                <label>Series</label><input type="number" id="series" name="series" value="3">&nbsp;
+                <label>Rep</label><input type="number" id="repeticoes" name="repeticoes" value="12">
+                </span>
+                <span class="blocoExercicio_form_intervaloCarga">
+                <label>Carga </label><input type="number" id="carga" name="carga" value="0">kg &nbsp;&nbsp;&nbsp;&nbsp;
+                <label>Intervalo </label><input type="number" id="intervaloSeries" name="intervaloSeries" value="30">s
+                </span>
+                <br>
+            </div>
+            <button type="submit" id="addExercicio">+</button>
         </div>
-        <button onclick="addExercicio(this)" id="addExercicio">+</button>
-    </div>
+    </form>
+
+    <form action="" method="GET">
+        <div class="blocoExercicio" id="3">
+            <div class="blocoExercicio_content">
+                <div class="blocoExercicio_content_title">
+                    <h1>Flexão diamante</h1>
+                    <input type="hidden" name="nome" value="Flexão diamante"> 
+                    <input type="hidden" name="id" value="3">
+                    <input type="hidden" name="acao" value="addExercicio">
+                </div>
+                <a href="detalhesExercicio.php?id=3" target="_blank">
+                <img src="https://i0.wp.com/homemnoespelho.com.br/wp-content/uploads/2021/07/Homem-No-Espelho-Flexao-de-braco-diamante.gif?resize=480%2C270&ssl=1">
+                </a>
+                <br>
+            </div>
+            <div class="blocoExercicio_form">
+                <label>Modo</label>:&nbsp;
+                
+                <input type="radio" name="modo" value="REPETICOES" checked="checked" class="radioRep" id="radioRep"><label>Repeticoes</label>
+                <input type="radio" name="modo" value="TEMPO"><label>Tempo</label>
+                <span class="blocoExercicio_form_seriesRep">
+                <label>Series</label><input type="number" id="series" name="series" value="3">&nbsp;
+                <label>Rep</label><input type="number" id="repeticoes" name="repeticoes" value="12">
+                </span>
+                <span class="blocoExercicio_form_intervaloCarga">
+                <label>Carga </label><input type="number" id="carga" name="carga" value="0">kg &nbsp;&nbsp;&nbsp;&nbsp;
+                <label>Intervalo </label><input type="number" id="intervaloSeries" name="intervaloSeries" value="30">s
+                </span>
+                <br>
+            </div>
+            <button type="submit" id="addExercicio">+</button>
+        </div>
+    </form>
+
+    <!-- ############# EXRCICIOS FUNFANDO COM ESTRUTURA PHP ################### -->
+    <form action="" method="GET">
+        <div class="blocoExercicio" id="3">
+            <div class="blocoExercicio_content">
+                <div class="blocoExercicio_content_title">
+                    <h1>Agachamento búlgaro</h1>
+                    <input type="hidden" name="nome" value="Agachamento búlgaro"> 
+                    <input type="hidden" name="id" value="3">
+                    <input type="hidden" name="acao" value="addExercicio">
+                </div>
+                <a href="detalhesExercicio.php?id=3" target="_blank">
+                <img src="https://i.pinimg.com/originals/cf/69/7a/cf697a042d827afe23090ad23af1c181.gif">
+                </a>
+                <br>
+            </div>
+            <div class="blocoExercicio_form">
+                <label>Modo</label>:&nbsp;
+                
+                <input type="radio" name="modo" value="REPETICOES" checked="checked" class="radioRep" id="radioRep"><label>Repeticoes</label>
+                <input type="radio" name="modo" value="TEMPO"><label>Tempo</label>
+                <span class="blocoExercicio_form_seriesRep">
+                <label>Series</label><input type="number" id="series" name="series" value="3">&nbsp;
+                <label>Rep</label><input type="number" id="repeticoes" name="repeticoes" value="12">
+                </span>
+                <span class="blocoExercicio_form_intervaloCarga">
+                <label>Carga </label><input type="number" id="carga" name="carga" value="0">kg &nbsp;&nbsp;&nbsp;&nbsp;
+                <label>Intervalo </label><input type="number" id="intervaloSeries" name="intervaloSeries" value="30">s
+                </span>
+                <br>
+            </div>
+            <button type="submit" id="addExercicio">+</button>
+        </div>
+    </form>
+    <!-- ############# EXRCICIOS FUNFANDO COM ESTRUTURA PHP ################### -->
 
 
     <?php for($i = 0; $i <= 5; $i++){?>
-    <div class="blocoExercicio" id="4">
-        <div class="blocoExercicio_content">
-            <div class="blocoExercicio_content_title">
-                <h1>Burpee</h1>
+
+    <form action="" method="GET">
+            <div class="blocoExercicio" id="4">
+                <div class="blocoExercicio_content">
+                    <div class="blocoExercicio_content_title">
+                        <h1>Burpee</h1>
+                        <input type="hidden" name="nome" value="Burpee"> 
+                        <input type="hidden" name="id" value="4">
+                        <input type="hidden" name="acao" value="addExercicio">
+                    </div>
+                    <a href="detalhesExercicio.php?id=4" target="_blank">
+                    <img src="https://media.tenor.com/u2-VJiigKCkAAAAM/exercise-jump.gif">
+                    </a>
+                    <br>
+                </div>
+                <div class="blocoExercicio_form">
+                    <label>Modo</label>:&nbsp;
+                    
+                    <input type="radio" name="modo" value="REPETICOES" checked="checked" class="radioRep" id="radioRep"><label>Repeticoes</label>
+                    <input type="radio" name="modo" value="TEMPO"><label>Tempo</label>
+                    <span class="blocoExercicio_form_seriesRep">
+                    <label>Series</label><input type="number" id="series" name="series" value="3">&nbsp;
+                    <label>Rep</label><input type="number" id="repeticoes" name="repeticoes" value="12">
+                    </span>
+                    <span class="blocoExercicio_form_intervaloCarga">
+                    <label>Carga </label><input type="number" id="carga" name="carga" value="0">kg &nbsp;&nbsp;&nbsp;&nbsp;
+                    <label>Intervalo </label><input type="number" id="intervaloSeries" name="intervaloSeries" value="30">s
+                    </span>
+                    <br>
+                </div>
+                <button type="submit" id="addExercicio">+</button>
             </div>
-            <a href="detalhesExercicio.php?id=1" target="_blank">
-            <img src="https://media.tenor.com/u2-VJiigKCkAAAAM/exercise-jump.gif">
-            </a>
-            <br>
-        </div>
-        <div class="blocoExercicio_form">
-            Modo:&nbsp;
-            <input type="radio" name="modo" value="REPETICOES" checked="checked" class="radioRep" id="radioRep">Repeticoes
-            <input type="radio" name="modo" value="TEMPO">Tempo
-            <span class="blocoExercicio_form_seriesRep">
-                Series<input type="number" id="series" value="3">&nbsp;
-                Rep<input type="number" id="repeticoes" value="12">
-            </span>
-            <span class="blocoExercicio_form_intervaloCarga">
-                Carga <input type="number" id="carga" value="0">kg &nbsp;&nbsp;&nbsp;&nbsp;
-                Intervalo <input type="number" id="intervaloSeries" value="30">s
-            </span>
-            <br>
-        </div>
-        <button onclick="addExercicio(this)" id="addExercicio">+</button>
-    </div>
+        </form>
     <?php }; ?>
     <!-- FIM BLOCO DE CÓDIGO IMUTÁVEL -->
     <!-- FIM DOBRA EXERCICIOS -->
 
     
     <!-- DOBRA DA BARRA DE DADOS DA FICHA -->
+
+
+    <!-- INCIO PARTE COLADA -->
     <div class="wrapper_preFicha">
         <form action="addEditFicha.php" method="POST">
-            Título da ficha de treino: <input type="text" name="tituloFicha" value="<?=$_SESSION['cabecalhoFichaEdit']['titulo']?>" id="tituloFicha" autofocus><br>
+            <label class="label_tituloFicha">Título da ficha de treino: </label><input type="text" name="tituloFicha" value="<?=$_SESSION['cabecalhoFichaEdit']['titulo']?>" id="tituloFicha" autofocus><br>
             
             <div class="preFicha">
                 <div id="barra">
-                    <table width="100%" id="tabelaExe" border="1px">
-                        <tr>
-                            <td width="50%">Nome</td>
+                    <table id="tabelaExe">
+                        <thead>
+                            <td width="50%"><span class="primeirotd">Nome<span></td>
                             <td width="10%">Series</td>
                             <td width="10%">Rep</td>
                             <td width="10%">Carga</td>
                             <td width="10%">Desc</td>
                             <td width='10%'></td>
-                        </tr>
+                        </thead>
                     </table>
 
                     <div id="barraExe">
@@ -396,36 +624,38 @@ if(isset($_GET['acao'])) {
 
                         $i = 0;
 
-                        forEach($_SESSION['sessaoFicha'] as $dados){
+                        foreach($_SESSION['sessaoFicha'] as $dados){
 
             
                             echo "<table width='100%' >
-                                    <tr>
-                                        <td width='50%'>".$dados['nome']."</td>
-                                        <td width='10%'>".$dados['series']."</td>
-                                        <td width='10%'>".$dados['repeticoes'];
-                                        $dados['modo'] == "TEMPO" ? $printModo = "s" : $printModo = ""; echo $printModo."</td>
-                                        <td width='10%'>".$dados['carga']."kg</td>
-                                        <td width='10%'>".$dados['intervaloSeries']."s</td>
-                                        <td width='10%'><a class='remover' href='?acao=excluir&id=$i'>X</a></td>
+                                        <tr>
+                                            <td width='50%' ><span class='primeirotd'>".$dados['nome']."</span></td>
+                                            <td width='10%'>".$dados['series']."</td>
+                                            <td width='10%'>".$dados['repeticoes'];
+                                            $dados['modo'] == "TEMPO" ? $printModo = "s" : $printModo = ""; echo $printModo."</td>
+                                            <td width='10%'>".$dados['carga']."kg</td>
+                                            <td width='10%'>".$dados['intervaloSeries']."s</td>
+                                            <td width='10%' align='center'><a class='remover' href='?acao=excluir&id=$i' title='remover'>X</a></td>
                                         </tr>
-                                        </table>
-                                        ";
+                                    </table>
+                                    ";
                                         $i++;
                                     }
-                                    //<td width='10%'><a href='?acao=excluir?id=$i'><button>X".$dados['intervaloSeries']."</button></td>
                                     ?>
                     </div>
                 </div>
 
+                                    <!-- INICIO DOBRA CABEÇALHO DA FICHA -->
+
                 <div class="cabecalhoFicha">
                     <div class="wrapper_dados_ficha">
                         <fieldset>
-                            Intervalo entre exercícios <input type="number" name="intervaloExercicios" value="<?=$_SESSION['cabecalhoFichaEdit']['descExercicios']?>">s<br>
-                            Observações <textarea name="observacoes" id="observacoes" placholder="Digite aqui sua observação!"><?=$_SESSION['cabecalhoFichaEdit']['observacoes']?></textarea><br>
+                            <label for="intervaloExercicios" class="labelIntervaloExe">Intervalo entre exercícios: </label><input type="number" name="intervaloExercicios" value="<?=$_SESSION['cabecalhoFichaEdit']['descExercicios']?>"><Strong class="labelIntervaloExe">s</Strong><br><br>
+                            <label for="observacoes" class="labelObs">Observações <textarea name="observacoes" id="observacoes"><?=$_SESSION['cabecalhoFichaEdit']['observacoes']?></textarea><br>
                             <input type="hidden" id="resultObs" name="resultObs">
-                            <input type="hidden" name="result" id="result">
-                            <input type="submit" value="Enviar" id="Enviar">
+                            <div class="wrapEnviar">
+                                <input type="submit" value="Enviar" id="Enviar">
+                            <div>
                         </fieldset>
                     </div>
                 </div>
@@ -433,140 +663,19 @@ if(isset($_GET['acao'])) {
 
     </div>
     </div>
+    </main>
+    <!-- FIM PARTE COLADA -->
+
 
     <!-- FIM DOBRA DA BARRA DE DADOS DA FICHA -->
-<?php
- //limitador temporário
-// $_SESSION['sessaoFicha'] = [];
-?>
+
 </body>
 
 <script>
-    // dados de entrada
-    //idFicha, titulo da ficha, data criação(melhor pegar no php), observações, intervalo entre exercicios, idPersonal, idAluno
-
-    //idExercicio, series, repeticoes, intervalo entre series, carga, modo
-
-
-    //falta listar exercicios(com jquery), adicionar ao banco de dados  
-
-    let primExercicio = document.getElementById("1");
-
-    let exercicioUm = {
-        id: 1,
-        nome: "Flexao",
-        series: 3,
-        repeticoes: 30,
-        intervaloSeries: 45,
-        carga: 10,
-        modo: "TEMPO"
-    }
-
-
-    let ficha = [
-        exercicioUm
-    ]
-
-    // ficha.splice(3,1);
-
-
-
-    let btaddExercicio = document.getElementById("addExercicio");
-    let linkTeste = document.getElementById("linkTeste");
-
-    function addExercicio(e) {
-        let divPai = e.parentElement;
-        let id = divPai.id;
-
-        let divContent = divPai.children[0];
-        let nome = divContent.children[0].children[0].innerText;
-
-        divForm = divPai.children[1];
-
-        let modo;
-        divForm.children[0].checked ? modo = divForm.children[0].value : modo = divForm.children[1].value
-
-        let series = divForm.children[2].children[0].value;
-        let repeticoes = divForm.children[2].children[1].value;
-        let intervaloSeries = divForm.children[3].children[1].value;
-        let carga = divForm.children[3].children[0].value;
-
-        dadosAdd = {
-            nome: nome,
-            id: parseInt(id),
-            series: parseInt(series),
-            repeticoes: parseInt(repeticoes),
-            intervaloSeries: parseInt(intervaloSeries),
-            carga: parseInt(carga),
-            modo: modo
-        }
-
-
-        ficha.push(
-            dadosAdd
-            // {
-            //     nome: nome,
-            //     id: parseInt(id),
-            //     series: parseInt(series),
-            //     repeticoes: parseInt(repeticoes),
-            //     intervaloSeries: parseInt(intervaloSeries),
-            //     carga: parseInt(carga),
-            //     modo: modo
-            // }
-        );
-
-        window.location.href = `?acao=addExercicio&nome=${nome}&id=${id}&series=${series}&repeticoes=${repeticoes}&intervaloSeries=${intervaloSeries}&carga=${carga}&modo=${modo}`;
-        
-
-        atualizaFicha();
-    }
-
-
-
-
-
-
-    let barra = document.getElementById("barra");
-    let barraExe = document.getElementById("barraExe");
-    let tabelaExe = document.getElementById("tabelaExe");
-    barra.style.backgroundColor = 'red';
-
-
-    let naldo;
-
-    function atualizaFicha() {
-        naldo = "";
-        for (let i = 0; i <= (ficha.length - 1); i++) {
-
-            naldo += `  <table width='100%' >
-                            <tr>
-                                <td width="50%">${ficha[i].nome}</td>
-                                <td width="10%">${ficha[i].series}</td>
-                                <td width="10%">${ficha[i].repeticoes}</td>
-                                <td width="10%">${ficha[i].carga}</td>
-                                <td width="10%">${ficha[i].intervaloSeries}</td>
-                            </tr>
-                        </table>
-                      `;
-        }
-
-        // colocar em uma tabela
-        // barraExe.innerHTML = naldo;
-    }
-
-
-    atualizaFicha();
-
-    function getResult() {
-        return JSON.stringify(ficha);
-    }
-
 
     document.getElementById('resultObs').value = document.getElementById('observacoes').value;
-    document.getElementById("result").value = getResult();
 
     document.getElementById('radioRep').checked = "checked";
-    document.getElementsByClassName('radioRep').checked = "checked";
 
 </script>
 

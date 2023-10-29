@@ -22,9 +22,9 @@
 .background_ficha{
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, green , gold);
-    /* background: linear-gradient(45deg, #4158d0, gold, #c850c0); */
-    /* background-color: blue; */
+    /* background: linear-gradient(45deg, green , gold); */
+    /* background: linear-gradient(135deg, rgb(255, 168, 168) 10%, rgb(252, 255, 0) 100%); */
+    background: linear-gradient(190deg, rgb(255, 230, 109) 11.2%, rgb(87, 232, 107) 100.2%);
 }
 
 /* FIM DOBRA GERAL */
@@ -285,10 +285,6 @@ hr {
     height: 100px;
     border: 5px solid rgba(253, 237, 15, 0.3);
     transition: all 0.3s ease-out;
-}
-
-.outras_infos{
-    
 }
 
 .outras_infos h2{
