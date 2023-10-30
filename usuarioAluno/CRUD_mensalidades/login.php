@@ -6,8 +6,24 @@
     <title>Login</title>
     <link rel="stylesheet" href="../CRUD_mensalidades/assets/css/boot.css">
     <link rel="stylesheet" href="../../assets/css/form.css">
+    
 </head>
 <body>
+<header class="main_header">
+        <div class="main_header_content">
+            <a href="../../index.php">
+                <img src="../../assets/img/logo_borda.png" alt="Olimpo Training" title="Olimpo Training"></a>
+                <h4>Olimpo Training</h4>
+
+            <nav class="main_header_content_menu">
+                <ul>
+                    <li><a href="../../index.php">Voltar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    
     <form action="../CRUD_mensalidades/usuarios/usuarioadd.php" method="post">
         <div class="main-login">
             <div class="left-login">
@@ -16,7 +32,7 @@
 
             </div>
 
-
+            
             <div class="right-login">
                 <div class="card-login">
                     <h1>Cadastro</h1>
@@ -41,6 +57,7 @@
             </div>
         </div>
     </form>
+
     <script src="../../assets/css/cpf.js"></script>
 
 </body>
