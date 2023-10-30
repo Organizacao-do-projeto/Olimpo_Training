@@ -6,10 +6,9 @@
     <title> Adicionar exercicio </title>
 </head>
 
-<a href="index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
-
 <?php
-
+        $path = getenv('DOCUMENT_ROOT');
+        include_once $path."/Olimpo_Training/teste5/layouts/header.php";
 
 isset($_POST['nomeExercicio']) ? $nomeExercicio = $_POST['nomeExercicio'] : $nomeExercicio = "";
 // $nomeExercicio = isset($_POST['nomeExercicio']) ?? "";
@@ -107,31 +106,161 @@ if(!empty($nomeExercicio && $atividadeFisica && $linkTutorial && $descricao) && 
 
 
 ?>
+<style>
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 1em;
+    font-family: 'Rubik','Ubuntu', sans-serif;
+    }
+    
 
+    h1{
+    text-align: center;
+    font-weight: 400;
+    margin-top: 15px;
+    color: black;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%; /* 143px */
+    letter-spacing: -1.625px;
+    }
+
+    .container{
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
+    }
+
+    form{
+    display: flex;
+    flex-wrap: wrap;
+    
+    }
+
+    .form-group{
+    flex: 1;
+    margin-bottom: 15px;
+    margin: 10px ;
+    width: 90%;
+    
+      
+    }
+
+    .form-group_btn{
+    flex: 1;
+    margin-bottom: 15px;
+    margin: 10px;
+    width: 90%;
+    justify-content: end;
+    align-items: end;
+    display: flex;
+     
+    }
+
+    #Enviar{
+    background-color: #7CFC00;;
+    border:none;
+    color: black;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 0.8;
+    cursor: pointer;
+    }
+
+    #Enviar:hover{
+        opacity: 1;
+    }
+
+    .form-group input{
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    
+    
+    }
+    label{
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .container h1{
+        color:#333;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 300;
+    }
+
+    select{
+        width: 80%;
+        padding: 8px;
+        font-size: 15px;
+        border: 1px solid #ccc;
+    }
+
+    textarea{
+        width: 700px;
+        height: 300px;
+    }
+
+</style>
 
 <body>
 
-    <form action="" method="POST" enctype="multipart/form-data">
-        <label for="nomeExercicio">Nome do exercicio: </label>
-        <input type="text" name="nomeExercicio" placeholder="Flexão"><br/>
-        <label for="atividadeFisica">Atividade física: </label>
-        <select name="atividadeFisica">
-            <option value="ACADEMIA">Academia</option>
-            <option value="CALISTENIA">Calistenia</option>
-            <option value="AEROBICO">Aeróbico</option>
-            <option value="CROSSFIT">Crossfit</option>
-            <option value="BOXE">Boxe</option>
-        </select><br/>
-        <label for="linkTuorial">Link do tutorial: </label>
-        <input type="url" name="linkTutorial" placeholder="Insira um link do youtube" pattern="https://www.youtube.com/embed/.*" size="100" required><br/>
-        <label for="descricao">Descrição do exercício:</label><br/>
-        <textarea name="descricao" placeholder="Insira os detalhes sobre o exericio."></textarea><br/>
-        <label for="animacao">Video de animação:</label><br/>
-        <input type="file" name="animacao" accept=".gif,.mp4,.mov,.webm" ><br/>
-        <input type="submit" value="Enviar">
-    </form>
+<a href="admPanelExercicios.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
+
+    <h1>Cadastrar exercicio</h1>
+    <section class="container">
+        <form action="" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="nomeExercicio">Nome do exercicio: </label>
+                <input type="text" name="nomeExercicio" placeholder="Flexão"><br/>
+            </div>
+            <div class="form-group">
+                <label for="atividadeFisica">Atividade física: </label>
+                <select name="atividadeFisica">
+                    <option value="ACADEMIA">Academia</option>
+                    <option value="CALISTENIA">Calistenia</option>
+                    <option value="AEROBICO">Aeróbico</option>
+                    <option value="CROSSFIT">Crossfit</option>
+                    <option value="BOXE">Boxe</option>
+                </select><br/>
+            </div>
+            <div class="form-group">
+                <label for="linkTuorial">Link do tutorial: </label>
+                <input type="url" name="linkTutorial" placeholder="Insira um link do youtube" pattern="https://www.youtube.com/embed/.*" size="100" required><br/>
+            </div>
+            <div class="form-group">
+                <label for="animacao">Video de animação:</label><br/>
+                <input type="file" name="animacao" accept=".gif,.mp4,.mov,.webm" ><br/>
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição do exercício:</label><br/>
+                <textarea name="descricao" placeholder="Insira os detalhes sobre o exericio."></textarea><br/>
+            </div><br>
+            <div class="form-group_btn">
+            <input type="submit" id="Enviar" value="Enviar">
+            </div>
+        </form>
+    </section>
     
 </body>
+
+<?php
+        // $path = getenv('DOCUMENT_ROOT');
+        // include_once $path."/Olimpo_Training/teste5/layouts/footer.php";
+?>
 </html>
              
 <?=$dbh=null;

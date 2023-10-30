@@ -34,10 +34,22 @@ $cabecalhofichas_treino = $stmtfichas_treino->fetch();
 <?php
 $htmlExercicios = "";
     foreach($exercicios as $dados): 
+
+                      
+      $idExercicios = $dados['idExercicios'];
+
+      $dbhExercicios = Conexao::getConexao();
+
+      $queryExercicios = "SELECT * FROM olimpo.exercicios WHERE idExercicios = :idExercicios";
+      
+      $stmtExercicios = $dbhExercicios->prepare($queryExercicios);
+      $stmtExercicios->bindParam(":idExercicios",$idExercicios);
+      $stmtExercicios->execute();
+      $resultTableExercicios = $stmtExercicios->fetch();
     
         $htmlExercicios .= "  
              <tr>
-                 <td width='50%'>burpee</td>
+                 <td width='50%'>".$resultTableExercicios['nome']."</td>
                  <td width='10%'>".$dados['series']."</td>
                  <td width='10%'>".$dados['repeticoes'];
                  $dados['modo'] == 'TEMPO' ? $htmlExercicios .= 's' : $htmlExercicios .= '';
@@ -274,7 +286,7 @@ $dompdf->loadhtml($htmlFicha);
 $dompdf->setPaper('A4','portrait');
 $dompdf->render();
 //nome
-$dompdf->stream($cabecalhofichas_treino['titulo']." - Olim_train");
+$dompdf->stream($cabecalhofichas_treino['titulo']." | OLIMPO-TRAINING ");
 
 
 

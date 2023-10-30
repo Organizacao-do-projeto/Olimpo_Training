@@ -1,9 +1,14 @@
+<?php
+session_start();
+$_SESSION['sessaoFicha'] = [];
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fichas de</title>
+    <title>Fichas de treino</title>
 </head>
 <style>
     
@@ -60,17 +65,17 @@
     margin-top: 20px;
     color: white;
     border-radius: 5%;
-
+    
     
     width: 310px;
     height: 420px;
-
+    
     background: #000000;
     border-radius: 2px;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    
 }
 
 .showficha_margin{

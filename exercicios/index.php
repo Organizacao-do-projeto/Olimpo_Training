@@ -6,10 +6,20 @@
     <title> Exercicios </title>
 </head>
 <style>
-    /* INICIO DOBRA EXERCICIOS */
+
+.mainTitulo{
+
+    color: black;
+    font-family: 'Rubik';
+    font-size: 90px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%; /* 143px */
+    letter-spacing: -1.625px;
+}    
 
 
-    .btAdmin{
+.btAdmin{
         display: flex;
         justify-content: end;
     }
@@ -19,6 +29,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
+        margin-bottom: 90px;
     }
 
     .wrapbtn{
@@ -59,79 +70,121 @@
         
     }
 
-    .blocoExercicio {
+
+
+
+    /* INICIO CARD EXERCÍCIO */
+    
+    @property --rotate {
+        syntax: "<angle>";
+        initial-value: 132deg;
+        inherits: false;
+    }
+    :root{
+        --card-height: 330px;
+        /* modifica a altura */
+        --card-width: 290px;
+    }
+
+
+    /* coloca o fundo rgb */
+    .wrapperBloco{
+        width: calc(var(--card-width) + 13px);
+        height: calc(var(--card-height) + 13px);
+        background-image: linear-gradient(var(--rotate), rgb(255, 255, 141), gold 43%, yellow, #5ddcff);
+        opacity: 1;
+        transition: opacity .5s;
+        animation: spin 5s Linear infinite;
         display: flex;
-        flex-direction: column;
-        width: 280px;
-        height: 285px;
-        background-color: rgb(7, 120, 225);
-        border-radius: 5%;
-        overflow: hidden;
+        justify-content: center;
         align-items: center;
+        border-radius: 10px;
         box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
 
     }
 
-    .blocoExercicio_content_title {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
+    /* div principal */
+    .blocoExercicio{
+        background: linear-gradient(45deg,#F7D4D4,#F6ECC4);
+        width: var(--card-width);
+        height: var(--card-height);
+        padding: 3px;
+        border-radius: 6px;
         justify-content: center;
-    }
-
-    .blocoExercicio_content_title h1 {
-        margin: 5px;
-        font-size: 1.6rem;
-        color: #fff;
-        max-width: 260px;
-        word-wrap: break-word;
-    }
-
-    .blocoExercicio img {
-        width: 200px;
-        height: 150px;
-    }
-
-    .blocoExercicio video {
-        width: 200px;
-        height: 150px;
-    }
-
-    .blocoExercicio input[type=number] {
-        width: 40px;
-        border-radius: 15%;
-        border: 3px solid red;
-    }
-
-    .blocoExercicio_form_seriesRep {
+        align-items: center;
+        text-align: center;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column;
+        font-size: 1.5rem;
+        color: black;
+        font-family: 'Rubik';
+        font-weight: 500;
+
     }
 
-    .blocoExercicio_form_intervaloCarga {
-        justify-content: space-between;
+    .blocoExercicio a{
+        text-decoration: none;
     }
 
-    #editExercicio {
-        margin-top: 5px;
-        width: 97%;
-        height: 28px;
-        border-radius: 15%;
-        background-color: rgb(44, 223, 44);
+    .videoAnimacao{
+        margin-top: 15px;
+        box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+        border-radius: 13px;
+        width: 200px;
+        height: 150px;
     }
 
-    .formAction{
-        display: inline-block;  
+    .tipoExercicio{
+        font-size: 19px;
+        margin-top: 26px;
+        color: rgb(88 199 250 / 0%);
+    }
+    
+    .blocoExercicio_content h1{
+        color: black;
+        font-family: 'Rubik';
+        font-size: 35px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 110%; /* 143px */
+        letter-spacing: -1.625px;
+        overflow: hidden;
+
     }
 
 
-    /* FIM DOBRA EXERCICIOS */
-    /* Teste */
+    /* modifica o texto inserido na div */
+    .blocoExercicio:hover .tipoExercicio{
+        color: black;
+        transition: color 1s;
+        
+    }
+    
+
+    /* mexe pra frente */
+    .blocoExercicio:hover{
+        transform: scale(1.08);
+        transition: ease-out .3s;
+        box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+
+    }
+
+    /* gira a animação */
+    @keyframes spin{
+        0% {
+            --rotate: 0deg;
+        }
+        100%{
+            --rotate: 360deg;
+        }
+    };
+
+    /* FIM CARD EXERCICIO */
 
 </style>
 <body>
-        <?php
+
+    <?php
         $path = getenv('DOCUMENT_ROOT');
         include_once $path."/Olimpo_Training/teste5/layouts/header.php";
         ?>
@@ -140,6 +193,8 @@
             <a href="admPanelExercicios.php" class="btnCriar">Painel de administrador</a>
         </div>    
     </section>
+    <h1 class="mainTitulo">Exercicios</h1>
+    
     <section class="showExercicios">
 <?php 
 
@@ -165,32 +220,31 @@ if(isset($_GET['msg'])){
     
     foreach($exercicios as $exercicio):
 ?>
+    <div class="wrapperBloco">
+        <div class="blocoExercicio" id="<?=$exercicio['idExercicios']?>">
+            <div class="blocoExercicio_content">
+                    <h1><?=$exercicio['nome']?></h1>
+                <a href="detailsExercicio.php?id=<?=$exercicio['idExercicios']?>" target="_blank">
+                <!-- essa imagem tem 200x150 -->
+                <?php
 
-    <div class="blocoExercicio" id="<?=$exercicio['idExercicios']?>">
-        <div class="blocoExercicio_content">
-            <div class="blocoExercicio_content_title">
-                <h1><?=$exercicio['nome']?></h1>
-            </div>
-            <a href="detailsExercicio.php?id=<?=$exercicio['idExercicios']?>" target="_blank">
-            <!-- essa imagem tem 200x150 -->
-            <?php
+                    $extensao = $exercicio['nome_arq'];
+                    $extensao = pathinfo($extensao, PATHINFO_EXTENSION);
 
-                $extensao = $exercicio['nome_arq'];
-                $extensao = pathinfo($extensao, PATHINFO_EXTENSION);
-
-                if($extensao == 'mp4' || $extensao == 'mov' || $extensao == 'webm'): ?>
-                    <video autoplay muted loop>
+                    if($extensao == 'mp4' || $extensao == 'mov' || $extensao == 'webm'): ?>
+                    <video class="videoAnimacao" autoplay muted loop>
                         <source src="animacoes/<?=$exercicio['nome_arq']?>">
                     </video>
-                <?php
-                else:
-                ?>
-                    <img src="animacoes/<?=$exercicio['nome_arq']?>">
-                <?php
-                endif;
-                ?>
-            </a>
-            <br>
+                    <?php   else: ?>
+                    <img class="videoAnimacao" src="animacoes/<?=$exercicio['nome_arq']?>">
+                    <?php
+                    endif;
+                    ?>         
+                </a>
+                <div class="tipoExercicio">
+                    <?=$exercicio['ativ_fisica']?>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -199,4 +253,8 @@ if(isset($_GET['msg'])){
     </section>
 
 </body>
+<?php
+        // $path = getenv('DOCUMENT_ROOT');
+        // include_once $path."/Olimpo_Training/teste5/layouts/header.php";
+?>
 </html>

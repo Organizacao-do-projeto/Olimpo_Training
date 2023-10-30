@@ -424,12 +424,26 @@ $cabecalhofichas_treino = $stmtfichas_treino->fetch();
                             <th width='10%'>Desc/Series</th>
                         </thead>
                 <?php
-                foreach($exercicios as $dados): ?>
+                foreach($exercicios as $dados):
+                
+                    $idExercicios = $dados['idExercicios'];
+
+                    $dbhExercicios = Conexao::getConexao();
+        
+                    $queryExercicios = "SELECT * FROM olimpo.exercicios WHERE idExercicios = :idExercicios";
+                    
+                    $stmtExercicios = $dbhExercicios->prepare($queryExercicios);
+                    $stmtExercicios->bindParam(":idExercicios",$idExercicios);
+                    $stmtExercicios->execute();
+                    $resultTableExercicios = $stmtExercicios->fetch();
+                
+                ?>
             
+
                         <tr>
                             <!-- o de baixo vai puxar o url da animação -->
-                            <td width='25%'><a target="_blank" href="detailsExercicio.php?id=<?=$dados['idExercicios']?>"><!--<div class='animacao_exercicio'></div>--><img src="https://media.tenor.com/u2-VJiigKCkAAAAM/exercise-jump.gif" class='animacao_exercicio'></a></td>
-                            <td width='25%' ><a target="_blank" href="detailsExercicio.php?id=<?=$dados['idExercicios']?>">burpee</a></td>
+                            <td width='25%'><a target="_blank" href="../exercicios/detailsExercicio.php?id=<?=$dados['idExercicios']?>"><!--<div class='animacao_exercicio'></div>--><img src="../exercicios/animacoes/<?=$resultTableExercicios['nome_arq']?>" class='animacao_exercicio'></a></td>
+                            <td width='25%' ><a target="_blank" href="../exercicios/detailsExercicio.php?id=<?=$dados['idExercicios']?>"><?=$resultTableExercicios['nome']?></a></td>
                             <td width='10%'><?=$dados['series']?></td>
                             <td>x</td>
                             <td width='10%'><?php echo $dados['repeticoes'];
@@ -476,3 +490,7 @@ $cabecalhofichas_treino = $stmtfichas_treino->fetch();
 
 </body>
 </html>
+<?php
+$dbhExercicios = null;
+$dbhfichas_treino = null;
+$dbhft_exe =  null;

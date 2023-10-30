@@ -35,6 +35,7 @@ $exercicio = $stmt->fetch();
 
 <h1 aling="center" ><?=$exercicio['nome']?></h1>
 
+<body>
 <?php
 
 $extensao = $exercicio['nome_arq'];
@@ -61,3 +62,10 @@ endif;
 <iframe width="850" height="479" src="https://www.youtube.com/embed/<?=$exercicio['link_tutorial']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>;
 
 <?=$dbh=null;?>
+
+</body>
+<?php
+        // $path = getenv('DOCUMENT_ROOT');
+        // include_once $path."/Olimpo_Training/teste5/layouts/header.php";
+?>
+</html>

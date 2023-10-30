@@ -98,57 +98,37 @@ if(isset($_GET['acao'])) {
         justify-content: space-around;
     }
 
-    .blocoExercicio {
-        display: flex;
-        flex-direction: column;
-        width: 280px;
-        height: 360px;
-        background-color: rgb(7, 120, 225);
-        border-radius: 5%;
-        overflow: hidden;
-        align-items: center;
-        color: #fff;
-    }
 
-    .blocoExercicio_content {
-        text-align: center;
+    /* INICIO BLOCO EXERCICIOS */
+    .blocoExercicio_form {
+        margin-top: 20px;
+        opacity: 0;
     }
     
-    .blocoExercicio_content_title {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content: center;
-    }
-
-    .blocoExercicio_content_title h1 {
-        margin: 5px;
-        font-size: 1.6rem;
-        color: #fff;
-        max-width: 260px;
-        word-wrap: break-word;
-    }
-
-    .blocoExercicio img {
-        width: 200px;
-        height: 150px;
-    }
-
     .blocoExercicio input[type=number] {
-        width: 40px;
+        width: 35px;
         border-radius: 15%;
-        border: 3px solid red;
+        border: 3px solid gold;
     }
 
     .blocoExercicio_form_seriesRep {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        margin-left: 27px;
     }
 
     .blocoExercicio_form_intervaloCarga {
-        justify-content: space-between;
+        display: flex;
+        text-align: center;
+        margin-left: 28px;
+        
     }
+
+    .blocoExercicio_form_seriesRep #repeticoes{
+        margin-left: 35px;
+    }
+
+    
 
     #addExercicio {
         margin-top: 5px;
@@ -159,7 +139,136 @@ if(isset($_GET['acao'])) {
         cursor: pointer;
     }
 
-    /* FIM DOBRA EXERCICIOS */
+/* FIM DOBRA EXERCICIOS */
+
+
+/* INCIO TESTE INTEGRAÇÃO */
+
+    /* INICIO CARD EXERCÍCIO */
+    
+    @property --rotate {
+        syntax: "<angle>";
+        initial-value: 132deg;
+        inherits: false;
+    }
+    :root{
+        --card-height: 520px;
+        /* --card-height: 390px; */
+        /* modifica a altura */
+        --card-width: 290px;
+    }
+
+
+    /* coloca o fundo rgb */
+    .wrapperBloco{
+        width: calc(var(--card-width) + 13px);
+        height: calc(var(--card-height) + 13px);
+        background-image: linear-gradient(var(--rotate), rgb(255, 255, 141), gold 43%, yellow, #5ddcff);
+        opacity: 1;
+        transition: opacity .5s;
+        animation: spin 5s Linear infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+
+    }
+
+    /* div principal */
+    .blocoExercicio{
+        background: linear-gradient(45deg,#F7D4D4,#F6ECC4);
+        width: var(--card-width);
+        height: var(--card-height);
+        padding: 3px;
+        border-radius: 6px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        font-size: 1.5rem;
+        color: black;
+        font-family: 'Rubik';
+        font-weight: 500;
+
+    }
+
+
+    .blocoExercicio_form {
+        color: black;
+        font-family: 'Rubik';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: 110%; /* 143px */
+        letter-spacing: -1.625px;
+        overflow: hidden;
+    }
+
+    .blocoExercicio a{
+        text-decoration: none;
+    }
+
+    .videoAnimacao{
+        margin-top: 15px;
+        box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+        border-radius: 13px;
+        width: 200px;
+        height: 150px;
+    }
+
+    .tipoExercicio{
+        font-size: 19px;
+        margin-top: 26px;
+        color: rgb(88 199 250 / 0%);
+    }
+    
+    .blocoExercicio_content h1{
+        color: black;
+        font-family: 'Rubik';
+        font-size: 35px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 110%; /* 143px */
+        letter-spacing: -1.625px;
+        overflow: hidden;
+
+    }
+
+
+    /* modifica o texto inserido na div */
+    .blocoExercicio:hover .tipoExercicio{
+        color: black;
+        transition: color 1s;
+        
+    }
+    .blocoExercicio:hover .blocoExercicio_form{
+        opacity: 1;
+    }
+    
+
+    /* mexe pra frente */
+    .blocoExercicio:hover{
+        transform: scale(1.039);
+        transition: ease-out .3s;
+        box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+
+    }
+
+    /* gira a animação */
+    /* @keyframes spin{
+        0% {
+            --rotate: 0deg;
+        }
+        100%{
+            --rotate: 360deg;
+        }
+    }; */
+
+
+
+ /* FIM TESTE INTEGRAÇÃO */
 
 
     /* INICIO DOBRA FICHA */
@@ -371,174 +480,81 @@ if(isset($_GET['acao'])) {
     <!-- INICIO BLOCO DE CÓDIGO IMUTÁVEL -->
     <main>
     <div class="showExercicios"> 
-    <form action="" method="GET">
-        <div class="blocoExercicio" id="3">
-            <div class="blocoExercicio_content">
-                <div class="blocoExercicio_content_title">
-                    <h1>Agachamento búlgaro</h1>
-                    <input type="hidden" name="nome" value="Agachamento búlgaro"> 
-                    <input type="hidden" name="id" value="3">
-                    <input type="hidden" name="acao" value="addExercicio">
-                </div>
-                <a href="detalhesExercicio.php?id=3" target="_blank">
-                <img src="https://i.pinimg.com/originals/cf/69/7a/cf697a042d827afe23090ad23af1c181.gif">
-                </a>
-                <br>
-            </div>
-            <div class="blocoExercicio_form">
-                <label>Modo</label>:&nbsp;
-                
-                <input type="radio" name="modo" value="REPETICOES" checked="checked" class="radioRep" id="radioRep"><label>Repeticoes</label>
-                <input type="radio" name="modo" value="TEMPO"><label>Tempo</label>
-                <span class="blocoExercicio_form_seriesRep">
-                <label>Series</label><input type="number" id="series" name="series" value="3">&nbsp;
-                <label>Rep</label><input type="number" id="repeticoes" name="repeticoes" value="12">
-                </span>
-                <span class="blocoExercicio_form_intervaloCarga">
-                <label>Carga </label><input type="number" id="carga" name="carga" value="0">kg &nbsp;&nbsp;&nbsp;&nbsp;
-                <label>Intervalo </label><input type="number" id="intervaloSeries" name="intervaloSeries" value="30">s
-                </span>
-                <br>
-            </div>
-            <button type="submit" id="addExercicio">+</button>
-        </div>
-    </form>
     
-    <form action="" method="GET">
-        <div class="blocoExercicio" id="3">
-            <div class="blocoExercicio_content">
-                <div class="blocoExercicio_content_title">
-                    <h1>Polichinelo</h1>
-                    <input type="hidden" name="nome" value="Polichinelo"> 
-                    <input type="hidden" name="id" value="3">
-                    <input type="hidden" name="acao" value="addExercicio">
-                </div>
-                <a href="detalhesExercicio.php?id=3" target="_blank">
-                <img src="https://www.hipertrofia.org/blog/wp-content/uploads/2020/05/polichinelos-execu%C3%A7%C3%A3o-1.gif">
-                </a>
-                <br>
-            </div>
-            <div class="blocoExercicio_form">
-                <label>Modo</label>:&nbsp;
-                
-                <input type="radio" name="modo" value="REPETICOES" checked="checked" class="radioRep" id="radioRep"><label>Repeticoes</label>
-                <input type="radio" name="modo" value="TEMPO"><label>Tempo</label>
-                <span class="blocoExercicio_form_seriesRep">
-                <label>Series</label><input type="number" id="series" name="series" value="3">&nbsp;
-                <label>Rep</label><input type="number" id="repeticoes" name="repeticoes" value="12">
-                </span>
-                <span class="blocoExercicio_form_intervaloCarga">
-                <label>Carga </label><input type="number" id="carga" name="carga" value="0">kg &nbsp;&nbsp;&nbsp;&nbsp;
-                <label>Intervalo </label><input type="number" id="intervaloSeries" name="intervaloSeries" value="30">s
-                </span>
-                <br>
-            </div>
-            <button type="submit" id="addExercicio">+</button>
-        </div>
-    </form>
+    <?php  
 
-    <form action="" method="GET">
-        <div class="blocoExercicio" id="3">
-            <div class="blocoExercicio_content">
-                <div class="blocoExercicio_content_title">
-                    <h1>Flexão diamante</h1>
-                    <input type="hidden" name="nome" value="Flexão diamante"> 
-                    <input type="hidden" name="id" value="3">
-                    <input type="hidden" name="acao" value="addExercicio">
-                </div>
-                <a href="detalhesExercicio.php?id=3" target="_blank">
-                <img src="https://i0.wp.com/homemnoespelho.com.br/wp-content/uploads/2021/07/Homem-No-Espelho-Flexao-de-braco-diamante.gif?resize=480%2C270&ssl=1">
-                </a>
-                <br>
-            </div>
-            <div class="blocoExercicio_form">
-                <label>Modo</label>:&nbsp;
-                
-                <input type="radio" name="modo" value="REPETICOES" checked="checked" class="radioRep" id="radioRep"><label>Repeticoes</label>
-                <input type="radio" name="modo" value="TEMPO"><label>Tempo</label>
-                <span class="blocoExercicio_form_seriesRep">
-                <label>Series</label><input type="number" id="series" name="series" value="3">&nbsp;
-                <label>Rep</label><input type="number" id="repeticoes" name="repeticoes" value="12">
-                </span>
-                <span class="blocoExercicio_form_intervaloCarga">
-                <label>Carga </label><input type="number" id="carga" name="carga" value="0">kg &nbsp;&nbsp;&nbsp;&nbsp;
-                <label>Intervalo </label><input type="number" id="intervaloSeries" name="intervaloSeries" value="30">s
-                </span>
-                <br>
-            </div>
-            <button type="submit" id="addExercicio">+</button>
-        </div>
-    </form>
+    include_once 'src/conexao.php';
 
-    <!-- ############# EXRCICIOS FUNFANDO COM ESTRUTURA PHP ################### -->
-    <form action="" method="GET">
-        <div class="blocoExercicio" id="3">
-            <div class="blocoExercicio_content">
-                <div class="blocoExercicio_content_title">
-                    <h1>Agachamento búlgaro</h1>
-                    <input type="hidden" name="nome" value="Agachamento búlgaro"> 
-                    <input type="hidden" name="id" value="3">
-                    <input type="hidden" name="acao" value="addExercicio">
-                </div>
-                <a href="detalhesExercicio.php?id=3" target="_blank">
-                <img src="https://i.pinimg.com/originals/cf/69/7a/cf697a042d827afe23090ad23af1c181.gif">
-                </a>
-                <br>
-            </div>
-            <div class="blocoExercicio_form">
-                <label>Modo</label>:&nbsp;
-                
-                <input type="radio" name="modo" value="REPETICOES" checked="checked" class="radioRep" id="radioRep"><label>Repeticoes</label>
-                <input type="radio" name="modo" value="TEMPO"><label>Tempo</label>
-                <span class="blocoExercicio_form_seriesRep">
-                <label>Series</label><input type="number" id="series" name="series" value="3">&nbsp;
-                <label>Rep</label><input type="number" id="repeticoes" name="repeticoes" value="12">
-                </span>
-                <span class="blocoExercicio_form_intervaloCarga">
-                <label>Carga </label><input type="number" id="carga" name="carga" value="0">kg &nbsp;&nbsp;&nbsp;&nbsp;
-                <label>Intervalo </label><input type="number" id="intervaloSeries" name="intervaloSeries" value="30">s
-                </span>
-                <br>
-            </div>
-            <button type="submit" id="addExercicio">+</button>
-        </div>
-    </form>
-    <!-- ############# EXRCICIOS FUNFANDO COM ESTRUTURA PHP ################### -->
+    $dbh = Conexao::getConexao();
 
-    <?php for($i = 0; $i <= 5; $i++){?>
-        <form action="" method="GET">
-            <div class="blocoExercicio" id="4">
+    $query = "SELECT * FROM olimpo.exercicios";
+
+    $stmt = $dbh->prepare($query);
+    $stmt->execute();
+    $exercicios = $stmt->fetchAll();
+
+
+    foreach($exercicios as $exercicio): ?>
+     
+    <form action="" method="GET">
+        <div class="wrapperBloco">
+            <div class="blocoExercicio" id="<?=$exercicio['idExercicios']?>">
                 <div class="blocoExercicio_content">
-                    <div class="blocoExercicio_content_title">
-                        <h1>Burpee</h1>
-                        <input type="hidden" name="nome" value="Burpee"> 
-                        <input type="hidden" name="id" value="4">
+                        <h1><?=$exercicio['nome']?></h1>
+                        <input type="hidden" name="id" value="<?=$exercicio['idExercicios']?>">
+                        <input type="hidden" name="nome" value="<?=$exercicio['nome']?>"> 
                         <input type="hidden" name="acao" value="addExercicio">
-                    </div>
-                    <a href="detalhesExercicio.php?id=4" target="_blank">
-                    <img src="https://media.tenor.com/u2-VJiigKCkAAAAM/exercise-jump.gif">
+                    <a href="detailsExercicio.php?id=<?=$exercicio['idExercicios']?>" target="_blank">
+                    <!-- essa imagem tem 200x150 -->
+                    <?php
+
+                        // $extensao = $exercicio['nome_arq'];
+                        // $extensao = pathinfo($extensao, PATHINFO_EXTENSION);
+
+                        // if($extensao == 'mp4' || $extensao == 'mov' || $extensao == 'webm'): ?>
+                        <!-- <video class="videoAnimacao" autoplay muted loop> -->
+                            <!-- <source src="animacoes/"> -->
+                        <!-- </video> -->
+                        <?php   //else: ?>
+                            
+                            <img class="videoAnimacao" src="../exercicios/animacoes/<?=$exercicio['nome_arq']?>">
+
+
+
+                        <?php
+                        //endif;
+                        ?>         
                     </a>
-                    <br>
+                    <div class="blocoExercicio_form">
+                        <label>Modo</label>:&nbsp;
+                        <input type="radio" name="modo" value="REPETICOES" checked="checked" class="radioRep" id="radioRep"><label>Repetições</label>
+                        <input type="radio" name="modo" value="TEMPO"><label>Tempo</label>
+                        <div class="blocoExercicio_form_seriesRep">
+                            <label>Series:</label><input type="number" id="series" name="series" value="3">&nbsp;
+                            <label id="repeticoes">Rep:</label><input type="number"  name="repeticoes" value="12">
+                        </div>
+                        <div class="blocoExercicio_form_intervaloCarga">
+                            <label>Carga: </label><input type="number" id="carga" name="carga" value="0">kg &nbsp;&nbsp;&nbsp;&nbsp;
+                            <label id="intervaloSeries">Desc</label><input type="number"  name="intervaloSeries" value="30">s
+                    </div>
+                        <br>
+                    </div>
+                    <div class="tipoExercicio">
+                        <?=$exercicio['ativ_fisica']?>
+                    </div>
+                    <div>
+                        <button type="submit" id="addExercicio">+</button>
+                    </div>
                 </div>
-                <div class="blocoExercicio_form">
-                    <label>Modo</label>:&nbsp;
-                    
-                    <input type="radio" name="modo" value="REPETICOES" checked="checked" class="radioRep" id="radioRep"><label>Repeticoes</label>
-                    <input type="radio" name="modo" value="TEMPO"><label>Tempo</label>
-                    <span class="blocoExercicio_form_seriesRep">
-                    <label>Series</label><input type="number" id="series" name="series" value="3">&nbsp;
-                    <label>Rep</label><input type="number" id="repeticoes" name="repeticoes" value="12">
-                    </span>
-                    <span class="blocoExercicio_form_intervaloCarga">
-                    <label>Carga </label><input type="number" id="carga" name="carga" value="0">kg &nbsp;&nbsp;&nbsp;&nbsp;
-                    <label>Intervalo </label><input type="number" id="intervaloSeries" name="intervaloSeries" value="30">s
-                    </span>
-                    <br>
-                </div>
-                <button type="submit" id="addExercicio">+</button>
             </div>
-        </form>
-        <?php }; ?>
+        </div>
+    </form>
+
+    <?php
+    endforeach;
+    ?>
+
+
     <!-- FIM BLOCO DE CÓDIGO IMUTÁVEL -->
     <!-- FIM DOBRA EXERCICIOS -->
 
@@ -602,8 +618,8 @@ if(isset($_GET['acao'])) {
                     </div>
                 </div>
         </form>
-
     </div>
+
     </div>
     </main>
 
@@ -618,3 +634,6 @@ if(isset($_GET['acao'])) {
 </script>
 
 </html>
+
+<?php
+$dbh = null;
