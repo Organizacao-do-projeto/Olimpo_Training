@@ -3,10 +3,16 @@
     
     require_once '../src/conexao.php';
 
+    $nome = $_POST['nome'];
     $email = $_POST['email'];
     $password = md5($_POST['password']);
-    $nome = $_POST['nome'];
-    $status = 1;
+    $sexo = $_POST['sexo'];
+    $descricao = $_POST['descricao'];
+    $numero_CREF = $_POST['numero'];
+    $natureza = $_POST['natureza'];
+    $UF_registro = $_POST['UF_registro'];
+    $foto = $_POST['foto'];
+
 
     $dbh = Conexao::getConexao();
 
@@ -15,9 +21,12 @@
     
     $stmt = $dbh->prepare($query);
 
+    $stmt->bindParam(':nome', $nome);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':password', $password);
-    $stmt->bindParam(':nome', $nome);
+    $stmt->bindParam(':sexo', $sexo);
+    $stmt->bindParam(':descricao', $descricao);
+    $stmt->bindParam(':foto', $foto);
     $result = $stmt->execute();
     
     $ultimoID = $dbh->lastInsertId();
@@ -31,16 +40,39 @@
     $stmtPerfis->bindParam(":id",$ultimoID);
     $resultPerfis= $stmtPerfis->execute();
 
-    var_dump($ultimoID);
+    $queryCREFS = "INSERT INTO olimpo.crefs (idUsuarios , numero, natureza, UF_registro, autenticado ) VALUES (:idUsuarios, :numero, :natureza, :UF_registro, '0' );";
 
-    if ($result AND $resultPerfis)
-    {
-        header('location: index.php');
-        exit;
-    } else {
-        echo '<p>Não foi fossível inserir Usuário!</p>';
-        $error = $dbh->errorInfo();
-        print_r($error);
-    }
-    $dbh = null;
-    echo "<p><a href='index.php'>Voltar</a></p>";
+    $dbhCREFS = Conexao::getConexao();
+
+    $stmtCREFS = $dbhPerfis->prepare($queryCREFS);
+    $stmtCREFS->bindParam(':idUsuarios', $ultimoID);
+    $stmtCREFS->bindParam(':numero', $numero_CREFS);
+    $stmtCREFS->bindParam(':natureza', $natureza);
+    $stmtCREFS->bindParam(':UF_registro', $UF_registro);
+    $result = $stmtCREFS->execute();
+
+    var_dump($result);
+
+    var_dump($_POST['nome'],
+    $_POST['email'],
+    md5($_POST['password']),
+    $_POST['sexo'],
+    $_POST['descricao'],
+    $_POST['numero'],
+    $_POST['natureza'],
+    $_POST['UF_registro'],
+    $_POST['foto']
+);
+
+
+    // if ($result AND $resultPerfis)
+    // {
+    //     header('location: index.php');
+    //     exit;
+    // } else {
+    //     echo '<p>Não foi fossível inserir Usuário!</p>';
+    //     $error = $dbh->errorInfo();
+    //     print_r($error);
+    // }
+    // $dbh = null;
+    // echo "<p><a href='index.php'>Voltar</a></p>";
