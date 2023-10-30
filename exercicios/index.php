@@ -186,7 +186,7 @@
 
     <?php
         $path = getenv('DOCUMENT_ROOT');
-        include_once $path."/Olimpo_Training/teste5/layouts/header.php";
+        include_once $path."/Olimpo_Training/layouts/header.php";
         ?>
     <section class="btAdmin">
         <div class="wrapbtn">

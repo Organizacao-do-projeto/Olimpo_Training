@@ -8,7 +8,7 @@
 
 <?php
         $path = getenv('DOCUMENT_ROOT');
-        include_once $path."/Olimpo_Training/teste5/layouts/header.php";
+        include_once $path."/Olimpo_Training/layouts/header.php";
 
 isset($_POST['nomeExercicio']) ? $nomeExercicio = $_POST['nomeExercicio'] : $nomeExercicio = "";
 // $nomeExercicio = isset($_POST['nomeExercicio']) ?? "";
