@@ -8,16 +8,46 @@
     $password = md5($_POST['password']);
     $sexo = $_POST['sexo'];
     $descricao = $_POST['descricao'];
-    $numero_CREF = $_POST['numero'];
+    $numero_CREFS = $_POST['numero'];
     $natureza = $_POST['natureza'];
     $UF_registro = $_POST['UF_registro'];
-    $foto = $_POST['foto'];
+    $fotoAtributos = $_FILES['seila'];
+    $CPF = $_POST['cpf'];
+
+    $idPerso_trainer = 1;
+
+
+    var_dump($_POST['nome'],
+    $_POST['email'],
+    md5($_POST['password']),
+    $_POST['sexo'],
+    $_POST['descricao'],
+    $_POST['numero'],
+    $_POST['natureza'],
+    $_POST['UF_registro'],
+    $_FILES['foto'],
+    $_POST['cpf']
+);
+        
+        $foto = $fotoAtributos['name'];
+        $caminhoFoto = "../assets/img/usuarios/".$foto;
+        $extensaoArquivo = pathinfo($fotoAtributos['name'], PATHINFO_EXTENSION);
+        $tamanhoPermitido = 150000000;
+
+
+                
+
+
+            if($fotoAtributos['size'] < $tamanhoPermitido){
+                move_uploaded_file($fotoAtributos['tmp_name'], $caminhoFoto);
+            }
+
 
 
     $dbh = Conexao::getConexao();
 
-    $query = "INSERT INTO olimpo.usuarios (email, password, nome) 
-                VALUES (:email, :password, :nome);"; 
+    $query = "INSERT INTO olimpo.usuarios (nome, email, password, sexo, cpf, descricao, foto, idPerso_trainer ) 
+                VALUES (:nome, :email, :password, :sexo, :cpf, :descricao, :foto, :idPerso_trainer);"; 
     
     $stmt = $dbh->prepare($query);
 
@@ -27,6 +57,8 @@
     $stmt->bindParam(':sexo', $sexo);
     $stmt->bindParam(':descricao', $descricao);
     $stmt->bindParam(':foto', $foto);
+    $stmt->bindParam(':cpf', $CPF);
+    $stmt->bindParam(':idPerso_trainer', $idPerso_trainer);
     $result = $stmt->execute();
     
     $ultimoID = $dbh->lastInsertId();
@@ -40,7 +72,7 @@
     $stmtPerfis->bindParam(":id",$ultimoID);
     $resultPerfis= $stmtPerfis->execute();
 
-    $queryCREFS = "INSERT INTO olimpo.crefs (idUsuarios , numero, natureza, UF_registro, autenticado ) VALUES (:idUsuarios, :numero, :natureza, :UF_registro, '0' );";
+    $queryCREFS = "INSERT INTO olimpo.crefs (idUsuarios , numero, natureza, UF_registro, autenticado ) VALUES (:idUsuarios, :numero, :natureza, :UF_registro, 1 );";
 
     $dbhCREFS = Conexao::getConexao();
 
@@ -53,16 +85,6 @@
 
     var_dump($result);
 
-    var_dump($_POST['nome'],
-    $_POST['email'],
-    md5($_POST['password']),
-    $_POST['sexo'],
-    $_POST['descricao'],
-    $_POST['numero'],
-    $_POST['natureza'],
-    $_POST['UF_registro'],
-    $_POST['foto']
-);
 
 
     // if ($result AND $resultPerfis)
