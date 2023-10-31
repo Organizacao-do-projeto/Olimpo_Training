@@ -80,8 +80,8 @@
                         </h1>
                     </header>
 
-                    <p>Cuide do seu corpo</p>
-                    <p><a href="#" class="btn">Saiba Mais</a></p>
+                    <p>Rumo a sua transformação</p>
+                    <p><a href="#content" class="btn">Saiba Mais</a></p>
                 </div>
             </article>
         </div>
@@ -162,7 +162,7 @@
                         <p>
                             Diversos exercícios com peso do corpo
                         </p>
-                        <a href="#"><img src="assets/img/athlete-muscular-fitness-male-model-pulling-up-on-horizontal-bar_1498767369.jpg-850x514.jpg" alt=""></a>
+                        <a href="views/sele.html"><img src="assets/img/athlete-muscular-fitness-male-model-pulling-up-on-horizontal-bar_1498767369.jpg-850x514.jpg" alt=""></a>
                     </header>
                 </article>
                 <article>
@@ -171,7 +171,7 @@
                         <p>
                             Veja a forma correta de executar exercícios
                         </p>
-                        <a href="#" class="costas"><img src="assets/img/corrida.jpg" alt=""></a>
+                        <a href="views/sele.html" class="costas"><img src="assets/img/corrida.jpg" alt=""></a>
                 </article>
                 <article>
                     <header>
@@ -179,7 +179,7 @@
                         <p>
                             Veja a forma correta de executar exercícios
                         </p>
-                        <a href="#" class="costas"><img src="assets/img/musculação.jpg" alt=""></a>
+                        <a href="views/sele.html" class="costas"><img src="assets/img/musculação.jpg" alt=""></a>
                 </article>
                 <article>
                     <header>
@@ -187,7 +187,7 @@
                         <p>
                             Veja a forma correta de executar exercícios
                         </p>
-                        <a href="#" class="costas"><img src="assets/img/luta.jpg" alt=""></a>
+                        <a href="views/sele.html" class="costas"><img src="assets/img/luta.jpg" alt=""></a>
                     </header>
                 </article>
             </div>
@@ -201,8 +201,8 @@
         <div class="main_school">
             <section class="main_school_content">
                 <header class="main_school_header">
-                    <h1>Olimpo</h1>
-                    <p>A sua Escola de programação e Marketing Digital</p>
+                    <h1 id="content">Olimpo</h1>
+                    <p>Personal Trainers totalmente online</p>
                 </header>
                 <div class="main_school_content_left">
                     <article class="main_school_content_left_content">
@@ -223,52 +223,7 @@
 
 
                     <section class="main_school_list">
-                        <header>
-                            <h2>Confira nossos prêmios</h2>
-                        </header>
-                        <article>
-                            <header>
-                                <h3 class="icon-trophy">Qualidade e Excelência - Master Pesquisas</h3>
-                            </header>
-                        </article>
-
-                        <article>
-                            <header>
-                                <h3 class="icon-trophy">Qualidade e Atendimento - Master Pesquisas</h3>
-                            </header>
-                        </article>
-
-                        <article>
-                            <header>
-                                <h3 class="icon-trophy">Prêmio Diamante - Master Pesquisas</h3>
-                            </header>
-                        </article>
-
-                        <article>
-                            <header>
-                                <h3 class="icon-trophy">Estrela do Sul - Master Pesquisas</h3>
-                            </header>
-                        </article>
-
-                        <article>
-                            <header>
-                                <h3 class="icon-trophy">Medalha de Ouro a Excelência - LAQ</h3>
-                            </header>
-                        </article>
-
-                        <article>
-                            <header>
-                                <h3 class="icon-trophy">Brazil Quality Certification - LAQI</h3>
-                            </header>
-                        </article>
-
-                        <article>
-                            <header>
-                                <h3 class="icon-trophy">Melhor Plataforma EAD - Digital Awards</h3>
-                            </header>
-                        </article>
-                    </section>
-                </div>
+                       
                 <div class="main_school_content_right">
                     
                 </div>
