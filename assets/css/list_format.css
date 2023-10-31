@@ -1,0 +1,34 @@
+.list_container{
+    width: 90%;
+    margin: 30px auto;
+}
+
+table{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.list_container h1{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 300;
+    color:#333;
+}
+
+.btn{
+    background-color: #d36833;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color:#fff;
+    cursor: pointer;
+    opacity: 0.8;    
+}
+.btn:hover{
+    background-color: #d36833;
+    opacity: 1;
+}
