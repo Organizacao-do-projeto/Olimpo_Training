@@ -5,14 +5,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/formulario.css">
+  <link href="../assets/css/boot.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
   <title>Cadastro Personal</title>
 </head>
 <body>
-<?php
-        $path = getenv('DOCUMENT_ROOT');
-        include_once $path."/Olimpo_Training/layouts/header.php";
-?>
+    <!--DOBRA CABEÇALHO-->
 
+    <header class="main_header">
+        <div class="main_header_content">
+            <a href="../index.php" class="logo">
+                <img src="../assets/img/logos/logo_borda.png" alt="Logo Olimpo"
+                    title="Logo Olimpo"></a>
+
+            <nav class="main_header_content_menu">
+                <ul>
+                    <li><a href="../views/sele.html">Voltar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
   <main class="container">
 
     <h1>Cadastro</h1>
