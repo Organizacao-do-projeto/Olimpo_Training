@@ -249,7 +249,7 @@ $dadosTabelaPerfis = $stmtTabelaPerfis->fetch();
         $path = getenv('DOCUMENT_ROOT');
         include_once $path."/Olimpo_Training/layouts/header.php";
 ?>
-        <a href="index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
+        <a href="pesquisarUsuario.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
     <main>
 
     <header>
@@ -301,7 +301,7 @@ $dadosTabelaPerfis = $stmtTabelaPerfis->fetch();
                             <br>
                             <span class="tipoUser"> Aluno </span><br><br>
                             <span class="tituloAtributos"><Strong>Altura: </Strong><?=$dadosPerfil['altura']?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Strong>Peso: </Strong><?=$dadosPerfil['peso']?></span><br><br><br>
-                            <span class="tituloAtributos"><Strong>Gênero: </strong><?=$dadosPerfil['genero']?></span></p>
+                            <span class="tituloAtributos"><Strong>Gênero: </strong><?=$dadosPerfil['sexo']?></span></p>
                             <?php
                          }
                         ?>
