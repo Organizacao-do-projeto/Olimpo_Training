@@ -80,7 +80,7 @@
                         </h1>
                     </header>
 
-                    <p>Rumo a sua transformação</p>
+                    <p>Rumo a sua Transformação</p>
                     <p><a href="#content" class="btn">Saiba Mais</a></p>
                 </div>
             </article>
@@ -210,7 +210,7 @@
                             <p>
                                 <span class="icon-facebook"><a href="#">Facebook</a>&nbsp;</span><span class="icon-google-plus2"><a href="#">Google+</a></span>&nbsp;<span class="icon-twitter"><a href="#">Twitter</a></span>
                             </p>
-                            <h2>Tudo o que você precisa para ser um Webmaster FullStack em um só lugar</h2>
+                            <h2>Tudo o que você precisa para praticar exercícios em um só lugar</h2>
                         </header>
                         <p>Desde 1980 a ETC - vem criando os melhores cursos do mercado, entregamos ao aluno
                             conhecimento
