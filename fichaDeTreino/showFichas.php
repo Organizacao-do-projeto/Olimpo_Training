@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostrar fichas</title>
+    <title>Mostrar Fichas</title>
 </head>
 <style>
     
@@ -20,7 +20,7 @@
 <body>
 
 <?php
-echo "<h1>Fichas de treino disponíveis</h1>";
+echo "<h1>Fichas de Treino disponíveis</h1>";
 
 //algoritmo para mostrar todas as registro da ficha de treino
 
