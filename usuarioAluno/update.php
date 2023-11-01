@@ -124,18 +124,18 @@
                         <textarea name="objetivo" placeholder="Conte-nos onde quer chegar com ajuda dos treinos..." maxlength="250"><?=$usuarios['objetivo']?></textarea><br>   
 
                         <div>
-                            <label>Foto de perfil:</label><br>
+                            <label>Foto de Perfil:</label><br>
                             <input type="file" name="foto" onchange="pressed()" id="foto" ><span id="fileLabel"><?=$usuarios['foto']?></span><br/>
                         </div>
 
                         <div class="wrapInputRadio">
-                            <label for="sexo">Tipo de assinatura:<font color="red">*</font></label><br><br>
+                            <label for="sexo">Tipo de Assinatura:<font color="red">*</font></label><br><br>
                             <input type="radio" name="assinatura" value="ANUAL" <?php if($assinaturas['tipo'] == 'ANUAL'){ echo "checked";};?>>Anual
                         <input type="radio" name="assinatura" value="MENSAL" <?php if($assinaturas['tipo'] == 'MENSAL'){ echo "checked";};?>>Mensal<br>
                         </div>
 
                         <div class="wrapInputRadio">
-                            <label for="pagamento">Tipo de pagamento:<font color="red">*</font></label><br><br>
+                            <label for="pagamento">Tipo de Pagamento:<font color="red">*</font></label><br><br>
                             <input type="radio" name="pagamento" value="PIX" <?php if($pagamentos['tipo'] == 'PIX'){ echo "checked";};?>>PIX
                         <input type="radio" name="pagamento" value="BOLETO" <?php if($pagamentos['tipo'] == 'BOLETO'){ echo "checked";};?>>Boleto<br><br>
                         </div>
