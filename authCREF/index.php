@@ -14,7 +14,7 @@
 <body>
     <header>
         <h1>Autenticar CREF - ADMIN </h1>
-        <p>Exercício introdutório exemplificando o crud nas tabelas usuários e perfil. </p>
+        <p>Página de autenticação de CREFs</p>
     </header>
     <nav>
         <a href="../index.php">Home</a>
