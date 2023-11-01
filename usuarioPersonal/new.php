@@ -8,7 +8,7 @@
   <link href="../assets/css/boot.css" rel="stylesheet">
   <!-- <link href="../assets/css/style.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="../assets/css/form.css">
-  <title>Cadastro Personal</title>
+  <title>Cadastro Personal Trainer</title>
 </head>
 <body>
     <!--DOBRA CABEÇALHO-->
