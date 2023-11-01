@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Adicionar exercicio </title>
+    <title> Adicionar Exercício </title>
 </head>
 
 <?php
@@ -66,7 +66,7 @@ if(!empty($nomeExercicio && $atividadeFisica && $linkTutorial && $descricao) && 
                         $stmtexercicios->bindParam(':nome_arq', $nomeAnimacao);
                         $stmtexercicios->execute();
 
-                        echo "Exercicio adicionado com suesso!";
+                        echo "Exercício adicionado com sucesso!";
                     
                         }else{
                             echo "Tamanho excedido!";
@@ -220,15 +220,15 @@ if(!empty($nomeExercicio && $atividadeFisica && $linkTutorial && $descricao) && 
 
 <a href="admPanelExercicios.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
 
-    <h1>Cadastrar exercicio</h1>
+    <h1>Cadastrar Exercício</h1>
     <section class="container">
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="nomeExercicio">Nome do exercicio: </label>
+                <label for="nomeExercicio">Nome do Exercício: </label>
                 <input type="text" name="nomeExercicio" placeholder="Flexão"><br/>
             </div>
             <div class="form-group">
-                <label for="atividadeFisica">Atividade física: </label>
+                <label for="atividadeFisica">Atividade Física: </label>
                 <select name="atividadeFisica">
                     <option value="ACADEMIA">Academia</option>
                     <option value="CALISTENIA">Calistenia</option>
@@ -238,15 +238,15 @@ if(!empty($nomeExercicio && $atividadeFisica && $linkTutorial && $descricao) && 
                 </select><br/>
             </div>
             <div class="form-group">
-                <label for="linkTuorial">Link do tutorial: </label>
+                <label for="linkTuorial">Link do Tutorial: </label>
                 <input type="url" name="linkTutorial" placeholder="Insira um link do youtube" pattern="https://www.youtube.com/embed/.*" size="100" required><br/>
             </div>
             <div class="form-group">
-                <label for="animacao">Video de animação:</label><br/>
+                <label for="animacao">Video de Animação:</label><br/>
                 <input type="file" name="animacao" accept=".gif,.mp4,.mov,.webm" ><br/>
             </div>
             <div class="form-group">
-                <label for="descricao">Descrição do exercício:</label><br/>
+                <label for="descricao">Descrição do Exercício:</label><br/>
                 <textarea name="descricao" placeholder="Insira os detalhes sobre o exericio."></textarea><br/>
             </div><br>
             <div class="form-group_btn">
