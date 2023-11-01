@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/boot.css">
-    <title> Exercicios </title>
+    <title> Exercícios </title>
 </head>
 <style>
 
@@ -195,10 +195,10 @@
         ?>
     <section class="btAdmin">
         <div class="wrapbtn">
-            <a href="admPanelExercicios.php" class="btnCriar">Painel de administrador</a>
+            <a href="admPanelExercicios.php" class="btnCriar">Painel de Administrador</a>
         </div>    
     </section>
-    <h1 class="mainTitulo">Exercicios</h1>
+    <h1 class="mainTitulo">Exercícios</h1>
     
     <section class="showExercicios">
 <?php 
