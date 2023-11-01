@@ -9,7 +9,7 @@ $_SESSION['sessaoFicha'] = [];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/boot.css">
-    <title>Fichas de treino</title>
+    <title>Fichas de Treino</title>
 </head>
 <style>
     
@@ -173,7 +173,7 @@ $_SESSION['sessaoFicha'] = [];
     </div>
     <?php endif; ?>
 
-    <h1 class="mainTitulo">Fichas de treino</h1>
+    <h1 class="mainTitulo">Fichas de Treino</h1>
     
     <section class="sectionFichas">
 <?php
