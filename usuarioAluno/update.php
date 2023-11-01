@@ -6,72 +6,175 @@
     # cria a variavel $id com valor igual a 1. 
     $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
     
-    # cria o comando select filtrado pelo campo id e valor = $id
     $query = "SELECT * FROM olimpo.usuarios WHERE id = :id;";
-
+    
     $stmt = $dbh->prepare($query);
     $stmt->bindParam(':id', $id);
     $stmt->execute();
+    $usuarios = $stmt->fetch(PDO::FETCH_BOTH);
 
-    $usuario = $stmt->fetch(PDO::FETCH_BOTH);
+
+    $dbhPerfis = Conexao::getConexao();
+
+    $queryPerfis = "SELECT * FROM olimpo.perfis WHERE id = :id;";
+
+    $stmtPerfis = $dbhPerfis->prepare($queryPerfis);
+    $stmtPerfis->bindParam(':id', $id);
+    $stmtPerfis->execute();
+    $perfis = $stmtPerfis->fetch(PDO::FETCH_BOTH);
+
+
+    $dbhAssinaturas = Conexao::getConexao();
+
+    $queryAssinaturas = "SELECT * FROM olimpo.assinaturas WHERE idUsuarios = :idUsuarios;";
+
+    $stmtAssinaturas = $dbhAssinaturas->prepare($queryAssinaturas);
+    $stmtAssinaturas->bindParam(':idUsuarios', $id);
+    $stmtAssinaturas->execute();
+    $assinaturas = $stmtAssinaturas->fetch(PDO::FETCH_BOTH);
+
+
+    $dbhPagamentos = Conexao::getConexao();
+
+    $queryPagamentos = "SELECT * FROM olimpo.pagamentos WHERE idUsuarios = :idUsuarios;";
+
+    $stmtPagamentos = $dbhPagamentos->prepare($queryPagamentos);
+    $stmtPagamentos->bindParam(':idUsuarios', $id);
+    $stmtPagamentos->execute();
+    $pagamentos = $stmtPagamentos->fetch(PDO::FETCH_BOTH);
+    
     $dbh = null;
-    if (!$usuario) 
+    if (!$usuarios || !$perfis || !$assinaturas || !$pagamentos ) 
     {
         header('location: index.php?msg=Usuário não encontrado para o ID: {$id}');
         exit;
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 04 - Usuários</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>Cadastro de usuario aluno</title>
+    <link rel="stylesheet" href="../assets/css/boot.css">
+    <link rel="stylesheet" href="../assets/css/form.css">
+    
 </head>
-
 <body>
-    <header>
-        <h1>CRUD - Básico</h1>
-        <p>Exercício introdutório exemplificando o crud nas tabelas usuários e perfil. </p>
+<header class="main_header">
+        <div class="main_header_content">
+            <a href="../index.php">
+                <img src="../assets/img/logos/logo_borda.png" alt="Olimpo Training" title="Olimpo Training"></a>
+                <h4>Olimpo Training</h4>
+
+            <nav class="main_header_content_menu">
+                <ul>
+                    <li><a href="../views/sele.html">Voltar</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="index.php">Usuários</a>
-        <a href="#">Perfil</a>
-    </nav>
-    <main>
 
-        <h1>Novo Usuário</h1>
-        <form action="usuarioupdate.php" method="post">
-            <input type="hidden" name="id" value="<?=$usuario['id']?>">
-            <label>E-mail</label><br>
-            <input 
-                    type="email" 
-                    name="email" 
-                    placeholder="Informe seu e-mail." 
-                    size="80" required autofocus
-                    value="<?=$usuario['email']?>" ><br>
-            <label>Nome</label><br>
-            <input 
-                type="text" 
-                name="nome" 
-                placeholder="Informe seu nome." 
-                size="80" 
-                required
-                value="<?=$usuario['nome']?>"><br>
-            <label>CPF</label><br>
-            <input 
-                type="text" 
-                name="CPF" 
-                placeholder="Informe seu CPF." 
-                size="11" 
-                required
-                value="<?=$usuario['CPF']?>"><br>
-            <button class="btn" type="submit">Salvar</button>
-        </form>
-    </main>
+
+    <form action="usuarioupdate.php" method="post" enctype="multipart/form-data">
+        <div class="main-login-aluno">
+            <div class="left-login">
+                <h1>Cadastre-se<br>E entre para o Olimpo</h1>
+                <img src="../assets/img/treino.svg" class="left-login-image" alt="Treino animação">
+            </div>
+
+            
+            <div class="right-login">
+                <div class="card-login">
+                    <h1>Cadastro</h1>
+                    <div class="textfield">
+                        <label for="usuario">Nome Completo<font color="red">*</font></label><span></span>
+                        <input type="text" name="nome" value="<?=$usuarios['nome']?>" size="80" placeholder="Informe o seu nome" required><br>
+
+                        <label for="email">E-mail<font color="red">*</font></label>
+                        <input type="email" name="email" value="<?=$usuarios['email']?>" size="50" placeholder="Informe o seu e-mail" required><br>
+                        <label>Senha<font color="red">*</font></label>
+                        <input type="password" name="password" maxlength="25" autocomplete="off" required
+                            placeholder="Informe sua senha">
+                        <br>
+                        <div class="wrapInputRadio">
+                            <label for="sexo">Sexo:<font color="red">*</font></label><br><br>
+                            <input type="radio" name="sexo" value="Masculino" <?php if($usuarios['sexo'] == 'Masculino'){ echo "checked";};?>>Masculino
+                        <input type="radio" name="sexo" value="Feminino" <?php if($usuarios['sexo'] == 'Feminino'){ echo "checked";};?>>Feminino
+                        </div>
+
+                        <div class="flex-row">
+                            <div>
+                                <label for="altura">Altura:<font color="red">*</font></label>
+                                <div class="flex-row center-text">
+                                <input type="number" name="altura" value="<?=$usuarios['altura']?>"  class="shortInput" placeholder="Ex.: 175" required>cm
+                                </div>
+                            </div>
+                            &nbsp;&nbsp;
+                            <div>
+                            <label for="peso">Peso:<font color="red">*</font></label>
+                                <div class="flex-row center-text">
+                                    <input type="number" name="peso" value="<?=$usuarios['peso']?>" class="shortInput" placeholder="Ex.: 65.5" required>kg
+                                </div>
+                            </div>
+                        </div><br>
+
+                        <label for="objetivo">Objetivo Pessoal:<font color="red">*</font></label>
+                        <textarea name="objetivo" placeholder="Conte-nos onde quer chegar com ajuda dos treinos..." maxlength="250"><?=$usuarios['objetivo']?></textarea><br>   
+
+                        <div>
+                            <label>Foto de perfil:</label><br>
+                            <input type="file" name="foto" onchange="pressed()" id="foto" ><span id="fileLabel"><?=$usuarios['foto']?></span><br/>
+                        </div>
+
+                        <div class="wrapInputRadio">
+                            <label for="sexo">Tipo de assinatura:<font color="red">*</font></label><br><br>
+                            <input type="radio" name="assinatura" value="ANUAL" <?php if($assinaturas['tipo'] == 'ANUAL'){ echo "checked";};?>>Anual
+                        <input type="radio" name="assinatura" value="MENSAL" <?php if($assinaturas['tipo'] == 'MENSAL'){ echo "checked";};?>>Mensal<br>
+                        </div>
+
+                        <div class="wrapInputRadio">
+                            <label for="pagamento">Tipo de pagamento:<font color="red">*</font></label><br><br>
+                            <input type="radio" name="pagamento" value="PIX" <?php if($pagamentos['tipo'] == 'PIX'){ echo "checked";};?>>PIX
+                        <input type="radio" name="pagamento" value="BOLETO" <?php if($pagamentos['tipo'] == 'BOLETO'){ echo "checked";};?>>Boleto<br><br>
+                        </div>
+                        
+                        <label>CPF:<font color="red">*</font></label>
+                        <input type="text" class="CPF" name="CPF" value="<?=$usuarios['CPF']?>" size="3" id="cpf" maxlength="14" autocomplete="off"
+                            placeholder="Ex: 000.000.000-00" onkeyup="mascara_cpf()" onkeypress="TestaCPF()" required><br><br>
+                            <input type="hidden" value="<?=$usuarios['id']?>" name="id">
+                            <input type="hidden" value="<?=$usuarios['foto']?>" name="fotoAnterior" >
+                    </div>
+                    <button type="submit" class="btn-login">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script src="../assets/script/cpf.js"></script>
+    <script>
+            window.pressed = function(){
+        var a = document.getElementById('foto');
+        var fileLabel = document.getElementById('fileLabel');
+        if(a.value == "")
+        {
+            fileLabel.innerHTML = "Escolha um arquivo";
+        }
+        else
+        {
+            var theSplit = a.value.split('\\');
+            fileLabel.innerHTML = theSplit[theSplit.length-1];
+        }
+    };
+    </script>
+    
+<style>
+    input[type=file]{
+    width: 160px;
+    height: 35px;
+    color: transparent;
+    }
+</style>
 </body>
-
 </html>

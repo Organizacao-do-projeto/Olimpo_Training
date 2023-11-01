@@ -50,9 +50,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/formulario.css">
+  <!-- <link rel="stylesheet" href="assets/css/formulario.css"> -->
   <link href="../assets/css/boot.css" rel="stylesheet">
-  <link href="../assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/formulario.css">
+  <link rel="stylesheet" href="../assets/css/form.css">
+
   <title>Editar Personal</title>
 </head>
 <body>
@@ -71,15 +73,15 @@
             </nav>
         </div>
     </header>
-  <main class="container">
-
+  <!-- <main class="container"> -->
+<!-- 
     <header>
         <h1>Editar personal trainer</h1>
     </header>
-    <nav>
+<nav> -->
         <!-- <a href="index.php" style="text-align: center;">Voltar</a> -->
-    </nav>
-    <main class="container">
+    <!-- </nav> -->
+    <!-- 
 
     <form action="usuarioupdate.php" method="POST" enctype="multipart/form-data">
          <label>Nome:</label><br>
@@ -109,8 +111,8 @@
             <option value="Provisionado">Provisionado</option>
           </select>
           <label for="UF_registro">UF de registro</label>
-          <select name="UF_registro" id="UF_registro">
-            <option value="">Selecione</option>
+          <!-- <select name="UF_registro" id="UF_registro">: -->
+            <!-- <option value="">Selecione</option>
             <option value="AC">AC</option>
             <option value="AL">AL</option>
             <option value="AP">AP</option>
@@ -144,8 +146,106 @@
           <input type="hidden" value="<?=$usuario['id']?>" name="id">
           <input type="hidden" value="<?=$usuario['foto']?>" name="fotoAnterior" >
           <button class="btn" type="submit">Salvar</button>
-      </form>
-</main>
+      </form> -->
+<!-- </main> -->
+
+<!-- INCIO DOBRA INTEGRAÇÃO -->
+
+<form action="usuarioupdate.php" method="post" enctype="multipart/form-data">
+        <div class="main-login-aluno">
+            <div class="left-login">
+                <h1>Cadastre-se<br>E entre para o Olimpo</h1>
+                <img src="../assets/img/treino.svg" class="left-login-image" alt="Treino animação">
+            </div>
+
+            
+            <div class="right-login">
+                <div class="card-login-personal">
+                    <h1>Cadastro</h1>
+                    <div class="textfield">
+                        <label for="usuario">Nome Completo<font color="red">*</font></label><span></span>
+                        <input type="text" name="nome" size="80" value="<?=$usuario['nome']?>" placeholder="Informe o seu nome" required><br>
+
+                        <label for="email">E-mail<font color="red">*</font></label>
+                        <input type="email" name="email" size="50" value="<?=$usuario['email']?>" placeholder="Informe o seu e-mail" required><br>
+                        <label>Senha<font color="red">*</font></label>
+                        <input type="password" name="password" maxlength="25" autocomplete="off" required
+                            placeholder="Informe sua senha">
+                        <br>
+                        <div class="wrapInputRadio">
+                        <label for="sexo">Sexo:<font color="red">*</font></label>
+                            <input type="radio" name="sexo" value="Masculino"
+                            <?php
+                            if($usuario['sexo'] == "Masculino"){ echo "checked"; }; ?>>Masculino
+          <input type="radio" name="sexo" value="Feminino" <?php
+          if($usuario['sexo'] == "Feminino"){ echo "checked"; };?> >Feminino
+                        </div><br>
+
+                        <label for="descricao">Descrição Pessoal: <font color="red">*</font></label>
+                        <textarea name="descricao" placeholder="Conte mais sobre sua carreira..."><?=$usuario['descricao']?></textarea>
+
+                        <label>CPF:<font color="red">*</font></label>
+                        <input type="text" class="CPF" name="cpf" value="<?=$usuario['CPF']?>" size="3" id="cpf" maxlength="14" autocomplete="off"
+                            placeholder="Ex: 000.000.000-00" onkeyup="mascara_cpf()" onkeypress="TestaCPF()" required><br>
+
+                        <label for="numero">Numero do CREF: <font color="red">*</font></label>
+                        <input type="number" name="numero" value="<?=$CREFS['numero']?>" placeholder="Informe os digitos do seu CREF"><br>
+
+                        <label for="natureza">Natureza do CREF: <font color="red">*</font></label>
+                      <select name="natureza" id="natureza">
+                                  <option value="Bacharelado">Bacharelado</option>
+                                  <option value="Licenciatura">Licenciatura</option>
+                                  <option value="Provisionado">Provisionado</option>
+                      </select>
+
+                       
+                        
+                        </select>
+
+                            <label for="UF_registro" >UF de registro <font color="red">*</font></label>
+                            <select name="UF_registro" id="UF_registro">
+                              <option value="">Selecione</option>
+                              <option value="AC">AC</option>
+                              <option value="AL">AL</option>
+                              <option value="AP">AP</option>
+                              <option value="AM">AM</option>
+                              <option value="BA">BA</option>
+                              <option value="CE">CE</option>
+                              <option value="DF">DF</option>
+                              <option value="ES">ES</option>
+                              <option value="GO">GO</option>
+                              <option value="MA">MA</option>
+                              <option value="MS">MS</option>
+                              <option value="MT">MT</option>
+                              <option value="MG">MG</option>
+                              <option value="PA">PA</option>
+                              <option value="PB">PB</option>
+                              <option value="PR">PR</option>
+                              <option value="PE">PE</option>
+                              <option value="PI">PI</option>
+                              <option value="RJ">RJ</option>
+                              <option value="RN">RN</option>
+                              <option value="RS">RS</option>
+                              <option value="RO">RO</option>
+                              <option value="RR">RR</option>
+                              <option value="SC">SC</option>
+                              <option value="SP">SP</option>
+                              <option value="SE">SE</option>
+                              <option value="TO">TO</option>
+                            </select> 
+
+
+                    <label>Foto de perfil: <font color="red">*</font></label><br>
+                    <input type="file" name="foto" onchange="pressed()" id="foto" ><span id="fileLabel"><?=$usuario['foto']?></span><br/><br><br>
+                    <input type="hidden" value="<?=$usuario['id']?>" name="id">
+          <input type="hidden" value="<?=$usuario['foto']?>" name="fotoAnterior" >
+                    <button class="btn" type="submit">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+<!-- FIM DOBRA INTEGRAÇÃO -->
+
 </body>
 <script>
 

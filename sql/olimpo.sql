@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30/10/2023 às 02:43
+-- Tempo de geração: 01/11/2023 às 10:35
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -30,8 +30,17 @@ SET time_zone = "+00:00";
 CREATE TABLE `assinaturas` (
   `id` int(11) NOT NULL,
   `tipo` varchar(70) NOT NULL,
-  `idUsuario` int(11) NOT NULL
+  `idUsuarios` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `assinaturas`
+--
+
+INSERT INTO `assinaturas` (`id`, `tipo`, `idUsuarios`) VALUES
+(11, 'MENSAL', 31),
+(13, 'ANUAL', 33),
+(14, 'ANUAL', 34);
 
 -- --------------------------------------------------------
 
@@ -43,10 +52,19 @@ CREATE TABLE `crefs` (
   `id` int(11) NOT NULL,
   `idUsuarios` int(11) NOT NULL,
   `numero` int(6) NOT NULL,
-  `natureza` varchar(1) NOT NULL,
+  `natureza` varchar(25) NOT NULL,
   `UF_registro` varchar(2) NOT NULL,
   `autenticado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `crefs`
+--
+
+INSERT INTO `crefs` (`id`, `idUsuarios`, `numero`, `natureza`, `UF_registro`, `autenticado`) VALUES
+(8, 16, 123456, 'Bacharelado', 'RJ', 1),
+(9, 35, 324, 'Licenciatura', 'ES', 1),
+(10, 36, 99999, 'Licenciatura', 'DF', 1);
 
 -- --------------------------------------------------------
 
@@ -140,6 +158,27 @@ INSERT INTO `ft_exe` (`idFT_EXE`, `idFichas_Treino`, `idExercicios`, `series`, `
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `pagamentos`
+--
+
+CREATE TABLE `pagamentos` (
+  `id` int(11) NOT NULL,
+  `tipo` varchar(11) NOT NULL,
+  `idUsuarios` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `pagamentos`
+--
+
+INSERT INTO `pagamentos` (`id`, `tipo`, `idUsuarios`) VALUES
+(11, 'BOLETO', 31),
+(13, 'PIX', 33),
+(14, 'PIX', 34);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `perfis`
 --
 
@@ -156,7 +195,13 @@ INSERT INTO `perfis` (`id`, `nome`) VALUES
 (1, 'ADMINISTRADOR'),
 (8, 'PERSONAL-TRAINER'),
 (9, 'PERSONAL-TRAINER'),
-(10, 'ALUNO');
+(10, 'ALUNO'),
+(16, 'PERSONAL-TRAINER'),
+(31, 'ALUNO'),
+(33, 'ALUNO'),
+(34, 'ALUNO'),
+(35, 'PERSONAL-TRAINER'),
+(36, 'PERSONAL-TRAINER');
 
 -- --------------------------------------------------------
 
@@ -171,12 +216,13 @@ CREATE TABLE `usuarios` (
   `nome` varchar(100) NOT NULL,
   `autenticado` tinyint(1) NOT NULL,
   `CPF` varchar(15) NOT NULL,
-  `genero` varchar(25) NOT NULL,
+  `sexo` varchar(25) NOT NULL,
   `altura` int(11) NOT NULL,
   `peso` float NOT NULL,
   `saldo_solici` int(11) NOT NULL,
   `foto` varchar(70) NOT NULL,
   `descricao` varchar(500) NOT NULL,
+  `objetivo` varchar(250) NOT NULL,
   `idPerso_trainer` int(11) NOT NULL,
   `idPerfis` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -185,13 +231,20 @@ CREATE TABLE `usuarios` (
 -- Despejando dados para a tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `email`, `password`, `nome`, `autenticado`, `CPF`, `genero`, `altura`, `peso`, `saldo_solici`, `foto`, `descricao`, `idPerso_trainer`, `idPerfis`) VALUES
-(1, 'admin@gmail.com', '123456', 'Administrador', 1, '9999999999', 'MASCULINO', 200, 200, 7, '', '', 1, 1),
-(7, 'fdsf', 'fads', 'dfad', 0, '988493580', 'MASCULINO', 178, 0, 7, 'dfdsdsaf', '', 8, 0),
-(8, 'aa@gmail', 'haha', 'Cariani', 0, '9884777', 'MASCULINO', 199, 0, 7, 'fdsfasd.jpg', 'eu sou formado em tal na faculdade tal', 0, 0),
-(9, 'lkjflds@gmail', 'dfads', 'carianis', 0, '988493580', 'MASCULINO', 178, 77, 7, 'hhah.jpg', 'esse é o personal mais bvislumbrado do mercado atualmente', 0, 0),
-(10, 'abc@gmail', '202cb962ac59075b964b07152d234b70', 'Marcos', 0, '988493580', 'MASCULINO', 178, 77, 7, 'marcos.png', 'Olá, eu sou o marcos', 0, 10),
-(11, 'isac@gmail.com', '202cb962ac59075b964b07152d234b70', 'isac', 0, '555555', '', 0, 0, 0, '', '', 0, 0);
+INSERT INTO `usuarios` (`id`, `email`, `password`, `nome`, `autenticado`, `CPF`, `sexo`, `altura`, `peso`, `saldo_solici`, `foto`, `descricao`, `objetivo`, `idPerso_trainer`, `idPerfis`) VALUES
+(1, 'admin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Administrador', 1, '9999999999', 'MASCULINO', 200, 200, 7, '', '', '', 1, 1),
+(7, 'fdsf', 'fads', 'dfad', 0, '988493580', 'MASCULINO', 178, 0, 7, 'dfdsdsaf', '', '', 8, 0),
+(8, 'aa@gmail', 'haha', 'Cariani', 0, '9884777', 'MASCULINO', 199, 0, 7, 'fdsfasd.jpg', 'eu sou formado em tal na faculdade tal', '', 0, 0),
+(9, 'lkjflds@gmail', 'dfads', 'carianis', 0, '988493580', 'MASCULINO', 178, 77, 7, 'hhah.jpg', 'esse é o personal mais bvislumbrado do mercado atualmente', '', 0, 0),
+(10, 'abc@gmail', '202cb962ac59075b964b07152d234b70', 'Marcos', 0, '988493580', 'MASCULINO', 178, 77, 7, 'marcos.png', 'Olá, eu sou o marcos', '', 0, 10),
+(11, 'isac@gmail.com', '202cb962ac59075b964b07152d234b70', 'isac', 0, '555555', '', 0, 0, 0, '', '', '', 0, 0),
+(16, 'p@p', '202cb962ac59075b964b07152d234b70', 'Kleberson', 0, '999945545./', 'Masculino', 0, 0, 0, 'treinando.jpg', 'Kleberson KlebersonKlebersonKlebersonKlebersonKleberson', '', 1, 0),
+(19, 'a@a', '202cb962ac59075b964b07152d234b70', 'aaa', 0, '324.', 'Feminino', 3422, 34, 3, 'RonnieColeman.jpg', '', 'adfsda', 0, 0),
+(31, 'as@gmail', 'c386950aa5131b703f031267f77e1075', 'fadi', 0, '235.356.67', 'Feminino', 23, 33, 3, 'RonnieColeman.jpg', '', '3333333', 0, 0),
+(33, 's@s', '202cb962ac59075b964b07152d234b70', 'sim', 0, '123.765.', 'Masculino', 123, 78, 7, 'RonnieColeman.jpg', '', 'fdsfdsafda', 0, 0),
+(34, 'w@w', '202cb962ac59075b964b07152d234b70', 'seila', 0, '123.475.443--6', 'Feminino', 123, 213, 7, 'sla.jpg', '', 'fdsfasadfas', 0, 0),
+(35, 'pa@p', '2f3680790ac607007e3443a317871dd5', 'p', 0, '124523', 'Feminino', 0, 0, 0, 'RonnieColeman.jpg', 'gfda', '', 1, 0),
+(36, 'n@n', 'ca46c1b9512a7a8315fa3c5a946e8265', 'Não', 0, '9999', 'Feminino', 0, 0, 0, 'trabaio.jpg', 'não', '', 1, 0);
 
 --
 -- Índices para tabelas despejadas
@@ -228,6 +281,12 @@ ALTER TABLE `ft_exe`
   ADD PRIMARY KEY (`idFT_EXE`);
 
 --
+-- Índices de tabela `pagamentos`
+--
+ALTER TABLE `pagamentos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices de tabela `perfis`
 --
 ALTER TABLE `perfis`
@@ -247,13 +306,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `assinaturas`
 --
 ALTER TABLE `assinaturas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `crefs`
 --
 ALTER TABLE `crefs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `exercicios`
@@ -274,16 +333,22 @@ ALTER TABLE `ft_exe`
   MODIFY `idFT_EXE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=233;
 
 --
+-- AUTO_INCREMENT de tabela `pagamentos`
+--
+ALTER TABLE `pagamentos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT de tabela `perfis`
 --
 ALTER TABLE `perfis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

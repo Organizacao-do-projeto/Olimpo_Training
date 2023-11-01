@@ -4,33 +4,95 @@
     require_once '../src/conexao.php';
 
     # recebe os valores enviados do formulário via método post.
-    $email = $_POST['email'];
-    $CPF = $_POST['CPF'];
-    $password = md5($_POST['password']);
     $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
+    $sexo = $_POST['sexo'];
+    $altura = $_POST['altura'];
+    $peso = $_POST['peso'];
+    $objetivo = $_POST['objetivo'];
+    $fotoAtributos = $_FILES['foto'];
+    $assinatura = $_POST['assinatura'];
+    $pagamento = $_POST['pagamento'];
+    $CPF = $_POST['CPF'];
+
+    var_dump($pagamento);
+
+    $assinatura == 'ANUAL' ? $saldo_solici = 7 : $saldo_solici = 3;
     
 
-    # solicita a conexão com o banco de dados e guarda na váriavel dbh.
     $dbh = Conexao::getConexao();
 
-    # cria uma instrução SQL para inserir dados na tabela usuarios.
-    $query = "INSERT INTO olimpo.usuarios (email, CPF, password, nome) 
-                VALUES (:email, :CPF, :password, :nome);"; 
-    
-    # prepara a execução da query e retorna para uma variável chamada stmt.
-    $stmt = $dbh->prepare($query);
+    if($fotoAtributos['size'] > 0){
+        //query de adiocinar com o foto
+        $query = "INSERT INTO olimpo.usuarios ( nome , email , password ,  sexo , altura, peso , saldo_solici , objetivo , foto , CPF )
+        VALUES( :nome , :email , :password , :sexo , :altura, :peso ,  :saldo_solici, :objetivo , :foto , :CPF); ";
+        $addFoto = true;
+    }else{
+        //query de adicionar sem foto
+        $query = "INSERT INTO olimpo.usuarios ( nome , email , password ,  sexo , altura, peso , saldo_solici, objetivo , CPF )
+        VALUES( :nome , :email , :password , :sexo , :altura, :peso , :saldo_solici, :objetivo , :CPF); ";
+        $addFoto = false;
+    }
 
-    # com a variável stmt, usada bindParam para associar a cada um dos parâmetro
-    # e seu tipo (opcional).
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':CPF', $CPF);
-    $stmt->bindParam(':password', $password);
-    $stmt->bindParam(':nome', $nome);
-   
+    $foto = $fotoAtributos['name'];
+    $caminhoFoto = "../assets/img/usuarios/".$foto;
+    $extensaoArquivo = pathinfo($fotoAtributos['name'], PATHINFO_EXTENSION);
+    $tamanhoPermitido = 150000000;  
     
-    # executa a instrução contida em stmt e se tudo der certo retorna uma valor maior que zero.
+    $stmt = $dbh->prepare($query);   
+
+    $stmt->bindParam(':nome', $nome);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':password', $password);
+    $stmt->bindParam(':sexo', $sexo);
+    $stmt->bindParam(':altura', $altura);
+    $stmt->bindParam(':peso', $peso);
+    $stmt->bindParam(':saldo_solici', $saldo_solici);
+    $stmt->bindParam(':objetivo', $objetivo);
+    $stmt->bindParam(':foto', $fotoAtributos['name']);
+    if($addFoto){
+        $stmt->bindParam(':foto', $foto);
+        move_uploaded_file($fotoAtributos['tmp_name'], $caminhoFoto);
+    }
+    $stmt->bindParam(':CPF', $CPF);
+    
     $result= $stmt->execute();
-    if ($result)
+
+    $ultimoID = $dbh->lastInsertId();
+
+
+    // QUERY PERFIS
+    $dbhPerfis = Conexao::getConexao();
+
+    $queryPerfis = "INSERT INTO olimpo.perfis (id ,nome) VALUES (:id,'ALUNO');";
+    
+    $stmtPerfis = $dbhPerfis->prepare($queryPerfis);
+    $stmtPerfis->bindParam(":id",$ultimoID);
+    $resultPerfis= $stmtPerfis->execute();
+
+
+    // QUERY ASSINATURAS
+    $dbhAssinaturas = Conexao::getConexao();
+
+    $queryAssinaturas = "INSERT INTO olimpo.assinaturas (tipo, idUsuarios) VALUES (:tipo,:idUsuarios);";
+    
+    $stmtAssinaturas = $dbhAssinaturas->prepare($queryAssinaturas);
+    $stmtAssinaturas->bindParam(":tipo",$assinatura);
+    $stmtAssinaturas->bindParam(":idUsuarios",$ultimoID);
+    $resultAssinaturas = $stmtAssinaturas->execute();
+
+    // QUERY ASSINATURAS
+    $dbhPagamentos = Conexao::getConexao();
+
+    $queryPagamentos = "INSERT INTO olimpo.pagamentos (tipo, idUsuarios) VALUES (:tipo,:idUsuarios);";
+    
+    $stmtPagamentos = $dbhPagamentos->prepare($queryPagamentos);
+    $stmtPagamentos->bindParam(":tipo",$pagamento);
+    $stmtPagamentos->bindParam(":idUsuarios",$ultimoID);
+    $resultPagamentos = $stmtPagamentos->execute();
+
+    if ($result AND $resultPerfis AND $resultAssinaturas AND $resultPagamentos)
     {
         header('location: index.php');
         exit;

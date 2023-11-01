@@ -113,8 +113,8 @@
                         <?php endif;  
 
                         if($tipoUsr == 'ALUNO'): ?>
-                        <a class="btn" href="../usuarioAluno/CRUD_mensalidades/usuarios/update.php?id=<?=$row['id']?>">Editar</a>&nbsp;
-                        <a class="btn" href="../usuarioAluno/CRUD_mensalidades/usuarios/delete.php?id=<?=$row['id']?>&foto=<?=$row['foto']?>">Excluir</a>
+                        <a class="btn" href="../usuarioAluno/update.php?id=<?=$row['id']?>">Editar</a>&nbsp;
+                        <a class="btn" href="../usuarioAluno/delete.php?id=<?=$row['id']?>&foto=<?=$row['foto']?>">Excluir</a>
                         <?php endif;
 
                         if($tipoUsr == 'COMUM'): ?>

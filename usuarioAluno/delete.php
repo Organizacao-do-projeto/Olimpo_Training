@@ -5,20 +5,56 @@
 
     # usando funcionalidade nova do PHP 8 chamada null coalescing operatior
     $id = $_GET['id'] ?? 0;
+    $foto = $_GET['foto'] ?? 0;
 
     # cria o comando DELETE filtrado pelo campo id e valor = $id
     $query = "DELETE FROM olimpo.usuarios WHERE id = :id;";
 
     $stmt = $dbh->prepare($query);
     $stmt->bindParam(':id', $id);
-    $stmt->execute();
+    $result = $stmt->execute();
 
-    if ($stmt->rowCount() > 0)
+    // QUERY PERFIS
+    $dbhPerfis = Conexao::getConexao();
+
+    $queryPerfis = "DELETE FROM olimpo.perfis WHERE id = :id;";
+    
+    $stmtPerfis = $dbhPerfis->prepare($queryPerfis);
+    $stmtPerfis->bindParam(":id",$id);
+    $resultPerfis= $stmtPerfis->execute();
+
+    // QUERY ASSINATURAS
+    $dbhAssinaturas = Conexao::getConexao();
+
+    $queryAssinaturas = "DELETE FROM olimpo.assinaturas WHERE idUsuarios = :idUsuarios;";
+    
+    $stmtAssinaturas = $dbhAssinaturas->prepare($queryAssinaturas);
+    $stmtAssinaturas->bindParam(":idUsuarios",$id);
+    $resultAssinaturas = $stmtAssinaturas->execute();
+
+    // QUERY ASSINATURAS
+    $dbhPagamentos = Conexao::getConexao();
+
+    $queryPagamentos = "DELETE FROM olimpo.pagamentos WHERE idUsuarios = :idUsuarios;";
+    
+    $stmtPagamentos = $dbhPagamentos->prepare($queryPagamentos);
+    $stmtPagamentos->bindParam(":idUsuarios",$id);
+    $resultPagamentos = $stmtPagamentos->execute();
+
+    if(isset($_GET['foto'])){
+        unlink('../assets/img/usuarios/'.$foto);
+    }
+
+    if($stmt->rowCount() > 0 && $stmtPerfis->rowCount() > 0 && $stmtAssinaturas->rowCount() > 0 && $stmtPagamentos->rowCount() > 0 )
     {
         header('location: index.php');
         exit;
     } else {
         echo "Não existe usuário cadastrado com id = $id";
     }
+
     $dbh = null;
+    $dbhAssinaturas = null;
+    $dbhPagamentos =  null;
+    $dbhPerfis = null;
     echo "<p><a href='index.php'>Voltar</a></p>";

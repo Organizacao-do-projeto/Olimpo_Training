@@ -82,16 +82,26 @@ html{
 
 
 
+/* INCIO DOBRA INPUTS */
 
-
-.main-login{
+.main-login-aluno{
     width: 100vw;
-    height: 100vh;
+    height: 1400px;
     background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.main-login{
+    width: 100vw;
+    height: 1400px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .left-login{
     width: 50vw;
     height: 100vh;
@@ -118,7 +128,7 @@ html{
 
 .right-login{
     width: 50vw;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,7 +147,28 @@ html{
 
 }
 
+.card-login-personal{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background-color: black;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgb(213, 213, 213);
+    color: #fbfbfb;
+
+}
+
+
 .card-login h1{
+    color: rgb(212, 180, 109);
+    font-weight: 800;
+    margin: 0;
+}
+
+.card-login-personal h1{
     color: rgb(212, 180, 109);
     font-weight: 800;
     margin: 0;
@@ -152,7 +183,11 @@ html{
     margin: 10px 0px;
 }
 
-.textfield input{
+.textfield input[type=text],
+input[type=number],
+input[type=email],
+input[type=password],
+input[type=text]  {
     width: 100%;
     border: none;
     border-radius: 10px;
@@ -165,9 +200,61 @@ html{
     box-sizing: border-box;
 }
 
+.textfield .wrapInputRadio{
+    padding: 11px;
+}
 
 
 
+.textfield textarea{
+    width: 100%;
+    height: 180px;
+    border: 1px solid #f9f5e2;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #f9f5e2;
+    color: black;
+    font-size: 12pt;
+    /* box-shadow: 0px 5px 10px rgb(241, 234, 197); */
+    outline: none;
+}
+
+.textfield .shortInput{
+    width: 95px;
+    display: block;
+
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.center-text{
+    display: flex;
+    align-items: center;
+}
+
+select{
+    width: 80%;
+    padding: 8px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    background: #fbfbfb;
+}
+
+option{
+    width: 80%;
+    padding: 8px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    background-color: #fbfbfb;
+}
+
+
+
+
+/* 
 .textfield_row .cvv{
         width: 25%;
         border: none;
@@ -191,9 +278,9 @@ html{
         box-shadow: 0px 5px 10px rgb(241, 234, 197);
         outline: none;
         box-sizing: border-box;
-}
+} */
 
-
+/* 
 .textfield_column{
     width: 100%;
     display: flex;
@@ -235,11 +322,16 @@ html{
         box-sizing: border-box;
         margin: 10px 10px;
 }
-
+ */
 
 
 .textfield label{
     color: black;
+    margin-bottom: 10px;
+}
+
+.card-login-personal .textfield label{
+    color: #fbfbfb;
     margin-bottom: 10px;
 }
 
@@ -269,3 +361,5 @@ html{
     background-color: rgb(253, 209, 107);
     text-decoration: none;
 }
+
+/* FIM TAMANHOO DOBRA LOGIN */
