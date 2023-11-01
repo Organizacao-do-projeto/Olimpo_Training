@@ -27,7 +27,6 @@ if(isset($_GET['nomeBusca'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesquisar usuário</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="../assets/css/boot.css">
 </head>
 <style>
     
@@ -145,7 +144,13 @@ if(isset($_GET['nomeBusca'])){
                     <a href="perfil.php?idPerfil=<?=$result['id']?>">
                         <article class="linhaUsuario">
                             <div>
+                            <?php if(empty($result['foto'])){ ?>
                                 <img src="assets/img/usuarioGenerico.jpg" id="fotoUsuario" >
+
+                            <?php }else{ ?>
+                                <img src="../assets/img/usuarios/<?=$result['foto']?>" id="fotoUsuario" >
+                                
+                            <?php } ?>
                                 <h1><?=$result['nome']?></h1>
                             </div>
                             <span>

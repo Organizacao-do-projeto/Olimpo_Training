@@ -152,7 +152,13 @@ $nomePerfis = $stmt->fetch();
             <article class="info_user">
                 <h2><?=$dadosUsuario['nome']?></h2>
                 <img id="fotoUsuario"
-                    src="https://cdn.britannica.com/11/222411-050-D3D66895/American-politician-actor-athlete-Arnold-Schwarzenegger-2016.jpg">
+                            <?php if(empty($dadosUsuario['foto'])){ ?>
+                                <img src="assets/img/usuarioGenerico.jpg" id="fotoUsuario" >
+
+                            <?php }else{ ?>
+                                <img src="../assets/img/usuarios/<?=$dadosUsuario['foto']?>" id="fotoUsuario" >
+                                
+                            <?php } ?>
             </article>
         </section>
         <main>

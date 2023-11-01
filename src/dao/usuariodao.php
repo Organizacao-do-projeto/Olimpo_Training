@@ -93,7 +93,7 @@ class UsuarioOl
     public function login($email, $password)
     {
         try {
-            $query = "SELECT id, nome, email, idPerfis 
+            $query = "SELECT * 
             FROM olimpo.usuarios 
             WHERE email = :email
             AND password = :password;";

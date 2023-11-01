@@ -254,7 +254,13 @@ $dadosTabelaPerfis = $stmtTabelaPerfis->fetch();
 
     <header>
         <section class="lado">
-            <img id="fotoUsuario" src="https://boaforma.abril.com.br/wp-content/uploads/sites/2/2017/07/mulher-malhando-na-academia.jpg?quality=90&strip=info"> 
+                            <?php if(empty($dadosPerfil['foto'])){ ?>
+                                <img src="assets/img/usuarioGenerico.jpg" id="fotoUsuario" >
+
+                            <?php }else{ ?>
+                                <img src="../assets/img/usuarios/<?=$dadosPerfil['foto']?>" id="fotoUsuario" >
+                                
+                            <?php } ?>
         </section>
     </header>
 

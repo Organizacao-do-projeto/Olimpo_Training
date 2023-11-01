@@ -18,13 +18,17 @@ if (!$usuario) {
     header("location: ../index.php?error=Login ou senha inválidos!");
     exit;
 }
-$_SESSION['dadosUsuario'] = array(  /*Alteração no direcionamento para a tabela "usuarios" */
-    'id' => $usuario['id'],
-    'nome' => $usuario['nome'],
-    'email' => $usuario['email'],
-    'perfil' => $usuario['idPerfis'],
-);
+// $_SESSION['dadosUsuario'] = array(  /*Alteração no direcionamento para a tabela "usuarios" */
+//     'id' => $usuario['id'],
+//     'nome' => $usuario['nome'],
+//     'email' => $usuario['email'],
+//     'perfil' => $usuario['idPerfis'],
+//     'foto' => $usuario['foto']
 
-header("location: ../views/index.php"); /*Alteração no Destino*/
+// );
+$_SESSION['dadosUsuario'] = $usuario;
+
+header("location: ../views/index.php");
+ /*Alteração no Destino*/
 
 
