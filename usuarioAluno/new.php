@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de usuario aluno</title>
+    <title>Cadastro de usuário aluno</title>
     <link rel="stylesheet" href="../assets/css/boot.css">
     <link rel="stylesheet" href="../assets/css/form.css">
     
@@ -70,17 +70,17 @@
                         <label for="objetivo">Objetivo Pessoal:<font color="red">*</font></label>
                         <textarea name="objetivo" id="" placeholder="Conte-nos onde quer chegar com ajuda dos treinos..." maxlength="250"></textarea><br>   
 
-                        <label>Foto de perfil:<font color="red">*</font></label><br>
+                        <label>Foto de Perfil:<font color="red">*</font></label><br>
                         <input type="file" name="foto" id="foto" ><br><br>
 
                         <div class="wrapInputRadio">
-                            <label for="sexo">Tipo de assinatura:<font color="red">*</font></label><br><br>
+                            <label for="sexo">Tipo de Assinatura:<font color="red">*</font></label><br><br>
                             <input type="radio" name="assinatura" value="ANUAL" checked>Anual&nbsp;&nbsp;
                             <input type="radio" name="assinatura" value="MENSAL">Mensal
                         </div>
 
                         <div class="wrapInputRadio">
-                            <label for="pagamento">Tipo de pagamento:<font color="red">*</font></label><br><br>
+                            <label for="pagamento">Tipo de Pagamento:<font color="red">*</font></label><br><br>
                             <input type="radio" name="pagamento" value="PIX" checked>PIX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <input type="radio" name="pagamento" value="BOLETO">Boleto<br><br>
                         </div>
