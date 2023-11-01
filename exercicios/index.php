@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/boot.css">
     <title> Exercicios </title>
 </head>
 <style>
@@ -13,7 +14,9 @@
     font-family: 'Rubik';
     font-size: 90px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
     line-height: 110%; /* 143px */
     letter-spacing: -1.625px;
 }    
@@ -22,6 +25,7 @@
 .btAdmin{
         display: flex;
         justify-content: end;
+        margin-top: 20px;
     }
 
     .showExercicios{
@@ -52,6 +56,7 @@
         backdrop-filter: blur(2.44724px);
         
         border-radius: 83.206px;
+       
         color: #68521b;
         font-weight: 800;
         font-size: 1.1rem;

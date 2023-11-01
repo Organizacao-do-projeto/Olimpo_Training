@@ -8,17 +8,19 @@ $_SESSION['sessaoFicha'] = [];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/boot.css">
     <title>Fichas de treino</title>
 </head>
 <style>
     
 .mainTitulo{
-
+    margin-bottom: 30px;
+    text-align: center;
     color: black;
     font-family: 'Rubik';
-    font-size: 90px;
+    font-size: 70px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 110%; /* 143px */
     letter-spacing: -1.625px;
 }

@@ -24,8 +24,29 @@ $exercicio = $stmt->fetch();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/boot.css">
     <title> <?=$exercicio['nome']?> </title>
 </head>
+<style> 
+.nome_exer{
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 20px 15px;
+    text-align: center;
+}
+
+.img_exer{
+    
+    width: 700px;
+    height: 500px;
+     margin-left:450px;
+    border-radius: 83.206px;
+     font-weight: 800;
+     font-size: 1.1rem;
+      box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22)
+    
+}
+</style>
 
 <?php
         $path = getenv('DOCUMENT_ROOT');
@@ -33,7 +54,7 @@ $exercicio = $stmt->fetch();
 ?>
 <a href="index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
 
-<h1 aling="center" ><?=$exercicio['nome']?></h1>
+<h1 aling="center" class="nome_exer" ><?=$exercicio['nome']?></h1>
 
 <body>
 <?php
@@ -42,13 +63,15 @@ $extensao = $exercicio['nome_arq'];
 $extensao = pathinfo($extensao, PATHINFO_EXTENSION);
 
 if($extensao == 'mp4' || $extensao == 'mov' || $extensao == 'webm'): ?>
+
     <video width="500px" height="500px" autoplay muted loop>
         <source src="animacoes/<?=$exercicio['nome_arq']?>">
     </video>
+
 <?php
 else:
 ?>
-    <img width="700px" height="700px" src="animacoes/<?=$exercicio['nome_arq']?>"><br>
+    <img width="700px" height="700px" class="img_exer" src="animacoes/<?=$exercicio['nome_arq']?>"><br>
 <?php
 endif;
 ?>
