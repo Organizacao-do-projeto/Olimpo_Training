@@ -41,6 +41,15 @@
 
     <div class="list_container">
         <h1>Listagem de usuários</h1>
+
+        <form method="POST">
+            <label>Selecione o usuario: </label>
+            <input type="radio" name="filtro" value="comum">Comum
+            <input type="radio" name="filtro" value="aluno">Aluno 
+            <input type="radio" name="filtro" value="personal">Personal
+            <input type="submit" name="Enviar" value="Filtrar"> 
+        </form>
+
               <table width="1150px">
                 <tr>
 
