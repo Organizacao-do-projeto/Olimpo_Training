@@ -1,7 +1,8 @@
 <style>
 .footerRoot {
-  height: 377px;
-  background: linear-gradient(0deg, #000000 0%, gold 289.06%);
+  height: 177px;
+  background: linear-gradient(to right,
+    #f0f0f0, #ede5c1, #ebdba8);;
   margin: 0 auto;
   width: 100%;
 }
@@ -15,7 +16,7 @@
 .flex-column{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
 .container{
@@ -26,45 +27,46 @@
 
 
 .footerRoot section img {
-  height: 45px;
-  width: 45px;
+  height: 30px;
+  width: 30px;
 }
 
 .footerRoot figure img {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
 }
 
 .container > section > h2 {
-  height: 47px;
+  height: 7px;
   width: 668px;
   left: 5446px;
   font-family: 'Rubik';
-  font-size: 48px;
-  font-weight: 400;
-  line-height: 47px;
+  font-size: 35px;
+  font-weight: 40;
+  line-height: flex;
   text-align: center;
-  color: #ffffff;
+  color: #000000;
+  margin-top: 7px;
 }
 
 .container > section > h3 {
   height: 31px;
-  width: 449px;
+  width: 320px;
   font-family: 'Rubik';
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 400;
-  line-height: 31px;
+  line-height: 40px;
   text-align: left;
-  color: #ffffff;
+  color: #000000;
   margin: 0 auto;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 .footer-icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 </style>
@@ -72,7 +74,7 @@
     <div class="container flex">
         <a href="../index.php">
             <figure>
-            <img src="../assets/img/logos/logo_branca_alternative.png" />
+            <img src="../assets/img/logos/logo_principal.png" />
             </figure>
         </a>
         <section class="flex-column">
@@ -81,6 +83,7 @@
           <div class="footer-icons">
             <a href=""><img src="https://cdn-icons-png.flaticon.com/512/3955/3955024.png" /></a>
             <a href=""><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" /></a>
+            <link rel="stylesheet" href="../assets/css/boot.css">
           </div>
         </section>
       </div>
