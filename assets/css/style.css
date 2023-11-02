@@ -28,9 +28,6 @@ body{
     width: 100%; 
     border-bottom: solid rgb(0, 0, 0) 0.1px;
     
-    
-   
-    
 }
 
 
@@ -311,7 +308,8 @@ transition: transform 0.5s;
 
 .main_course_header img{
     margin: 0px auto;
-    width: 150px;
+    width: 345px;
+    height: 345px;  
 }
 
 .main_course_header h1{
