@@ -116,6 +116,9 @@ if(isset($_GET['nomeBusca'])){
 ?>
 
 <body>
+
+<a href="index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
+
     <header>
         <article id="wrapperBusca">
             <form class="formBusca" action="" method="GET">

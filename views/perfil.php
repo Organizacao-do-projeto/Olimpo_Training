@@ -83,6 +83,82 @@ $dadosTabelaPerfis = $stmtTabelaPerfis->fetch();
     <link href="../assets/css/style.css" rel="stylesheet">
     <title><?=$dadosPerfil['nome']?> | Olimpo Training </title>
 </head>
+<body>
+<?php
+        $path = getenv('DOCUMENT_ROOT');
+        include_once $path."/Olimpo_Training/layouts/header.php";
+?>
+        <a href="pesquisarUsuario.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
+    <main>
+
+    <header>
+        <section class="lado">
+                            <?php if(empty($dadosPerfil['foto'])){ ?>
+                                <img src="assets/img/usuarioGenerico.jpg" id="fotoUsuario" >
+
+                            <?php }else{ ?>
+                                <img src="../assets/img/usuarios/<?=$dadosPerfil['foto']?>" id="fotoUsuario" >
+                                
+                            <?php } ?>
+        </section>
+    </header>
+
+    <section class="infosPersonal">
+            <article>
+                <?php
+                //verifica se o usuário apresentado é personal trainer
+                if($dadosTabelaPerfis['nome'] == 'PERSONAL-TRAINER'):
+                    //verifica se ele já está selecionado como personal traienr do usuário
+                    //AQUI EM BAIXO VERIFICAR A CONTA DO USUÁRIO E NÃO DO PERSONAL
+                    if($dadosUsuario['idPerso_trainer'] == $dadosTabelaPerfis['id']){
+                        //depois colcocar outra informando se já for o personal da pessoa, apresentar o botão selecionado e ao clicar irá aparecer um confirm perguntando se retirar este usuário como seu personal trainer
+                        //mostra o botão selecionado
+                        ?>
+                        <form action="" method="POST">
+                            <input type="hidden" name="idPerso_trainer" value="0">
+                            <button class="btSelecionado" type="submit" onclick="return confirm('Deseja retirar <?=$dadosPerfil['nome']?> como seu personal trainer?')">Retirar personal trainer</button>
+                        <form>
+
+                        <?php 
+                    }else{
+                        //mostra o botão padrão
+                        ?>
+                        <form action="" method="POST">
+                            <input type="hidden" name="idPerso_trainer" value="<?=$dadosPerfil['id']?>">
+                            <button class="btDesselecionado" type="submit">Adicionar como seu personal</button>
+                        <form>
+                        
+                        <?php
+                    }
+                 endif;
+                ?>  
+
+                 <div class="infosPersonalContent">
+                    <h1><?=$dadosPerfil['nome']?></h1>
+                    <!-- colocar aqui um if para direcionar apresentar a desrcição se personal ou os dados se usário -->
+                    <div class="infosPersonalContentDescricao">
+                        <?php
+                         if($dadosTabelaPerfis['nome'] == 'PERSONAL-TRAINER'){ ?>
+                             <span class="tipoUser"> Personal Trainer </span><br>
+                             <p> <?=$dadosPerfil['descricao']?> </p>
+                             <?php
+                         }else{ ?>
+                            <br>
+                            <span class="tipoUser"> Aluno </span><br>
+                            <span class="tituloAtributos"><Strong>Altura: </Strong><?=$dadosPerfil['altura']?><Strong> cm</Strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Strong>Peso: </Strong><?=$dadosPerfil['peso']?><Strong> kg</Strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Strong>Sexo: </Strong><?=$dadosPerfil['sexo']?></span><br><br><br>
+                            <p> <?=$dadosPerfil['objetivo']?> </p>
+                            <?php
+                         }
+                        ?>
+                    </div>
+                 </div>
+
+            </article>
+            
+
+    </section>
+    </main>
+</body>
 <style>
        .lado {
             height: 800px;
@@ -187,7 +263,6 @@ $dadosTabelaPerfis = $stmtTabelaPerfis->fetch();
         .infosPersonalContent{
             width: 100%;
             max-width: 800px;
-            height: 350px;
             background-color: #E4E2DF;
         }
         .infosPersonalContent h1{
@@ -199,7 +274,7 @@ $dadosTabelaPerfis = $stmtTabelaPerfis->fetch();
 
         .infosPersonalContentDescricao p{
             width: 801px;
-            height: 151px;
+            height: 210px;
             margin-left: 30px;
 
             font-family: 'Relative';
@@ -250,80 +325,4 @@ $dadosTabelaPerfis = $stmtTabelaPerfis->fetch();
         }
 
 </style>
-<body>
-<?php
-        $path = getenv('DOCUMENT_ROOT');
-        include_once $path."/Olimpo_Training/layouts/header.php";
-?>
-        <a href="pesquisarUsuario.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
-    <main>
-
-    <header>
-        <section class="lado">
-                            <?php if(empty($dadosPerfil['foto'])){ ?>
-                                <img src="assets/img/usuarioGenerico.jpg" id="fotoUsuario" >
-
-                            <?php }else{ ?>
-                                <img src="../assets/img/usuarios/<?=$dadosPerfil['foto']?>" id="fotoUsuario" >
-                                
-                            <?php } ?>
-        </section>
-    </header>
-
-    <section class="infosPersonal">
-            <article>
-                <?php
-                //verifica se o usuário apresentado é personal trainer
-                if($dadosTabelaPerfis['nome'] == 'PERSONAL-TRAINER'):
-                    //verifica se ele já está selecionado como personal traienr do usuário
-                    //AQUI EM BAIXO VERIFICAR A CONTA DO USUÁRIO E NÃO DO PERSONAL
-                    if($dadosUsuario['idPerso_trainer'] == $dadosTabelaPerfis['id']){
-                        //depois colcocar outra informando se já for o personal da pessoa, apresentar o botão selecionado e ao clicar irá aparecer um confirm perguntando se retirar este usuário como seu personal trainer
-                        //mostra o botão selecionado
-                        ?>
-                        <form action="" method="POST">
-                            <input type="hidden" name="idPerso_trainer" value="0">
-                            <button class="btSelecionado" type="submit" onclick="return confirm('Deseja retirar <?=$dadosPerfil['nome']?> como seu personal trainer?')">Retirar personal trainer</button>
-                        <form>
-
-                        <?php 
-                    }else{
-                        //mostra o botão padrão
-                        ?>
-                        <form action="" method="POST">
-                            <input type="hidden" name="idPerso_trainer" value="<?=$dadosPerfil['id']?>">
-                            <button class="btDesselecionado" type="submit">Adicionar como seu personal</button>
-                        <form>
-                        
-                        <?php
-                    }
-                 endif;
-                ?>  
-
-                 <div class="infosPersonalContent">
-                    <h1><?=$dadosPerfil['nome']?></h1>
-                    <!-- colocar aqui um if para direcionar apresentar a desrcição se personal ou os dados se usário -->
-                    <div class="infosPersonalContentDescricao">
-                        <?php
-                         if($dadosTabelaPerfis['nome'] == 'PERSONAL-TRAINER'){ ?>
-                             <span class="tipoUser"> Personal Trainer </span><br>
-                             <p> <?=$dadosPerfil['descricao']?> </p>
-                             <?php
-                         }else{ ?>
-                            <br>
-                            <span class="tipoUser"> Aluno </span><br><br>
-                            <span class="tituloAtributos"><Strong>Altura: </Strong><?=$dadosPerfil['altura']?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Strong>Peso: </Strong><?=$dadosPerfil['peso']?></span><br><br><br>
-                            <span class="tituloAtributos"><Strong>Gênero: </strong><?=$dadosPerfil['sexo']?></span></p>
-                            <?php
-                         }
-                        ?>
-                    </div>
-                 </div>
-
-            </article>
-            
-
-    </section>
-    </main>
-</body>
 </html>

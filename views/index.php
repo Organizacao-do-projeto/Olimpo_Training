@@ -29,20 +29,18 @@
 
 
         .redirects a {
-            /* width: 80px;
-            height: 80px;
-            border: none; */
-            width: 80px;
-            height: 50px;
-            padding: 5px 0px;
-            text-align: center;
-            text-decoration: none;
-            font-size: .8rem;
-            font-weight: 600;
-            border-radius: 3px;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            display: inline-block;
-            opacity: 0.5;
+
+        width: 80px;
+        height: 50px;
+        padding: 5px 0px;
+        text-align: center;
+        text-decoration: none;
+        font-size: .8rem;
+        font-weight: 600;
+        border-radius: 3px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        display: inline-block;
+        opacity: 0.5;
 
         }
 
@@ -147,7 +145,8 @@ $nomePerfis = $stmt->fetch();
         <a href="pesquisarUsuario.php" title="Pesquisar usuário"><img src="assets/img/search.svg" height="40px"></a>
         <a href="../exercicios/index.php" title="Exercicios"><img src="assets/img/excercise.png" height="40px"></a>
         <a href="../fichaDeTreino/index.php" title="Fichas de treino"><img src="assets/img/ficha-treino.png" height="40px"></a>
-        <a href="../auth/logout.php" title="Efetuar logout"><img src="assets/img/exit.svg" height="40px"></a>
+        <!-- <a href="../auth/logout.php" title="Efetuar logout"><img src="assets/img/exit.svg" height="40px"></a> -->
+        <a href="userConfigs.php" title="Configurações da conta"><img src="../assets/img/engrenagem.png" height="40px"></a>
         <a href="../authCREF/index.php" title="Autenticar CREF"><img src="assets/img/autenticar.svg" height="40px"></a>
         <a href="listAdmin.php" title="Painel de usuários"><img src="assets/img/usuarios.svg" height="40px"></a>
     </div>

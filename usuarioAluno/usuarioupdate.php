@@ -84,7 +84,7 @@
 
     if ($usuario && $assinaturas && $pagamentos)
     {
-        header('location: index.php');
+        header('location: ../index.php?msg=Conta atualizada com sucesso.');
     } else {
         header('location: index.php?msg=Não foi possível atualizar o usuário com ID: {$id}');
     }

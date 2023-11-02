@@ -70,7 +70,7 @@
 
     if ($result AND $resultPerfis AND $resultCREFS)
     {
-        header('location: index.php');
+        header('location: ../index.php?msg=Cadastro realizado com sucesso.');
         exit;
     } else {
         echo '<p>Não foi fossível inserir Usuário!</p>';

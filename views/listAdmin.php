@@ -29,7 +29,7 @@
 </head>
 
 <body>
-
+<a href="index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
     <div class="list_container">
         <h1>Usuários</h1>
 
