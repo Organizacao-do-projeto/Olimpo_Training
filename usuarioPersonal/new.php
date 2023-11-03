@@ -117,4 +117,5 @@
     </form>
 
 </body>
+<script src="../assets/script/cpf.js"></script>
 </html>

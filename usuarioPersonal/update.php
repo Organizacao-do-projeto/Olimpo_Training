@@ -247,6 +247,7 @@
 <!-- FIM DOBRA INTEGRAÇÃO -->
 
 </body>
+<script src="../assets/script/cpf.js"></script>
 <script>
 
 <?php   echo 'document.getElementById("UF_registro").value = "'.$CREFS['UF_registro'].'";

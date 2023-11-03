@@ -47,7 +47,7 @@
 
     if($stmt->rowCount() > 0 && $stmtPerfis->rowCount() > 0 && $stmtAssinaturas->rowCount() > 0 && $stmtPagamentos->rowCount() > 0 )
     {
-        header('location: index.php');
+        header('location: ../index.php?msg=Conta excluída com sucesso.');
         exit;
     } else {
         echo "Não existe usuário cadastrado com id = $id";

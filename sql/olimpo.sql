@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01/11/2023 às 10:35
+-- Tempo de geração: 03/11/2023 às 21:40
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -38,9 +38,9 @@ CREATE TABLE `assinaturas` (
 --
 
 INSERT INTO `assinaturas` (`id`, `tipo`, `idUsuarios`) VALUES
-(11, 'MENSAL', 31),
-(13, 'ANUAL', 33),
-(14, 'ANUAL', 34);
+(18, 'ANUAL', 53),
+(19, 'MENSAL', 54),
+(20, 'ANUAL', 55);
 
 -- --------------------------------------------------------
 
@@ -62,9 +62,9 @@ CREATE TABLE `crefs` (
 --
 
 INSERT INTO `crefs` (`id`, `idUsuarios`, `numero`, `natureza`, `UF_registro`, `autenticado`) VALUES
-(8, 16, 123456, 'Bacharelado', 'RJ', 1),
-(9, 35, 324, 'Licenciatura', 'ES', 1),
-(10, 36, 99999, 'Licenciatura', 'DF', 1);
+(13, 56, 123456, 'Bacharelado', 'SP', 1),
+(14, 57, 876543, 'Bacharelado', 'DF', 1),
+(15, 58, 69965, 'Licenciatura', 'AC', 1);
 
 -- --------------------------------------------------------
 
@@ -112,10 +112,9 @@ CREATE TABLE `fichas_treino` (
 --
 
 INSERT INTO `fichas_treino` (`idFichas_treino`, `idPersonal`, `idAluno`, `titulo`, `data_criacao`, `descExercicios`, `observacoes`) VALUES
-(70, 1, 1, 'Treino A', '2023-10-11', 45, 'kalsjdlkjfds'),
-(75, 1, 1, 'Treino B ', '2023-10-12', 76, 'Kakkakkdjfkkdf'),
-(78, 1, 1, 'Treino de integração', '2023-10-29', 45, '1234'),
-(79, 1, 1, 'Treino z', '2023-10-29', 50, 'Testando no integração');
+(85, 1, 1, 'Treino geral', '2023-11-03', 50, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac sapien id risus rutrum iaculis sit amet et nunc. Vivamus sed metus pharetra, mollis risus sed, ullamcorper erat. Vestibulum imperdiet neque nec ex consequat sagittis. In hac habitasse platea dictumst. Phasellus vel enim nec lorem mollis commodo non et nunc.'),
+(86, 1, 1, 'Treino de musculação', '2023-11-03', 33, 'Não faça o pulo do burpee :)'),
+(87, 1, 1, 'Treino Segunda-Feira', '2023-11-03', 45, 'Treino educativo no começo da semana');
 
 -- --------------------------------------------------------
 
@@ -139,21 +138,18 @@ CREATE TABLE `ft_exe` (
 --
 
 INSERT INTO `ft_exe` (`idFT_EXE`, `idFichas_Treino`, `idExercicios`, `series`, `repeticoes`, `carga`, `descSeries`, `modo`) VALUES
-(32, 70, 1, 3, 12, 0, 30, 'REPETICOES'),
-(33, 70, 1, 3, 12, 0, 30, 'REPETICOES'),
-(34, 70, 1, 3, 12, 0, 30, 'REPETICOES'),
-(155, 78, 2, 3, 12, 0, 30, 'REPETICOES'),
-(156, 78, 1, 3, 12, 0, 30, 'REPETICOES'),
-(198, 75, 1, 3, 12, 0, 30, 'TEMPO'),
-(199, 75, 1, 3, 12, 0, 30, 'TEMPO'),
-(200, 75, 1, 3, 12, 10, 30, 'TEMPO'),
-(201, 75, 1, 3, 12, 0, 30, 'TEMPO'),
-(202, 75, 1, 3, 12, 0, 30, 'REPETICOES'),
-(228, 79, 3, 3, 12, 0, 30, 'REPETICOES'),
-(229, 79, 4, 3, 12, 0, 30, 'REPETICOES'),
-(230, 79, 1, 3, 12, 0, 30, 'REPETICOES'),
-(231, 79, 2, 3, 12, 0, 30, 'REPETICOES'),
-(232, 79, 4, 3, 12, 0, 30, 'REPETICOES');
+(243, 85, 1, 3, 12, 0, 30, 'REPETICOES'),
+(244, 85, 2, 3, 30, 0, 15, 'TEMPO'),
+(245, 85, 3, 3, 25, 0, 45, 'REPETICOES'),
+(246, 86, 1, 3, 12, 0, 30, 'REPETICOES'),
+(247, 86, 3, 3, 12, 0, 30, 'REPETICOES'),
+(248, 86, 4, 3, 12, 0, 30, 'REPETICOES'),
+(249, 86, 2, 3, 12, 0, 30, 'REPETICOES'),
+(260, 87, 1, 3, 12, 0, 30, 'REPETICOES'),
+(261, 87, 2, 3, 12, 0, 30, 'REPETICOES'),
+(262, 87, 3, 3, 12, 0, 30, 'REPETICOES'),
+(263, 87, 1, 3, 12, 0, 30, 'REPETICOES'),
+(264, 87, 2, 3, 12, 0, 30, 'REPETICOES');
 
 -- --------------------------------------------------------
 
@@ -172,9 +168,9 @@ CREATE TABLE `pagamentos` (
 --
 
 INSERT INTO `pagamentos` (`id`, `tipo`, `idUsuarios`) VALUES
-(11, 'BOLETO', 31),
-(13, 'PIX', 33),
-(14, 'PIX', 34);
+(18, 'PIX', 53),
+(19, 'BOLETO', 54),
+(20, 'PIX', 55);
 
 -- --------------------------------------------------------
 
@@ -193,15 +189,15 @@ CREATE TABLE `perfis` (
 
 INSERT INTO `perfis` (`id`, `nome`) VALUES
 (1, 'ADMINISTRADOR'),
-(8, 'PERSONAL-TRAINER'),
-(9, 'PERSONAL-TRAINER'),
-(10, 'ALUNO'),
-(16, 'PERSONAL-TRAINER'),
-(31, 'ALUNO'),
-(33, 'ALUNO'),
-(34, 'ALUNO'),
-(35, 'PERSONAL-TRAINER'),
-(36, 'PERSONAL-TRAINER');
+(50, 'COMUM'),
+(51, 'COMUM'),
+(52, 'COMUM'),
+(53, 'ALUNO'),
+(54, 'ALUNO'),
+(55, 'ALUNO'),
+(56, 'PERSONAL-TRAINER'),
+(57, 'PERSONAL-TRAINER'),
+(58, 'PERSONAL-TRAINER');
 
 -- --------------------------------------------------------
 
@@ -232,19 +228,16 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `email`, `password`, `nome`, `autenticado`, `CPF`, `sexo`, `altura`, `peso`, `saldo_solici`, `foto`, `descricao`, `objetivo`, `idPerso_trainer`, `idPerfis`) VALUES
-(1, 'admin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Administrador', 1, '9999999999', 'MASCULINO', 200, 200, 7, '', '', '', 1, 1),
-(7, 'fdsf', 'fads', 'dfad', 0, '988493580', 'MASCULINO', 178, 0, 7, 'dfdsdsaf', '', '', 8, 0),
-(8, 'aa@gmail', 'haha', 'Cariani', 0, '9884777', 'MASCULINO', 199, 0, 7, 'fdsfasd.jpg', 'eu sou formado em tal na faculdade tal', '', 0, 0),
-(9, 'lkjflds@gmail', 'dfads', 'carianis', 0, '988493580', 'MASCULINO', 178, 77, 7, 'hhah.jpg', 'esse é o personal mais bvislumbrado do mercado atualmente', '', 0, 0),
-(10, 'abc@gmail', '202cb962ac59075b964b07152d234b70', 'Marcos', 0, '988493580', 'MASCULINO', 178, 77, 7, 'marcos.png', 'Olá, eu sou o marcos', '', 0, 10),
-(11, 'isac@gmail.com', '202cb962ac59075b964b07152d234b70', 'isac', 0, '555555', '', 0, 0, 0, '', '', '', 0, 0),
-(16, 'p@p', '202cb962ac59075b964b07152d234b70', 'Kleberson', 0, '999945545./', 'Masculino', 0, 0, 0, 'treinando.jpg', 'Kleberson KlebersonKlebersonKlebersonKlebersonKleberson', '', 1, 0),
-(19, 'a@a', '202cb962ac59075b964b07152d234b70', 'aaa', 0, '324.', 'Feminino', 3422, 34, 3, 'RonnieColeman.jpg', '', 'adfsda', 0, 0),
-(31, 'as@gmail', 'c386950aa5131b703f031267f77e1075', 'fadi', 0, '235.356.67', 'Feminino', 23, 33, 3, 'RonnieColeman.jpg', '', '3333333', 0, 0),
-(33, 's@s', '202cb962ac59075b964b07152d234b70', 'sim', 0, '123.765.', 'Masculino', 123, 78, 7, 'RonnieColeman.jpg', '', 'fdsfdsafda', 0, 0),
-(34, 'w@w', '202cb962ac59075b964b07152d234b70', 'seila', 0, '123.475.443--6', 'Feminino', 123, 213, 7, 'sla.jpg', '', 'fdsfasadfas', 0, 0),
-(35, 'pa@p', '2f3680790ac607007e3443a317871dd5', 'p', 0, '124523', 'Feminino', 0, 0, 0, 'RonnieColeman.jpg', 'gfda', '', 1, 0),
-(36, 'n@n', 'ca46c1b9512a7a8315fa3c5a946e8265', 'Não', 0, '9999', 'Feminino', 0, 0, 0, 'trabaio.jpg', 'não', '', 1, 0);
+(1, 'admin@gmail.com', '202cb962ac59075b964b07152d234b70', 'Administrador', 1, '000.000.000-00', 'Masculino', 200, 200, 7, '', '', '', 1, 1),
+(50, 'jose@gmail.com', '202cb962ac59075b964b07152d234b70', 'José Silva da SIlva', 0, '', 'Masculino', 175, 75, 0, 'treinando.jpg', '', 'Quero melhorar minha saúde e bem-estar, além de me sentir mais confiante e energizado. Estou animado para começar a treinar e alcançar meus objetivos de fitness.', 0, 0),
+(51, 'maria@gmail.com', '202cb962ac59075b964b07152d234b70', 'Maria Fernandes', 0, '', 'Masculino', 155, 76, 0, 'moca.jpg', '', 'Quero melhorar minha saúde e bem-estar, além de me sentir mais confiante e energizado. Estou animado para começar a treinar e alcançar meus objetivos de fitness.', 0, 0),
+(52, 'jailson@gmail.com', '202cb962ac59075b964b07152d234b70', 'Jailson Hermes', 0, '', 'Masculino', 188, 93, 0, 'JailsonHermes.jpg', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac sapien id risus rutrum iaculis sit amet et nunc. Vivamus sed metus pharetra, mollis risus sed, ullamcorper erat. Vestibulum imperdiet neque nec ex consequat sagittis. In hac habitasse ', 0, 0),
+(53, 'ana@gmail.com', '202cb962ac59075b964b07152d234b70', 'Ana Não Sei das Quantas', 0, '456.789.012-34', 'Feminino', 171, 55, 7, 'anaNseidasquantas.jpg', '', 'Quero melhorar minha saúde e bem-estar, além de me sentir mais confiante e energizada. Estou animada para começar a treinar e alcançar meus objetivos de fitness.', 0, 0),
+(54, 'jorlan@gmail.com', '202cb962ac59075b964b07152d234b70', 'Jorlan Chevette', 0, '123.456.789-00', 'Masculino', 182, 82, 3, 'jorlanChevette.jpg', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac sapien id risus rutrum iaculis sit amet et nunc. Vivamus sed metus pharetra, mollis risus sed, ullamcorper erat. Vestibulum imperdiet neque nec ex consequat sagittis. In hac habitasse ', 0, 0),
+(55, 'helena@gmail.com', '202cb962ac59075b964b07152d234b70', 'Helena dos Anjos Costa', 0, '123.456.789-11', 'Feminino', 157, 54, 7, 'helenasla.jpg', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac sapien id risus rutrum iaculis sit amet et nunc. Vivamus sed metus pharetra, mollis risus sed, ullamcorper erat. Vestibulum imperdiet neque nec ex consequat sagittis. In hac habitasse ', 0, 0),
+(56, 'fabio@gmail.com', '202cb962ac59075b964b07152d234b70', 'Fabio Giga', 0, '123.456.789-88', 'Masculino', 0, 0, 0, 'fabioGiga.jpg', 'Olá, sou formado em educação física na universidade Federal de Masachussetz da esquina. Atuo como personal trainer há 5 anos e já preparei diversos atletas para competições.', '', 1, 0),
+(57, 'rodrigo@gmail.com', '202cb962ac59075b964b07152d234b70', 'Rodrigo Goes', 0, '123.456.765-43', 'Masculino', 0, 0, 0, 'rodrigoGoes.png', 'Meu nome é Rodrigo. Tenho pós graduação em acrobacias e movimentos. Estou a disposição para atender atletas naturais. ', '', 1, 0),
+(58, 'lean@gmail.com', '202cb962ac59075b964b07152d234b70', 'Lean Beef Patty', 0, '222.222.222-22', 'Feminino', 0, 0, 0, 'leanBeefPatty.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac sapien id risus rutrum iaculis sit amet et nunc. Vivamus sed metus pharetra, mollis risus sed, ullamcorper erat. Vestibulum imperdiet neque nec ex consequat sagittis. In hac habitasse platea dictumst. Phasellus vel enim nec lorem mollis commodo non et nunc.', '', 1, 0);
 
 --
 -- Índices para tabelas despejadas
@@ -306,13 +299,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `assinaturas`
 --
 ALTER TABLE `assinaturas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `crefs`
 --
 ALTER TABLE `crefs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `exercicios`
@@ -324,31 +317,31 @@ ALTER TABLE `exercicios`
 -- AUTO_INCREMENT de tabela `fichas_treino`
 --
 ALTER TABLE `fichas_treino`
-  MODIFY `idFichas_treino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `idFichas_treino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT de tabela `ft_exe`
 --
 ALTER TABLE `ft_exe`
-  MODIFY `idFT_EXE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=233;
+  MODIFY `idFT_EXE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=265;
 
 --
 -- AUTO_INCREMENT de tabela `pagamentos`
 --
 ALTER TABLE `pagamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `perfis`
 --
 ALTER TABLE `perfis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

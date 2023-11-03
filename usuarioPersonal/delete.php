@@ -38,7 +38,7 @@
 
     if ($stmt->rowCount() > 0)
     {
-        header('location: index.php');
+        header('location: ../index.php?msg=Conta excluída com sucesso.');
         exit;
     } else {
         echo "Não existe usuário cadastrado com id = $id";
