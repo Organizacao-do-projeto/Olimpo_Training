@@ -228,3 +228,32 @@ body{
     text-decoration: none;
     color: black;
   }
+
+  #back-white{
+    background-color: #fff;
+  }
+
+  .titulo {
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
+  .wrap_bt_buscar{
+    display: flex;
+    justify-content: end;
+  }
+
+  .bt_buscar{
+    display: flex;
+    width: 100px;
+    height: 40px;
+    margin-bottom: 15px;
+    margin-right: 20px;
+    font-size: 1.3rem;
+    text-align: center;
+    align-items: center;
+    box-shadow: 7px 7px 13px 0px rgba(50,50,50,0.22);
+  }

@@ -114,15 +114,6 @@ a{
   text-decoration: none;
 }
 
-.titulo {
-  margin-top: 20px;
-  text-align: center;
-  margin-bottom: 25px;
-  font-size: 2rem;
-  font-weight: 300;
-}
-
-
 
 .btn {
   border: none;
