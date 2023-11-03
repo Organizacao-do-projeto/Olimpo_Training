@@ -288,9 +288,10 @@ function redirecionaInvalido(){
         </form>
     </section>
 
-<script>
+<script>    
 
-<?php echo 'document.getElementById("selectAtv").value = "'.$fetchValues['ativ_fisica'].'";'; ?>
+<?php echo 'document.getElementById("selectAtv").value = "'.$fetchValues['ativ_fisica'].'";
+            document.getElementById("natureza").value = "'.$C.'"     ;'; ?>
      
 
 window.pressed = function(){
