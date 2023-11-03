@@ -41,14 +41,30 @@ $quantidadeRegistros =  $stmt->rowCount();
 
 <hr>
 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="../assets/css/boot.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/nav.css">
+    <link rel="stylesheet" href="../assets/css/list_format.css">
+
+  <title>Selceionar usuário</title>
+</head>
 <body>
 
 <?php
-       // $path = getenv('DOCUMENT_ROOT');
-      //include_once $path."/Olimpo_Training/teste5/layouts/header.php";
+      $path = getenv('DOCUMENT_ROOT');
+      include_once $path."/Olimpo_Training/layouts/header.php";
 ?>
 <a href="index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
-<h1>Serviços pendentes</h1>
+<h1 class="titulo" >Selecione o usuário</h1>
 </main>
 <section>
     <table >
@@ -80,7 +96,7 @@ $quantidadeRegistros =  $stmt->rowCount();
                      ?> alt="Foto do usuário"></td>
                     <td><?= $userRequire['nome'];?></td>
                     <td><?= $userRequire['saldo_solici'];?></td>
-                    <td class="td__operacao">
+                    <td>
                         <a class="btnalterar" href="newFicha.php?id=<?=$userRequire['id'];?>">Criar ficha</a>
                     </td>
                 </tr>
@@ -92,83 +108,21 @@ $quantidadeRegistros =  $stmt->rowCount();
 </main>
 </body>
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f1f1f1;
-  padding: 5px;
-  min-height: 100vh;
-}
 
-header {
-  padding: 25px;
-  text-align: center;
-  background-color: cornflowerblue;
-  color: #ddd;
-}
-
-header h1 {
-  font-size: 30px;
-}
-
-nav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-nav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 18px;
+a{
   text-decoration: none;
 }
 
-nav a:hover {
-  background-color: #ddd;
-  color: #000;
-  font-weight: 600;
-}
-
-main h1 {
+.titulo {
   margin-top: 20px;
   text-align: center;
+  margin-bottom: 25px;
   font-size: 2rem;
-}
-
-table {
-  font-family: arial, sans-serif;
-  width: 100%;
-  border-collapse: collapse;
+  font-weight: 300;
 }
 
 
-td,
-th {
-  border: 1px solid #dddddd;
-  text-align: center;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-td a1 {
-  color: rgb(87, 87, 207);
-
-}
-
-.section__btn {
-  display: flex;
-  justify-content: flex-end;
-}
 
 .btn {
   border: none;
@@ -214,15 +168,15 @@ td a1 {
 }
 
 .userPhoto{
-            border-radius: 50%;
-            box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-            padding: 5px;
-            margin: 20px;
-            width: 90px;
-            height: 90px;
-            border: 5px solid rgba(253, 237, 15, 0.3);
-            transition: all 0.3s ease-out;
+  border-radius: 50%;
+  box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+  padding: 5px;
+  margin: 20px;
+  width: 90px;
+  height: 90px;
+  border: 5px solid rgba(253, 237, 15, 0.3);
+  transition: all 0.3s ease-out;
 
 }
-
 </style>
+</html>
