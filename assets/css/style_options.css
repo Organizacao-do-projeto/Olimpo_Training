@@ -8,6 +8,7 @@ body{
 }
 
 article{
+    margin-top: 15px;
     background-color: #fff;
     padding: 20px;
     border-radius: 5%;
@@ -18,6 +19,7 @@ article{
 article:hover{
     opacity: 1;
     border: 3px solid #efe1b1;
+    
 }
 
 .alinhamento{
@@ -31,7 +33,7 @@ article:hover{
 img {
     margin-top: 20px;
     border-radius: 10px;
-   width: 400px;
+   width: 500px;
    
 
 }
