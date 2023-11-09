@@ -543,7 +543,7 @@ if(isset($_GET['acao'])) {
                         <?=$exercicio['ativ_fisica']?>
                     </div>
                     <div>
-                        <button type="submit" id="addExercicio">+</button>
+                        <button type="submit" id="addExercicio">Adicionar</button>
                     </div>
                 </div>
             </div>

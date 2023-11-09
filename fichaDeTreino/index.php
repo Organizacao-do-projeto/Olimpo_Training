@@ -60,6 +60,8 @@ $_SESSION['sessaoFicha'] = [];
     justify-content: space-between;
     margin-bottom: 100px;
     flex-wrap: wrap;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 
@@ -211,12 +213,12 @@ $quantFichas = count($fichas);
         <button class='showficha' type="submit" name="Enviar">
             <div class="showficha_margin">
                 <div class="showficha_cabecalho">
-                        <p> <?=$i?><font  color="gold"> | <?=$quantFichas?></font></p>
+                        <p> <?=$i?><font  color="gold"> de <?=$quantFichas?></font></p>
                     <img src="../views/assets/img/setaFicha.png" height="9px">
                 </div>
                 <div class="showficha_dados">
                     <div class="showficha_data">
-                        <?=$row['data_criacao']?>
+                        <?php echo date("d/m/Y", strtotime($row['data_criacao']));?>
                     </div>
                     <div class="empty">
                     </div>                    
@@ -231,6 +233,5 @@ $quantFichas = count($fichas);
     </form>
 <?php endforeach; ?>
     </section>
-
 </body>
 </html>

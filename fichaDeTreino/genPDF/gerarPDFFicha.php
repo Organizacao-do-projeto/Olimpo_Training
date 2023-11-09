@@ -247,7 +247,7 @@ https://i.pinimg.com/originals/1e/e2/fb/1ee2fb9717554a1dbb09b924f19f8e72.png */
             </td>
             <td id='observacoes'>
               <span>Obs.: ".$cabecalhofichas_treino['observacoes'].".</span>
-              <p>Data de criação: ".$cabecalhofichas_treino['data_criacao']."</p>
+              <p>Data de criação: ".date("d/m/Y", strtotime($cabecalhofichas_treino['data_criacao']))."</p>
             </td>
           </table>
         </div>

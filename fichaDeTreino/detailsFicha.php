@@ -387,7 +387,7 @@ $cabecalhofichas_treino = $stmtfichas_treino->fetch();
 <main class="background_ficha center_all">
     <section class="ficha">
         <div class="wrapper_data">
-            <div class="data_criacao"><span> <?=$cabecalhofichas_treino['data_criacao']?><span>
+            <div class="data_criacao"><span><?php echo date("d/m/Y", strtotime($cabecalhofichas_treino['data_criacao']));?><span>
 
             </div>
         </div>

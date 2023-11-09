@@ -44,9 +44,13 @@
         <h1 class="titulo">Personal Trainers</h1>
 
         <section class="list_container">
-        <article class="wrap_bt_buscar">
+        <iframe src="https://www.confef.org.br/confef/registrados/" height="400px" width="100%" ></iframe>
+        <!-- <article class="wrap_bt_buscar">
             <a class="bt_yellow bt_buscar" href="https://www.confef.org.br/confef/" target="_blank">Buscar</a>
-        </article>
+        </article> -->
+        <br>
+        <br>
+        <br>
 
             <table width="1150px" >
                 <thead>
@@ -103,4 +107,10 @@
         </section>
     </main>
 </body>
+<style>
+iframe{
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+</style>
 </html>
