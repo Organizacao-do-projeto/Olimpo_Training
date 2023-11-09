@@ -6,6 +6,77 @@
     <link rel="stylesheet" href="../assets/css/boot.css">
     <title> Exercícios </title>
 </head>
+<body>
+
+    <?php
+        $path = getenv('DOCUMENT_ROOT');
+        include_once $path."/Olimpo_Training/layouts/header.php";
+        ?>
+    <section class="btAdmin">
+        <div class="wrapbtn">
+            <a href="admPanelExercicios.php" class="btnCriar">Painel de Administrador</a>
+        </div>    
+    </section>
+    <h1 class="mainTitulo">Exercícios</h1>
+    
+    <section class="showExercicios">
+<?php 
+
+//verificação pra ver se o usuario é admin
+
+if(isset($_GET['msg'])){
+
+    $msg = $_GET['msg'];
+    echo $msg;
+
+};
+
+    include_once 'src/conexao.php';
+
+    $dbh = Conexao::getConexao();
+
+    $query = "SELECT * FROM olimpo.exercicios";
+
+    $stmt = $dbh->prepare($query);
+    $stmt->execute();
+    $exercicios = $stmt->fetchAll();
+
+    
+    foreach($exercicios as $exercicio):
+?>
+    <div class="wrapperBloco">
+        <div class="blocoExercicio" id="<?=$exercicio['idExercicios']?>">
+            <div class="blocoExercicio_content">
+                    <h1><?=$exercicio['nome']?></h1>
+                <a href="detailsExercicio.php?id=<?=$exercicio['idExercicios']?>" target="_blank">
+                <!-- essa imagem tem 200x150 -->
+                <?php
+
+                    $extensao = $exercicio['nome_arq'];
+                    $extensao = pathinfo($extensao, PATHINFO_EXTENSION);
+
+                    if($extensao == 'mp4' || $extensao == 'mov' || $extensao == 'webm'): ?>
+                    <video class="videoAnimacao" autoplay muted loop>
+                        <source src="animacoes/<?=$exercicio['nome_arq']?>">
+                    </video>
+                    <?php   else: ?>
+                    <img class="videoAnimacao" src="animacoes/<?=$exercicio['nome_arq']?>">
+                    <?php
+                    endif;
+                    ?>         
+                </a>
+                <div class="tipoExercicio">
+                    <?=$exercicio['ativ_fisica']?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+<?php endforeach; ?>
+    </section>
+
+</body>
 <style>
 
 .mainTitulo{
@@ -29,10 +100,11 @@
     }
 
     .showExercicios{
+        margin: 20px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
+        /* justify-content: space-around; */
         margin-bottom: 90px;
     }
 
@@ -105,6 +177,7 @@
         align-items: center;
         border-radius: 10px;
         box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+        margin: 15px;
 
     }
 
@@ -187,77 +260,6 @@
     /* FIM CARD EXERCICIO */
 
 </style>
-<body>
-
-    <?php
-        $path = getenv('DOCUMENT_ROOT');
-        include_once $path."/Olimpo_Training/layouts/header.php";
-        ?>
-    <section class="btAdmin">
-        <div class="wrapbtn">
-            <a href="admPanelExercicios.php" class="btnCriar">Painel de Administrador</a>
-        </div>    
-    </section>
-    <h1 class="mainTitulo">Exercícios</h1>
-    
-    <section class="showExercicios">
-<?php 
-
-//verificação pra ver se o usuario é admin
-
-if(isset($_GET['msg'])){
-
-    $msg = $_GET['msg'];
-    echo $msg;
-
-};
-
-    include_once 'src/conexao.php';
-
-    $dbh = Conexao::getConexao();
-
-    $query = "SELECT * FROM olimpo.exercicios";
-
-    $stmt = $dbh->prepare($query);
-    $stmt->execute();
-    $exercicios = $stmt->fetchAll();
-
-    
-    foreach($exercicios as $exercicio):
-?>
-    <div class="wrapperBloco">
-        <div class="blocoExercicio" id="<?=$exercicio['idExercicios']?>">
-            <div class="blocoExercicio_content">
-                    <h1><?=$exercicio['nome']?></h1>
-                <a href="detailsExercicio.php?id=<?=$exercicio['idExercicios']?>" target="_blank">
-                <!-- essa imagem tem 200x150 -->
-                <?php
-
-                    $extensao = $exercicio['nome_arq'];
-                    $extensao = pathinfo($extensao, PATHINFO_EXTENSION);
-
-                    if($extensao == 'mp4' || $extensao == 'mov' || $extensao == 'webm'): ?>
-                    <video class="videoAnimacao" autoplay muted loop>
-                        <source src="animacoes/<?=$exercicio['nome_arq']?>">
-                    </video>
-                    <?php   else: ?>
-                    <img class="videoAnimacao" src="animacoes/<?=$exercicio['nome_arq']?>">
-                    <?php
-                    endif;
-                    ?>         
-                </a>
-                <div class="tipoExercicio">
-                    <?=$exercicio['ativ_fisica']?>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <br><br>
-<?php endforeach; ?>
-    </section>
-
-</body>
 <?php
         // $path = getenv('DOCUMENT_ROOT');
         // include_once $path."/Olimpo_Training/teste5/layouts/header.php";

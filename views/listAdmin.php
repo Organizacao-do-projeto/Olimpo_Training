@@ -62,7 +62,7 @@
                         <th>Nome</th>
                         <th>Email</th>
                         <th>CPF</th>
-                        <th>Saldo solici.</th>
+                        <th>Saldo fichas</th>
                         <th>Sexo</th>
                         <th>Foto</th>
                         <th>Ação</th>
@@ -138,9 +138,6 @@
                     $stmtCREFS->execute();
                     $CREF = $stmtCREFS->fetch();
 
-                    // echo "<pre>";
-                    // var_dump($CREF);
-                    // echo "</pre>";
                 ?>
                         <tr>
                                 <td><?=$row['id']?></td>
@@ -153,7 +150,7 @@
                                 <td><?=$row['sexo']?></td>
                                 <td><?=$row['foto']?></td>
                                 <td>
-                                    <a class="btnalterar" href="../usuarioPersonal/update.php?id=<?=$row['id']?>">Editar</a>&nbsp;
+                                    <a class="btnalterar" href="../usuarioPersonal/update.php?id=<?=$row['id']?>&redirect=../views/listAdmin.php">Editar</a>&nbsp;
                                     <a class="btnexcluir" href="../usuarioPersonal/delete.php?id=<?=$row['id']?>&foto=<?=$row['foto']?>" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
                                 </td>
                         </tr>

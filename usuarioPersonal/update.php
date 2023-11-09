@@ -43,6 +43,7 @@
         exit;
     }
 
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -73,81 +74,7 @@
             </nav>
         </div>
     </header>
-  <!-- <main class="container"> -->
-<!-- 
-    <header>
-        <h1>Editar personal trainer</h1>
-    </header>
-<nav> -->
-        <!-- <a href="index.php" style="text-align: center;">Voltar</a> -->
-    <!-- </nav> -->
-    <!-- 
 
-    <form action="usuarioupdate.php" method="POST" enctype="multipart/form-data">
-         <label>Nome:</label><br>
-          <input type="text" name="nome" value="<?=$usuario['nome']?>" placeholder="Informe o seu nome" size="80" required><br>
-          <label>E-mail:</label><br>
-          <input type="email" name="email" value="<?=$usuario['email']?>" placeholder="Informe o seu e-mail" size="80" required autofocus><br>
-          <label>Senha:</label><br>
-          <input type="password" name="password" placeholder="Informe a sua senha" required><br><br>
-          <label for="sexo">Sexo:</label>
-          <input type="radio" name="sexo" value="Masculino" <?php
-          if($usuario['sexo'] == "Masculino"){ echo "checked"; }; ?>>Masculino<BR>
-          <input type="radio" name="sexo" value="Feminino" <?php
-          if($usuario['sexo'] == "Feminino"){ echo "checked"; };?> >Feminino
-          <label for="descricao">Descrição Pessoal:</label>
-          <textarea name="descricao" id="" cols="30" rows="10" placeholder="Conte mais sobre você..."><?=$usuario['descricao']?></textarea>
-
-          <label for="numero">CPF:</label>
-          <input type="text" name="cpf" value="<?=$usuario['CPF']?>" placeholder="Informe o seu cpf">
-
-          <label for="numero">Numero do CREF:</label>
-          <input type="number" name="numero" value="<?=$CREFS['numero']?>" placeholder="Informe o seu CREF">
-
-          <label for="natureza">Natureza do CREF:</label>
-          <select name="natureza" id="natureza">
-            <option value="Bacharelado">Bacharelado</option>
-            <option value="Licenciatura">Licenciatura</option>
-            <option value="Provisionado">Provisionado</option>
-          </select>
-          <label for="UF_registro">UF de registro</label>
-          <!-- <select name="UF_registro" id="UF_registro">: -->
-            <!-- <option value="">Selecione</option>
-            <option value="AC">AC</option>
-            <option value="AL">AL</option>
-            <option value="AP">AP</option>
-            <option value="AM">AM</option>
-            <option value="BA">BA</option>
-            <option value="CE">CE</option>
-            <option value="DF">DF</option>
-            <option value="ES">ES</option>
-            <option value="GO">GO</option>
-            <option value="MA">MA</option>
-            <option value="MS">MS</option>
-            <option value="MT">MT</option>
-            <option value="MG">MG</option>
-            <option value="PA">PA</option>
-            <option value="PB">PB</option>
-            <option value="PR">PR</option>
-            <option value="PE">PE</option>
-            <option value="PI">PI</option>
-            <option value="RJ">RJ</option>
-            <option value="RN">RN</option>
-            <option value="RS">RS</option>
-            <option value="RO">RO</option>
-            <option value="RR">RR</option>
-            <option value="SC">SC</option>
-            <option value="SP">SP</option>
-            <option value="SE">SE</option>
-            <option value="TO">TO</option>
-        </select>
-          <label>Foto de perfil:</label><br>
-          <input type="file" name="foto" onchange="pressed()" id="foto" ><span id="fileLabel"><?=$usuario['foto']?></span><br/><br><br>
-          <input type="hidden" value="<?=$usuario['id']?>" name="id">
-          <input type="hidden" value="<?=$usuario['foto']?>" name="fotoAnterior" >
-          <button class="btn" type="submit">Salvar</button>
-      </form> -->
-<!-- </main> -->
 
 <!-- INCIO DOBRA INTEGRAÇÃO -->
 
@@ -238,7 +165,12 @@
                     <label>Foto de perfil: <font color="red">*</font></label><br>
                     <input type="file" name="foto" onchange="pressed()" id="foto" ><span id="fileLabel"><?=$usuario['foto']?></span><br/><br><br>
                     <input type="hidden" value="<?=$usuario['id']?>" name="id">
-          <input type="hidden" value="<?=$usuario['foto']?>" name="fotoAnterior" >
+          <input type="hidden" value="<?=$usuario['foto']?>" name="fotoAnterior">
+          <?php if(isset($_GET['redirect'])){  ?>
+                    <input type="hidden" name="redirect" value="<?=$_GET['redirect']?>" >
+          <?php
+          }
+          ?>
                     <button class="btn" type="submit">Salvar</button>
                 </div>
             </div>

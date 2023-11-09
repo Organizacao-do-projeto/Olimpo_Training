@@ -57,7 +57,7 @@ $_SESSION['sessaoFicha'] = [];
     display: flex;
     flex-direction: row;
     wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-bottom: 100px;
     flex-wrap: wrap;
     margin-left: 20px;
@@ -79,6 +79,7 @@ $_SESSION['sessaoFicha'] = [];
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 15px;
     
 }
 

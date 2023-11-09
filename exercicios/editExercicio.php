@@ -282,6 +282,7 @@ function redirecionaInvalido(){
                 <label for="descricao">Descrição do exercício:</label><br/>
                 <textarea name="descricao" placeholder="Insira os detalhes sobre o exericio."><?=$fetchValues['descricao']?></textarea><br/>
             </div><br>
+            <input type="hidden" name="idEdit" value="<?=$_POST['idEdit']?>">
             <div class="form-group_btn">
             <input type="submit" id="Enviar" value="Enviar">
             </div>
