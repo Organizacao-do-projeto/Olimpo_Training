@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="../assets/css/list_format.css">
     
 
-    <title>Usuários</title>
+    <title>Usuários | ADMIN </title>
 </head>
 
 <body>
@@ -85,8 +85,8 @@
                                 <td><?=$row['sexo']?></td>
                                 <td><?=$row['foto']?></td>
                                 <td>
-                                    <a class="btnalterar" href="../usuarioAluno/update.php?id=<?=$row['id']?>">Editar</a>&nbsp;
-                                    <a class="btnexcluir" href="../usuarioAluno/delete.php?id=<?=$row['id']?>" onclick=" return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
+                                    <a class="btnalterar" href="../usuarioAluno/update.php?id=<?=$row['id']?>&redirect=../views/listAdmin.php">Editar</a>&nbsp;
+                                    <a class="btnexcluir" href="../usuarioAluno/delete.php?id=<?=$row['id']?>&redirect=../views/listAdmin.php" onclick=" return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
                                 </td>
                         </tr>
                 <?php
@@ -151,7 +151,7 @@
                                 <td><?=$row['foto']?></td>
                                 <td>
                                     <a class="btnalterar" href="../usuarioPersonal/update.php?id=<?=$row['id']?>&redirect=../views/listAdmin.php">Editar</a>&nbsp;
-                                    <a class="btnexcluir" href="../usuarioPersonal/delete.php?id=<?=$row['id']?>&foto=<?=$row['foto']?>" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
+                                    <a class="btnexcluir" href="../usuarioPersonal/delete.php?id=<?=$row['id']?>&foto=<?=$row['foto']?>&redirect=../views/listAdmin.php" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
                                 </td>
                         </tr>
 
@@ -193,8 +193,8 @@
                             <td><?=$row['sexo']?></td>
                             <td><?=$row['foto']?></td>
                             <td>
-                                <a class="btnalterar" href="../usuarioComum/update.php?id=<?=$row['id']?>">Editar</a>&nbsp;
-                                <a class="btnexcluir" href="../usuarioComum/delete.php?id=<?=$row['id']?>&foto=<?=$row['foto']?>" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
+                                <a class="btnalterar" href="../usuarioComum/update.php?id=<?=$row['id']?>&redirect=../views/listAdmin.php">Editar</a>&nbsp;
+                                <a class="btnexcluir" href="../usuarioComum/delete.php?id=<?=$row['id']?>&foto=<?=$row['foto']?>&redirect=../views/listAdmin.php" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
                             </td>
                     </tr>
                 <?php

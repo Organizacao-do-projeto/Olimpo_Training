@@ -145,6 +145,11 @@
                             placeholder="Ex: 000.000.000-00" onkeyup="mascara_cpf()" onkeypress="TestaCPF()" required><br><br> -->
                             <input type="hidden" value="<?=$usuarios['id']?>" name="id">
                             <input type="hidden" value="<?=$usuarios['foto']?>" name="fotoAnterior" >
+                            <?php if(isset($_GET['redirect'])){  ?>
+                            <input type="hidden" name="redirect" value="<?=$_GET['redirect']?>" >
+                            <?php
+                            }
+                            ?>
                     </div>
                     <button type="submit" class="btn-login">Enviar</button>
                 </div>

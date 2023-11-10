@@ -38,8 +38,14 @@
 
     if ($stmt->rowCount() > 0)
     {
+        if(isset($_GET['redirect'])){
+
+        header('location: '.$_GET['redirect'].'?msg=Usuario excluido com êxito!');
+        exit;
+        }else{
         header('location: ../index.php?msg=Conta excluída com sucesso.');
         exit;
+        }
     } else {
         echo "Não existe usuário cadastrado com id = $id";
     }

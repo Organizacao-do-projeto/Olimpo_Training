@@ -47,8 +47,14 @@
 
     if($stmt->rowCount() > 0 && $stmtPerfis->rowCount() > 0 /* && $stmtAssinaturas->rowCount() > 0 && $stmtPagamentos->rowCount() > 0 */)
     {
-        header('location: ../index.php?msg=Conta excluída com sucesso.');
-        exit;
+        if(isset($_GET['redirect'])){
+
+            header('location: '.$_GET['redirect'].'?msg=Usuario excluido com êxito!');
+            exit;
+            }else{
+            header('location: ../index.php?msg=Conta excluída com sucesso.');
+            exit;
+            }
     } else {
         echo "Não existe usuário cadastrado com id = $id";
     }

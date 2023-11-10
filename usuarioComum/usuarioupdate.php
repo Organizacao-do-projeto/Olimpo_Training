@@ -55,7 +55,13 @@
 
     if ($usuario)
     {
-        header('location: ../index.php?msg=Conta atualizada com sucesso.');
+        if(isset($_POST['redirect'])){
+
+            header('location: '.$_POST['redirect'].'?msg=Usuario editado com êxito!');
+
+        }else{
+            header('location: ../index.php?msg=Conta atualizada com sucesso.');
+        }
     } else {
         header('location: ../index.php?msg=Não foi possível atualizar o usuário com ID: {$id}');
     }
