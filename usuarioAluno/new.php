@@ -37,41 +37,41 @@
                     <h1>Cadastro</h1>
                     <div class="textfield">
                         <label for="usuario">Nome Completo<font color="red">*</font></label><span></span>
-                        <input type="text" name="nome" size="80" placeholder="Informe o seu nome" required><br>
+                        <input type="text" name="nome" size="80" minlength="3" maxlength="300" placeholder="Informe o seu nome" required><br>
 
                         <label for="email">E-mail<font color="red">*</font></label>
-                        <input type="email" name="email" size="50" placeholder="Informe o seu e-mail" required><br>
+                        <input type="email" name="email" size="50" maxlength="150" placeholder="Informe o seu e-mail" required><br>
                         <label>Senha<font color="red">*</font></label>
-                        <input type="password" name="password" maxlength="25" autocomplete="off" required
+                        <input type="password" name="password" minlength="2" maxlength="25" autocomplete="off" required
                             placeholder="Informe sua senha">
                         <br>
                         <div class="wrapInputRadio">
                             <label for="sexo">Sexo:<font color="red">*</font></label><br><br>
-                            <input type="radio" name="sexo" value="Masculino" checked>Masculino
-                            <input type="radio" name="sexo" value="Feminino" required>Feminino
+                            <input type="radio" name="sexo" value="Masculino" checked >Masculino
+                            <input type="radio" name="sexo" value="Feminino">Feminino
                         </div>
 
                         <div class="flex-row">
                             <div>
                                 <label for="altura">Altura:<font color="red">*</font></label>
                                 <div class="flex-row center-text">
-                                <input type="number" name="altura" class="shortInput" placeholder="Ex.: 175" required>cm
+                                <input type="number" name="altura" class="shortInput" placeholder="Ex.: 175" minlenght="1" maxlength="3" required>cm
                                 </div>
                             </div>
                             &nbsp;&nbsp;
                             <div>
                             <label for="peso">Peso:<font color="red">*</font></label>
                                 <div class="flex-row center-text">
-                                    <input type="number" name="peso" class="shortInput" placeholder="Ex.: 65.5" required>kg
+                                    <input type="number" name="peso" class="shortInput" placeholder="Ex.: 65.5" maxlength="7" minlength="1" required>kg
                                 </div>
                             </div>
                         </div><br>
 
                         <label for="objetivo">Objetivo Pessoal:<font color="red">*</font></label>
-                        <textarea name="objetivo" id="" placeholder="Conte-nos onde quer chegar com ajuda dos treinos..." maxlength="250"></textarea><br>   
+                        <textarea name="objetivo" id="" placeholder="Conte-nos onde quer chegar com ajuda dos treinos..." minlength="1" maxlength="250" required></textarea><br>   
 
                         <label>Foto de Perfil:<font color="red">*</font></label><br>
-                        <input type="file" name="foto" id="foto" ><br><br>
+                        <input type="file" name="foto" id="foto" required><br><br>
 
                         <div class="wrapInputRadio">
                             <label for="sexo">Tipo de Assinatura:<font color="red">*</font></label><br><br>
@@ -86,7 +86,7 @@
                         </div>
                         
                         <label>CPF:<font color="red">*</font></label>
-                        <input type="text" class="CPF" name="CPF" size="3" id="cpf" maxlength="14" autocomplete="off"
+                        <input type="text" class="CPF" name="CPF" size="3" id="cpf" minlenght="10" maxlength="14" autocomplete="off"
                             placeholder="Ex: 000.000.000-00" onkeyup="mascara_cpf()" onkeypress="TestaCPF()" required><br><br>
                     </div>
                     <button type="submit" class="btn-login">Enviar</button>

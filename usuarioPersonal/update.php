@@ -91,7 +91,7 @@
                     <h1>Cadastro</h1>
                     <div class="textfield">
                         <label for="usuario">Nome Completo<font color="red">*</font></label><span></span>
-                        <input type="text" name="nome" size="80" value="<?=$usuario['nome']?>" placeholder="Informe o seu nome" required><br>
+                        <input type="text" name="nome" size="80" minlength="3" maxlength="300" value="<?=$usuario['nome']?>" placeholder="Informe o seu nome" required><br>
 
                         <label for="email">E-mail<font color="red">*</font></label>
                         <input type="email" name="email" size="50" value="<?=$usuario['email']?>" placeholder="Informe o seu e-mail" required><br>
@@ -109,14 +109,14 @@
                         </div><br>
 
                         <label for="descricao">Descrição Pessoal: <font color="red">*</font></label>
-                        <textarea name="descricao" placeholder="Conte mais sobre sua carreira..."><?=$usuario['descricao']?></textarea>
+                        <textarea name="descricao" placeholder="Conte mais sobre sua carreira..."  minlength="1" maxlength="250" required><?=$usuario['descricao']?></textarea>
 
                         <label>CPF:<font color="red">*</font></label>
-                        <input type="text" class="CPF" name="cpf" value="<?=$usuario['CPF']?>" size="3" id="cpf" maxlength="14" autocomplete="off"
+                        <input type="text" class="CPF" name="cpf" value="<?=$usuario['CPF']?>" size="3" id="cpf" maxlength="14" minlength="10" autocomplete="off"
                             placeholder="Ex: 000.000.000-00" onkeyup="mascara_cpf()" onkeypress="TestaCPF()" required><br>
 
                         <label for="numero">Numero do CREF: <font color="red">*</font></label>
-                        <input type="number" name="numero" value="<?=$CREFS['numero']?>" placeholder="Informe os digitos do seu CREF"><br>
+                        <input type="number" name="numero" value="<?=$CREFS['numero']?>" minwidth="6" maxwidth="6" required placeholder="Informe os digitos do seu CREF"><br>
 
                         <label for="natureza">Natureza do CREF: <font color="red">*</font></label>
                       <select name="natureza" id="natureza">
@@ -165,12 +165,12 @@
                     <label>Foto de perfil: <font color="red">*</font></label><br>
                     <input type="file" name="foto" onchange="pressed()" id="foto" ><span id="fileLabel"><?=$usuario['foto']?></span><br/><br><br>
                     <input type="hidden" value="<?=$usuario['id']?>" name="id">
-          <input type="hidden" value="<?=$usuario['foto']?>" name="fotoAnterior">
-          <?php if(isset($_GET['redirect'])){  ?>
-                    <input type="hidden" name="redirect" value="<?=$_GET['redirect']?>" >
-          <?php
-          }
-          ?>
+                    <input type="hidden" value="<?=$usuario['foto']?>" name="fotoAnterior">
+                    <?php if(isset($_GET['redirect'])){  ?>
+                                <input type="hidden" name="redirect" value="<?=$_GET['redirect']?>" >
+                    <?php
+                    }
+                    ?>
                     <button class="btn" type="submit">Salvar</button>
                 </div>
             </div>

@@ -90,12 +90,12 @@
                     <h1>Cadastro</h1>
                     <div class="textfield">
                         <label for="usuario">Nome Completo<font color="red">*</font></label><span></span>
-                        <input type="text" name="nome" value="<?=$usuarios['nome']?>" size="80" placeholder="Informe o seu nome" required><br>
+                        <input type="text" name="nome" value="<?=$usuarios['nome']?>" size="80" minlength="3" maxlength="300" placeholder="Informe o seu nome" required><br>
 
                         <label for="email">E-mail<font color="red">*</font></label>
                         <input type="email" name="email" value="<?=$usuarios['email']?>" size="50" placeholder="Informe o seu e-mail" required><br>
                         <label>Senha<font color="red">*</font></label>
-                        <input type="password" name="password" maxlength="25" autocomplete="off" required
+                        <input type="password" name="password" minlength="2" maxlength="25" autocomplete="off" required
                             placeholder="Informe sua senha">
                         <br>
                         <div class="wrapInputRadio">
@@ -108,20 +108,20 @@
                             <div>
                                 <label for="altura">Altura:<font color="red">*</font></label>
                                 <div class="flex-row center-text">
-                                <input type="number" name="altura" value="<?=$usuarios['altura']?>"  class="shortInput" placeholder="Ex.: 175" required>cm
+                                <input type="number" name="altura" value="<?=$usuarios['altura']?>"  class="shortInput" placeholder="Ex.: 175"  minlenght="1" maxlength="3" required>cm
                                 </div>
                             </div>
                             &nbsp;&nbsp;
                             <div>
                             <label for="peso">Peso:<font color="red">*</font></label>
                                 <div class="flex-row center-text">
-                                    <input type="number" name="peso" value="<?=$usuarios['peso']?>" class="shortInput" placeholder="Ex.: 65.5" required>kg
+                                    <input type="number" name="peso" value="<?=$usuarios['peso']?>" class="shortInput" maxlength="7" minlength="1"  placeholder="Ex.: 65.5" required>kg
                                 </div>
                             </div>
                         </div><br>
 
                         <label for="objetivo">Objetivo Pessoal:<font color="red">*</font></label>
-                        <textarea name="objetivo" placeholder="Conte-nos onde quer chegar com ajuda dos treinos..." maxlength="250"><?=$usuarios['objetivo']?></textarea><br>   
+                        <textarea name="objetivo" placeholder="Conte-nos onde quer chegar com ajuda dos treinos..." minlength="1" maxlength="250" required ><?=$usuarios['objetivo']?></textarea><br>   
 
                         <div>
                             <label>Foto de Perfil:</label><br>
@@ -141,7 +141,7 @@
                         </div>
                         
                         <label>CPF:<font color="red">*</font></label>
-                        <input type="text" class="CPF" name="CPF" value="<?=$usuarios['CPF']?>" size="3" id="cpf" maxlength="14" autocomplete="off"
+                        <input type="text" class="CPF" name="CPF" value="<?=$usuarios['CPF']?>" size="3" id="cpf" minlenght="10" maxlength="14" autocomplete="off"
                             placeholder="Ex: 000.000.000-00" onkeyup="mascara_cpf()" onkeypress="TestaCPF()" required><br><br>
                             <input type="hidden" value="<?=$usuarios['id']?>" name="id">
                             <input type="hidden" value="<?=$usuarios['foto']?>" name="fotoAnterior" >

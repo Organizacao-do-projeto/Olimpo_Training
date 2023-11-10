@@ -90,10 +90,10 @@
                     <h1>Cadastro</h1>
                     <div class="textfield">
                         <label for="usuario">Nome Completo<font color="red">*</font></label><span></span>
-                        <input type="text" name="nome" value="<?=$usuarios['nome']?>" size="80" placeholder="Informe o seu nome" required><br>
+                        <input type="text" name="nome" value="<?=$usuarios['nome']?>" size="80" placeholder="Informe o seu nome" minlength="3" maxlength="300" required><br>
 
                         <label for="email">E-mail<font color="red">*</font></label>
-                        <input type="email" name="email" value="<?=$usuarios['email']?>" size="50" placeholder="Informe o seu e-mail" required><br>
+                        <input type="email" name="email" value="<?=$usuarios['email']?>" size="50" placeholder="Informe o seu e-mail" maxlength="150" required><br>
                         <label>Senha<font color="red">*</font></label>
                         <input type="password" name="password" maxlength="25" autocomplete="off" required
                             placeholder="Informe sua senha">
@@ -108,41 +108,25 @@
                             <div>
                                 <label for="altura">Altura:<font color="red">*</font></label>
                                 <div class="flex-row center-text">
-                                <input type="number" name="altura" value="<?=$usuarios['altura']?>"  class="shortInput" placeholder="Ex.: 175" required>cm
+                                <input type="number" name="altura" value="<?=$usuarios['altura']?>"  minwidth="1" maxlength="7" required class="shortInput" placeholder="Ex.: 175">cm
                                 </div>
                             </div>
                             &nbsp;&nbsp;
                             <div>
                             <label for="peso">Peso:<font color="red">*</font></label>
                                 <div class="flex-row center-text">
-                                    <input type="number" name="peso" value="<?=$usuarios['peso']?>" class="shortInput" placeholder="Ex.: 65.5" required>kg
+                                    <input type="number" name="peso" value="<?=$usuarios['peso']?>" class="shortInput" placeholder="Ex.: 65.5" required maxlength="7" minlength="1" >kg
                                 </div>
                             </div>
                         </div><br>
 
                         <label for="objetivo">Objetivo Pessoal:<font color="red">*</font></label>
-                        <textarea name="objetivo" placeholder="Conte-nos onde quer chegar com ajuda dos treinos..." maxlength="250"><?=$usuarios['objetivo']?></textarea><br>   
+                        <textarea name="objetivo" placeholder="Conte-nos onde quer chegar com ajuda dos treinos..."  minlength="1" maxlength="250" required><?=$usuarios['objetivo']?></textarea><br>   
 
                         <div>
                             <label>Foto de Perfil:</label><br>
                             <input type="file" name="foto" onchange="pressed()" id="foto" ><span id="fileLabel"><?=$usuarios['foto']?></span><br/>
                         </div>
-
-                        <!-- <div class="wrapInputRadio">
-                            <label for="sexo">Tipo de Assinatura:<font color="red">*</font></label><br><br>
-                            <input type="radio" name="assinatura" value="ANUAL" <?php if($assinaturas['tipo'] == 'ANUAL'){ echo "checked";};?>>Anual
-                        <input type="radio" name="assinatura" value="MENSAL" <?php if($assinaturas['tipo'] == 'MENSAL'){ echo "checked";};?>>Mensal<br>
-                        </div>
-
-                        <div class="wrapInputRadio">
-                            <label for="pagamento">Tipo de Pagamento:<font color="red">*</font></label><br><br>
-                            <input type="radio" name="pagamento" value="PIX" <?php if($pagamentos['tipo'] == 'PIX'){ echo "checked";};?>>PIX
-                        <input type="radio" name="pagamento" value="BOLETO" <?php if($pagamentos['tipo'] == 'BOLETO'){ echo "checked";};?>>Boleto<br><br>
-                        </div>
-                        
-                        <label>CPF:<font color="red">*</font></label>
-                        <input type="text" class="CPF" name="CPF" value="<?=$usuarios['CPF']?>" size="3" id="cpf" maxlength="14" autocomplete="off"
-                            placeholder="Ex: 000.000.000-00" onkeyup="mascara_cpf()" onkeypress="TestaCPF()" required><br><br> -->
                             <input type="hidden" value="<?=$usuarios['id']?>" name="id">
                             <input type="hidden" value="<?=$usuarios['foto']?>" name="fotoAnterior" >
                             <?php if(isset($_GET['redirect'])){  ?>

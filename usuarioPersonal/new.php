@@ -40,10 +40,11 @@
                     <h1>Cadastro</h1>
                     <div class="textfield">
                         <label for="usuario">Nome Completo<font color="red">*</font></label><span></span>
-                        <input type="text" name="nome" size="80" placeholder="Informe o seu nome" required><br>
+                        <input type="text" name="nome" size="80" 
+                        minlength="3" maxlength="300" placeholder="Informe o seu nome" required><br>
 
                         <label for="email">E-mail<font color="red">*</font></label>
-                        <input type="email" name="email" size="50" placeholder="Informe o seu e-mail" required><br>
+                        <input type="email" name="email" size="50" placeholder="Informe o seu e-mail" size="50" maxlength="150" required><br>
                         <label>Senha<font color="red">*</font></label>
                         <input type="password" name="password" maxlength="25" autocomplete="off" required
                             placeholder="Informe sua senha">
@@ -55,17 +56,17 @@
                         </div><br>
 
                         <label for="descricao">Descrição Pessoal: <font color="red">*</font></label>
-                        <textarea name="descricao" placeholder="Conte mais sobre sua carreira..."></textarea>
+                        <textarea name="descricao" placeholder="Conte mais sobre sua carreira..." minlength="1" maxlength="250" required></textarea>
 
                         <label>CPF:<font color="red">*</font></label>
-                        <input type="text" class="CPF" name="cpf" size="3" id="cpf" maxlength="14" autocomplete="off"
+                        <input type="text" class="CPF" name="cpf" size="3" id="cpf" maxlength="14" minlength="10" autocomplete="off"
                             placeholder="Ex: 000.000.000-00" onkeyup="mascara_cpf()" onkeypress="TestaCPF()" required><br>
 
                         <label for="numero">Numero do CREF: <font color="red">*</font></label>
-                        <input type="number" name="numero" placeholder="Informe os digitos do seu CREF"><br>
+                        <input type="number" name="numero" placeholder="Informe os digitos do seu CREF" minwidth="6" maxwidth="6" required><br>
 
                         <label for="natureza">Natureza do CREF: <font color="red">*</font></label>
-                      <select name="natureza" >
+                      <select name="natureza" required>
                                   <option value="Bacharelado">Bacharelado</option>
                                   <option value="Licenciatura">Licenciatura</option>
                                   <option value="Provisionado">Provisionado</option>
@@ -75,7 +76,7 @@
                         
                         </select>
 
-                            <label for="UF_registro">UF de registro <font color="red">*</font></label>
+                            <label for="UF_registro">UF de registro <font color="red">*</font></label required>
                             <select name="UF_registro">
                               <option value="">Selecione</option>
                               <option value="AC">AC</option>
@@ -109,7 +110,7 @@
 
 
                     <label>Foto de perfil: <font color="red">*</font></label><br>
-                    <input type="file" name="foto" ><br><br>
+                    <input type="file" name="foto" required><br><br>
                     <button class="btn" type="submit">Salvar</button>
                 </div>
             </div>
