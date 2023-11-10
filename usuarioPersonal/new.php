@@ -63,7 +63,7 @@
                             placeholder="Ex: 000.000.000-00" onkeyup="mascara_cpf()" onkeypress="TestaCPF()" required><br>
 
                         <label for="numero">Numero do CREF: <font color="red">*</font></label>
-                        <input type="number" name="numero" placeholder="Informe os digitos do seu CREF" minwidth="6" maxwidth="6" required><br>
+                        <input type="number" name="numero" placeholder="Informe os digitos do seu CREF" minlength="6" maxlength="6" required><br>
 
                         <label for="natureza">Natureza do CREF: <font color="red">*</font></label>
                       <select name="natureza" required>

@@ -56,7 +56,7 @@
     $stmtPerfis->bindParam(":id",$ultimoID);
     $resultPerfis= $stmtPerfis->execute();
 
-    $queryCREFS = "INSERT INTO olimpo.crefs (idUsuarios , numero, natureza, UF_registro, autenticado ) VALUES (:idUsuarios, :numero, :natureza, :UF_registro, 1 );";
+    $queryCREFS = "INSERT INTO olimpo.crefs (idUsuarios , numero, natureza, UF_registro, autenticado ) VALUES (:idUsuarios, :numero, :natureza, :UF_registro, 0 );";
 
     $dbhCREFS = Conexao::getConexao();
 

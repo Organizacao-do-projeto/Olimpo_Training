@@ -105,7 +105,7 @@ $dadosTabelaPerfis = $stmtTabelaPerfis->fetch();
 
     <section class="infosPersonal">
             <article>
-                <?php
+                <!-- <?php
                 //verifica se o usuário apresentado é personal trainer
                 if($dadosTabelaPerfis['nome'] == 'PERSONAL-TRAINER'):
                     //verifica se ele já está selecionado como personal traienr do usuário
@@ -131,7 +131,7 @@ $dadosTabelaPerfis = $stmtTabelaPerfis->fetch();
                         <?php
                     }
                  endif;
-                ?>  
+                ?>   -->
 
                  <div class="infosPersonalContent">
                     <h1><?=$dadosPerfil['nome']?></h1>

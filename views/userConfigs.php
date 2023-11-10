@@ -15,10 +15,6 @@ $stmt->bindParam(":id",$id);
 $stmt->execute();
 $nomePerfis = $stmt->fetch(PDO::FETCH_BOTH);
 
-echo "<pre>";
-var_dump($nomePerfis);
-echo "</pre>";
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

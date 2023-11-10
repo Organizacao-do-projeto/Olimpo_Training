@@ -26,7 +26,7 @@
     $dbh = null;
     if ($result)
     {
-        header('location: index.php');  
+        header('location: index.php?msg=CREF autenticado com sucesso!');  
     } else {
         header('location: index.php?msg=Não foi possível autenticar o usuário com ID: {$id}');
     }
