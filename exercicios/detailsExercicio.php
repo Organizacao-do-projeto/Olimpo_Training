@@ -46,6 +46,35 @@ $exercicio = $stmt->fetch();
       box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22)
     
 }
+.descricao{
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+max-width: 500px;
+text-align: center;
+margin-top: 20px;
+margin-left: 530px;
+margin-bottom: 20px;
+}
+
+.nome{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    background-color: gold;
+    padding: 20px auto;
+    font-size: 1.5rem;
+    font-weight: 10000 ;
+}
+
+.link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+}
 </style>
 
 <?php
@@ -67,7 +96,7 @@ if($extensao == 'mp4' || $extensao == 'mov' || $extensao == 'webm'): ?>
     <video width="500px" height="500px" autoplay muted loop>
         <source src="animacoes/<?=$exercicio['nome_arq']?>">
     </video>
-
+   
 <?php
 else:
 ?>
@@ -75,15 +104,17 @@ else:
 <?php
 endif;
 ?>
-
+<div class="nome">
 <h3>Atividade física</h3>
 <p><?=$exercicio['ativ_fisica']?></p>
+</div>
+<div class="descricao">
+<p><?php  echo "<p><font color='black' face='Arial' size='5'>".$exercicio['descricao']."</font>";;?></p><br>
+</div>
 
-<p><?php echo "<pre>"; echo "<p><font color='black' face='Arial' size='5'>".$exercicio['descricao']."</font>"; echo "<pre>";?></p><br>
-
-
-<iframe width="850" height="479" src="https://www.youtube.com/embed/<?=$exercicio['link_tutorial']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>;
-
+<div class="link">
+<iframe width="850" height="479" src="https://www.youtube.com/embed/<?=$exercicio['link_tutorial']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
+</div>
 <?=$dbh=null;?>
 
 </body>
