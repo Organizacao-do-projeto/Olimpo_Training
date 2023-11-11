@@ -1,3 +1,9 @@
+<?php
+
+    //força a página a usar UTF-8 por PHP
+    ini_set('default_charset', 'utf-8');
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
