@@ -86,7 +86,7 @@ if(isset($_GET['acao'])) {
         font-weight: 800;
         font-size: 1.1rem;
         box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-        font-family: 'Rubik';
+font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         
     }
 
@@ -189,7 +189,7 @@ if(isset($_GET['acao'])) {
         flex-direction: column;
         font-size: 1.5rem;
         color: black;
-        font-family: 'Rubik';
+font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         font-weight: 500;
 
     }
@@ -197,7 +197,7 @@ if(isset($_GET['acao'])) {
 
     .blocoExercicio_form {
         color: black;
-        font-family: 'Rubik';
+font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         font-size: 18px;
         font-style: normal;
         font-weight: 200;
@@ -226,7 +226,7 @@ if(isset($_GET['acao'])) {
     
     .blocoExercicio_content h1{
         color: black;
-        font-family: 'Rubik';
+font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         font-size: 35px;
         font-style: normal;
         font-weight: 600;
@@ -286,7 +286,7 @@ if(isset($_GET['acao'])) {
         background: transparent;
         border: none;
         margin-left: 10px;
-        font-family: 'Rubik';
+font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         font-size: 21px;
         font-style: normal;
         font-weight: 700;
@@ -295,7 +295,7 @@ if(isset($_GET['acao'])) {
     
     .label_tituloFicha{
         margin-left: 10px;
-        font-family: 'Rubik';
+font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         font-size: 21px;
         font-style: normal;
         font-weight: 700;
@@ -340,7 +340,7 @@ if(isset($_GET['acao'])) {
     }
 
     #tabelaExe td, th{
-        font-family: 'Rubik';
+font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         font-size: 20px;
         font-style: normal;
         font-weight: 400;
@@ -360,7 +360,7 @@ if(isset($_GET['acao'])) {
     }
 
     #barraExe tr{
-        font-family: 'Rubik';
+font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
@@ -413,7 +413,7 @@ if(isset($_GET['acao'])) {
     }
 
     .labelIntervaloExe{
-        font-family: 'Rubik';
+font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         font-size: 17px;
         font-style: normal;
         font-weight: 600;
@@ -425,7 +425,7 @@ if(isset($_GET['acao'])) {
     }
     
     .labelObs{
-        font-family: 'Rubik';
+font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         font-size: 17px;
         font-style: normal;
         font-weight: 600;
@@ -444,7 +444,7 @@ if(isset($_GET['acao'])) {
     }
 
     #Enviar{
-    font-family: 'Rubik';
+   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;;
     font-size: 14px;
     font-style: normal;
     align-self: end;

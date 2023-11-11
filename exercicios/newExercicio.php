@@ -113,7 +113,7 @@ if(!empty($nomeExercicio && $atividadeFisica && $linkTutorial && $descricao) && 
     box-sizing: border-box;
     text-decoration: none;
     font-size: 1em;
-    font-family: 'Rubik','Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;,'Ubuntu', sans-serif;
     }
     
 

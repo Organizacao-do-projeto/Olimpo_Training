@@ -40,7 +40,7 @@
   height: 7px;
   width: 668px;
   left: 5446px;
-  font-family: 'Rubik';
+ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;;
   font-size: 35px;
   font-weight: 40;
   line-height: flex;
@@ -52,7 +52,7 @@
 .container > section > h3 {
   height: 31px;
   width: 320px;
-  font-family: 'Rubik';
+ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;;
   font-size: 22px;
   font-weight: 400;
   line-height: 40px;

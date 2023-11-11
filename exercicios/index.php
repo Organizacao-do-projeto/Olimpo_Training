@@ -82,7 +82,7 @@ if(isset($_GET['msg'])){
 .mainTitulo{
 
     color: black;
-    font-family: 'Rubik';
+   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;;
     font-size: 90px;
     font-style: normal;
     font-weight: 600;
@@ -139,7 +139,7 @@ if(isset($_GET['msg'])){
     .wrapbtn a{
         display: flex;
         text-align: center;
-        font-family: 'Rubik';
+font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         text-decoration: none;
         color: #68521b;
         font-weight: 800;
@@ -195,7 +195,8 @@ if(isset($_GET['msg'])){
         flex-direction: column;
         font-size: 1.5rem;
         color: black;
-        font-family: 'Rubik';
+font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
+       font-family: 'Ubuntu', sans-serif, Arial, Helvetica;, 'Ubuntu', sans-serif, Arial, Helvetica;
         font-weight: 500;
 
     }
@@ -220,7 +221,7 @@ if(isset($_GET['msg'])){
     
     .blocoExercicio_content h1{
         color: black;
-        font-family: 'Rubik';
+font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         font-size: 35px;
         font-style: normal;
         font-weight: 600;

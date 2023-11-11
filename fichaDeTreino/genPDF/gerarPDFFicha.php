@@ -88,6 +88,11 @@ https://i.pinimg.com/originals/1e/e2/fb/1ee2fb9717554a1dbb09b924f19f8e72.png */
       margin: 0 auto;
     }
 
+    *{
+      font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
+    }
+
+
     #body_container {
       /* background-image: url(http://localhost/site_etc/teste/backgroundFicha.jpg); */
       background-position: center;

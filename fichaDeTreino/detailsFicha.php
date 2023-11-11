@@ -51,7 +51,7 @@
     justify-content: end;
     background-color: #36304a;
     color: #fff;
-    font-family: 'Rubik';
+   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;;
     font-size: 25px;
     font-style: normal;
     font-weight: 400;
@@ -90,7 +90,7 @@
 .cabecalhoFicha h1{
     margin: 0;
     color: black;
-    font-family: 'Rubik';
+   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;;
     font-size: 75px;
     font-style: normal;
     font-weight: 500;
@@ -104,7 +104,7 @@
     margin-left: 50px;
     margin-right: 10px;
     justify-content: space-between;
-    font-family: 'Rubik';
+   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;;
     font-size: 19px;
     font-style: normal;
     font-weight: 400;
@@ -175,7 +175,7 @@
 .container_table th,td{
     margin-left: 50px;
     margin-right: 10px;
-    font-family: 'Rubik';
+   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;;
     font-size: 20px;
     font-style: normal;
     font-weight: 800;
@@ -246,7 +246,7 @@ hr {
 .infoPersonal h1{
     margin-left: 50px;
     margin-right: 10px;
-    font-family: 'Rubik';
+   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;;
     font-size: 19px;
     font-style: normal;
     font-weight: 400;
@@ -271,7 +271,7 @@ hr {
 
 .dadosPerfilPersonal{
     margin-right: 10px;
-    font-family: 'Rubik';
+   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -290,7 +290,7 @@ hr {
 
 .outras_infos h2{
     margin-right: 10px;
-    font-family: 'Rubik';
+   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;;
     font-size: 19px;
     font-style: normal;
     font-weight: 700;
@@ -299,7 +299,7 @@ hr {
 .outras_infos p{
     margin-top: 10px;
     margin-right: 10px;
-    font-family: 'Rubik';
+   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -328,7 +328,7 @@ hr {
 }
 
 .gerarPDF button{
-    font-family: 'Rubik';
+   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;;
     font-size: 14px;
     font-style: normal;
 

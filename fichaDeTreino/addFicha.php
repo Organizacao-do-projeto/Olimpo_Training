@@ -16,8 +16,8 @@ $observacoes = $_POST['observacoes'];
 $dbhFicha = Conexao::getConexao();
 $dbhft_exe = Conexao::getConexao();
 
-$queryFichaDeTreino = "INSERT INTO olimpo.fichas_Treino ( idAluno, idPersonal, titulo, descExercicios, observacoes, data_criacao)
-                        VALUES(:idAluno, :idPersonal, :titulo, :descExercicios, :observacoes, NOW())";
+$queryFichaDeTreino = "INSERT INTO olimpo.fichas_Treino ( idAluno, titulo, descExercicios, observacoes, data_criacao)
+                        VALUES(:idAluno, :titulo, :descExercicios, :observacoes, NOW())";
 
 
 $queryft_exe = "INSERT INTO olimpo.FT_EXE (idFichas_Treino, idExercicios, series, repeticoes, carga, descSeries, modo)
@@ -33,7 +33,7 @@ echo "<a href='index.php'>Visualizar fichas de treino</a>";
 
 $stmtFicha = $dbhFicha->prepare($queryFichaDeTreino);
 $stmtFicha->bindParam(':idAluno', $idAluno);
-$stmtFicha->bindParam(':idPersonal', $idPersonal);
+// $stmtFicha->bindParam(':idPersonal', $idPersonal);
 $stmtFicha->bindParam(':titulo', $tituloFicha);
 $stmtFicha->bindParam(':descExercicios', $descExercicios);
 $stmtFicha->bindParam(':observacoes', $observacoes);

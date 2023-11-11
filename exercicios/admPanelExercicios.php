@@ -34,7 +34,7 @@
         box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
         display: flex;
         text-align: center;
-        font-family: 'Rubik';
+font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         color: #68521b;
         font-weight: 800;
         font-size: 1.3rem;
@@ -55,10 +55,11 @@
     
     /* INICIO DOBRA EXERCICIOS */
     .showExercicios{
+            margin: 20px;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: space-around;
+            /* justify-content: space-around; */
             margin-bottom: 90px;
         }
 
@@ -90,6 +91,7 @@
         align-items: center;
         border-radius: 10px;
         box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+        margin: 15px;
 
     }
 
@@ -107,7 +109,7 @@
         flex-direction: column;
         font-size: 1.5rem;
         color: black;
-        font-family: 'Rubik';
+font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         font-weight: 500;
 
     }
@@ -132,7 +134,7 @@
     
     .blocoExercicio_content h1{
         color: black;
-        font-family: 'Rubik';
+font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         font-size: 35px;
         font-style: normal;
         font-weight: 600;

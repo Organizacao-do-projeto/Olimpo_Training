@@ -249,7 +249,7 @@ $dadosTabelaPerfis = $stmtTabelaPerfis->fetch();
             left: 79px;
             top: 353px;
 
-            font-family: 'Rubik';
+    font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
             font-style: normal;
             font-weight: 500;
             font-size: 50px;
@@ -273,7 +273,6 @@ $dadosTabelaPerfis = $stmtTabelaPerfis->fetch();
         }
 
         .infosPersonalContentDescricao p{
-            width: 801px;
             height: 210px;
             margin-left: 30px;
 
@@ -302,7 +301,7 @@ $dadosTabelaPerfis = $stmtTabelaPerfis->fetch();
             height: 151px;
             margin-left: 30px;
             
-            font-family: 'Rubik';
+    font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
             font-style: normal;
             font-weight: 600;
             font-size: 18px;
@@ -316,7 +315,7 @@ $dadosTabelaPerfis = $stmtTabelaPerfis->fetch();
             color: green;
             margin-left: 30px;
             
-            font-family: 'Rubik';
+    font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
             font-style: normal;
             font-weight: 400;
             font-size: 28px;

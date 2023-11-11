@@ -17,7 +17,7 @@ $_SESSION['sessaoFicha'] = [];
     margin-bottom: 30px;
     text-align: center;
     color: black;
-    font-family: 'Rubik';
+   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;;
     font-size: 70px;
     font-style: normal;
     font-weight: 600;
@@ -50,7 +50,7 @@ $_SESSION['sessaoFicha'] = [];
     font-weight: 800;
     font-size: 1.1rem;
     box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-    font-family: 'Rubik';
+   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;;
 }
 
 .sectionFichas{
@@ -129,7 +129,7 @@ $_SESSION['sessaoFicha'] = [];
     display: flex;
     align-items: center;
     justify-content: center;
-    font-style: 'Ubuntu';
+   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
     font-weight: 600;
 
 }
