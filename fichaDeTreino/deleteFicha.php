@@ -24,4 +24,4 @@ $stmtFichas->execute();
 echo "Ficha de treino excluída com sucesso!<br>";
 echo "<a href='index.php'>Fichas de treino</a>";
 
-header("Location: index.php");
+header("Location: index.php?success=Ficha de treino deletada com suceeso!");

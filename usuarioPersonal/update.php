@@ -39,7 +39,7 @@
 
     if (!$usuario) 
     {
-        header('location: index.php?msg=Usuário não encontrado para o ID: {$id}');
+        header("location: index.php?error=Usuário não encontrado para o ID: $id");
         exit;
     }
 

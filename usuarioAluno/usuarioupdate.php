@@ -86,11 +86,11 @@
     {
         if(isset($_POST['redirect'])){
 
-            header('location: '.$_POST['redirect'].'?msg=Usuario editado com êxito!');
+            header('location: '.$_POST['redirect'].'?success=Usuario editado com êxito!');
 
         }else{
-            header('location: ../index.php?msg=Conta atualizada com sucesso.');
+            header('location: ../index.php?success=Conta atualizada com sucesso.');
         }
     } else {
-        header('location: index.php?msg=Não foi possível atualizar o usuário com ID: {$id}');
+        header("location: index.php?error=Não foi possível atualizar o usuário com ID: $id");
     }

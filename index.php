@@ -16,7 +16,8 @@
     
     <title>Olimpo Training</title>
 </head>
-
+<!-- incluindo sweet alert para aparecer as mensagens -->
+<?php include_once __DIR__.'/assets/script/sweetAlert.php'; ?>
 <body>
     <!--DOBRA CABEÇALHO-->
 

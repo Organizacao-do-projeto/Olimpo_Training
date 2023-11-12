@@ -49,14 +49,14 @@
     {
         if(isset($_GET['redirect'])){
 
-        header('location: '.$_GET['redirect'].'?msg=Usuario excluido com êxito!');
+        header('location: '.$_GET['redirect'].'?success=Usuario excluido com êxito!');
         exit;
         }else{
-        header('location: ../index.php?msg=Conta excluída com sucesso.');
+        header('location: ../index.php?success=Conta excluída com sucesso.');
         exit;
         }
     } else {
-        echo "Não existe usuário cadastrado com id = $id";
+        header("Location: ../index.php?error=Não existe usuário cadastrado com id = $id");
     }
 
     $dbh = null;

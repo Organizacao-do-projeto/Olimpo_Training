@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/boot.css">
 </head>
-
+<!-- incluindo sweet alert para aparecer as mensagens -->
+<?php include_once __DIR__.'/../assets/script/sweetAlert.php'; ?>
 <body>
     <!--DOBRA CABEÇALHO-->
 
@@ -48,21 +49,21 @@
                         <div align="center" class="<?= (isset($_GET['error']) ? 'msg__success' : 'msg__error') ?>">
                             <p><font color="red"><?= $_GET['msg'] ?? $_GET['error'] ?></font></p>
                         </div>
-                    <?php endif; ?>
+    <?php endif; ?>
 
 
     <div class="overlay"></div>
     <div class="modal">
         <div class="div_login">
-                <h1>Login</h1>
-                <br>
-                <form action="auth/login.php" method="post">
-                    <input type="email" name="email" placeholder="Nome" class="input" required>
-                    <br><br>
-                    <input type="password" name="password" placeholder="Senha" class="input" required>
-                    <br><br>
-                    <button class="button">Enviar</button>
-                </form>
+            <h1>Login</h1>
+            <br>
+            <form action="auth/login.php" method="post">
+                <input type="email" name="email" placeholder="Nome" class="input" required>
+                <br><br>
+                <input type="password" name="password" placeholder="Senha" class="input" required>
+                <br><br>
+                <button class="button">Enviar</button>
+            </form>
         </div>
     </div>
 </body>

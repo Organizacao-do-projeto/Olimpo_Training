@@ -63,4 +63,4 @@ $_SESSION['sessaoFicha'] = [];
 $dbhFicha = null;
 $dbhft_exe = null;
 
-header("Location: index.php");
+header("Location: index.php?success=Ficha de treino criada com suceeso!");

@@ -276,7 +276,7 @@ $dadosTabelaPerfis = $stmtTabelaPerfis->fetch();
             height: 210px;
             margin-left: 30px;
 
-            font-family: 'Relative';
+            font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
             font-style: normal;
             font-weight: 400;
             font-size: 18px;

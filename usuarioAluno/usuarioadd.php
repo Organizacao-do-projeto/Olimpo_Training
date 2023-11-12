@@ -94,7 +94,7 @@
 
     if ($result AND $resultPerfis AND $resultAssinaturas AND $resultPagamentos)
     {
-        header('location: ../index.php?msg=Cadastro realizado com sucesso.');
+        header('location: ../index.php?success=Cadastro realizado com sucesso.');
         exit;
     } else {
         echo '<p>Não foi fossível inserir Usuário!</p>';

@@ -230,11 +230,11 @@ if(!empty($nomeExercicio && $atividadeFisica && $linkTutorial && $descricao) && 
             <div class="form-group">
                 <label for="atividadeFisica">Atividade Física: </label>
                 <select name="atividadeFisica">
-                    <option value="ACADEMIA">Academia</option>
-                    <option value="CALISTENIA">Calistenia</option>
-                    <option value="AEROBICO">Aeróbico</option>
-                    <option value="CROSSFIT">Crossfit</option>
-                    <option value="BOXE">Boxe</option>
+                    <option value="Academia">Academia</option>
+                    <option value="Calistenia">Calistenia</option>
+                    <option value="Aeróbico">Aeróbico</option>
+                    <option value="Crossfit">Crossfit</option>
+                    <option value="Boxe">Boxe</option>
                 </select><br/>
             </div>
             <div class="form-group">

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Nov-2023 às 13:46
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Tempo de geração: 03/11/2023 às 21:40
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,17 +24,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `assinaturas`
+-- Estrutura para tabela `assinaturas`
 --
 
 CREATE TABLE `assinaturas` (
   `id` int(11) NOT NULL,
-  `tipo` varchar(70) CHARACTER SET utf8 NOT NULL,
+  `tipo` varchar(70) NOT NULL,
   `idUsuarios` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `assinaturas`
+-- Despejando dados para a tabela `assinaturas`
 --
 
 INSERT INTO `assinaturas` (`id`, `tipo`, `idUsuarios`) VALUES
@@ -45,20 +45,20 @@ INSERT INTO `assinaturas` (`id`, `tipo`, `idUsuarios`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `crefs`
+-- Estrutura para tabela `crefs`
 --
 
 CREATE TABLE `crefs` (
   `id` int(11) NOT NULL,
   `idUsuarios` int(11) NOT NULL,
   `numero` int(6) NOT NULL,
-  `natureza` varchar(25) CHARACTER SET utf8 NOT NULL,
-  `UF_registro` varchar(2) CHARACTER SET utf8 NOT NULL,
+  `natureza` varchar(25) NOT NULL,
+  `UF_registro` varchar(2) NOT NULL,
   `autenticado` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `crefs`
+-- Despejando dados para a tabela `crefs`
 --
 
 INSERT INTO `crefs` (`id`, `idUsuarios`, `numero`, `natureza`, `UF_registro`, `autenticado`) VALUES
@@ -69,56 +69,57 @@ INSERT INTO `crefs` (`id`, `idUsuarios`, `numero`, `natureza`, `UF_registro`, `a
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `exercicios`
+-- Estrutura para tabela `exercicios`
 --
 
 CREATE TABLE `exercicios` (
   `idExercicios` int(11) NOT NULL,
-  `nome` varchar(250) CHARACTER SET utf8 NOT NULL,
-  `descricao` mediumtext CHARACTER SET utf8 NOT NULL,
-  `link_tutorial` varchar(500) CHARACTER SET utf8 NOT NULL,
-  `ativ_fisica` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `nome_arq` varchar(150) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `nome` varchar(250) NOT NULL,
+  `descricao` mediumtext NOT NULL,
+  `link_tutorial` varchar(500) NOT NULL,
+  `ativ_fisica` varchar(50) NOT NULL,
+  `nome_arq` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `exercicios`
+-- Despejando dados para a tabela `exercicios`
 --
 
 INSERT INTO `exercicios` (`idExercicios`, `nome`, `descricao`, `link_tutorial`, `ativ_fisica`, `nome_arq`) VALUES
 (1, 'Agachamento búlgaro', '\r\nO agachamento búlgaro é um exercício onde você fica em uma posição de agachamento com uma perna estendida para trás. Ele ajuda a fortalecer as pernas, glúteos e core.', 'hY1mAqbXhvQ?si=5KD8pBazjimuby6C', 'Calistenia', 'agachamentoBulgaro.gif'),
-(2, 'Burpee', 'Os exercícios burpee são uma combinação de agachamentos, flexões e saltos, sendo uma excelente opção para trabalhar todo o corpo de forma intensa.iga os passos abaixo para corretamente o exerc burpee:\r\nCome em pé, com os p alinhados com os ombros.\r\nAgache-se, levando as mãos ao chão, mantendo a coluna ret e a cabeça alinhada com a coluna.\r\nEm seguida, empurre as pernas para trás, estendendo-as totalmente para a posição de flexão.\r\nFaça uma flexão, abaixando o corpo em direção ao chão, mantendo os cotovelos próximos ao corpo.\r\nVolte à posição de flexão, impulsionando o corpo para cima, estendendo os braços e mantendo o corpo alinhado.\r\nSalte para ficar com os pés próximos às mãos.\r\nFinalmente, salte para cima o máximo que puder, estendendo os braços acima da cabeça.\r\nRepita o movimento, alternando entre agachamento, flexão, salto e volta ao agachamento.\r\nÉ importante lembrar de manter uma boa postura durante todo o exercício, especialmente para evitar lesões na coluna ou articulações. Comece fazendo poucas repetições e vá aumentando gradativamente conforme ganha condicionamento físico.', 'QyuQSvEuzAc?si=76hpo3Q_hoBTa5XV', 'ACADEMIA', 'burpee.gif'),
+(2, 'Burpee', 'Os exercícios burpee são uma combinação de agachamentos, flexões e saltos, sendo uma excelente opção para trabalhar todo o corpo de forma intensa.iga os passos abaixo para corretamente o exerc burpee:\r\nCome em pé, com os p alinhados com os ombros.\r\nAgache-se, levando as mãos ao chão, mantendo a coluna ret e a cabeça alinhada com a coluna.\r\nEm seguida, empurre as pernas para trás, estendendo-as totalmente para a posição de flexão.\r\nFaça uma flexão, abaixando o corpo em direção ao chão, mantendo os cotovelos próximos ao corpo.\r\nVolte à posição de flexão, impulsionando o corpo para cima, estendendo os braços e mantendo o corpo alinhado.\r\nSalte para ficar com os pés próximos às mãos.\r\nFinalmente, salte para cima o máximo que puder, estendendo os braços acima da cabeça.\r\nRepita o movimento, alternando entre agachamento, flexão, salto e volta ao agachamento.\r\nÉ importante lembrar de manter uma boa postura durante todo o exercício, especialmente para evitar lesões na coluna ou articulações. Comece fazendo poucas repetições e vá aumentando gradativamente conforme ganha condicionamento físico.', 'QyuQSvEuzAc?si=76hpo3Q_hoBTa5XV', 'Calistenia', 'burpee.gif'),
 (3, 'Flexao Diamante', 'A flexão diamante é um exercício onde você junta as mãos em forma de diamante e realiza as flexões. Ele ajuda a fortalecer os músculos do peito e tríceps.', 'YK0T74TlbNQ?si=gCcOb93hzIL6EVPa', 'Calistenia', 'flexaoDiamante.webp'),
 (4, 'Polichinelo', 'O polichinelo é um exercício rítmico onde você salta no lugar, abrindo e fechando as pernas e os braços ao mesmo tempo. Ele ajuda a melhorar a coordenação, a resistência cardiovascular e queimar calorias.', 'S2uqQ9zHZMc?si=bNwvlWp2VXpoCjYA', 'Calistenia', 'polichinelo.gif');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `fichas_treino`
+-- Estrutura para tabela `fichas_treino`
 --
 
 CREATE TABLE `fichas_treino` (
   `idFichas_treino` int(11) NOT NULL,
+  `idPersonal` int(11) NOT NULL,
   `idAluno` int(11) NOT NULL,
-  `titulo` varchar(77) CHARACTER SET utf8 NOT NULL,
+  `titulo` varchar(77) NOT NULL,
   `data_criacao` date NOT NULL,
   `descExercicios` int(4) NOT NULL,
-  `observacoes` varchar(1000) CHARACTER SET utf8 DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `observacoes` varchar(1000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `fichas_treino`
+-- Despejando dados para a tabela `fichas_treino`
 --
 
-INSERT INTO `fichas_treino` (`idFichas_treino`, `idAluno`, `titulo`, `data_criacao`, `descExercicios`, `observacoes`) VALUES
-(85, 1, 'Treino geral', '2023-11-03', 50, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac sapien id risus rutrum iaculis sit amet et nunc. Vivamus sed metus pharetra, mollis risus sed, ullamcorper erat. Vestibulum imperdiet neque nec ex consequat sagittis. In hac habitasse platea dictumst. Phasellus vel enim nec lorem mollis commodo non et nunc.'),
-(86, 1, 'Treino de musculação', '2023-11-03', 33, 'Não faça o pulo do burpee :)'),
-(87, 1, 'Treino Segunda-Feira', '2023-11-03', 45, 'Treino educativo no começo da semana');
+INSERT INTO `fichas_treino` (`idFichas_treino`, `idPersonal`, `idAluno`, `titulo`, `data_criacao`, `descExercicios`, `observacoes`) VALUES
+(85, 1, 1, 'Treino geral', '2023-11-03', 50, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac sapien id risus rutrum iaculis sit amet et nunc. Vivamus sed metus pharetra, mollis risus sed, ullamcorper erat. Vestibulum imperdiet neque nec ex consequat sagittis. In hac habitasse platea dictumst. Phasellus vel enim nec lorem mollis commodo non et nunc.'),
+(86, 1, 1, 'Treino de musculação', '2023-11-03', 33, 'Não faça o pulo do burpee :)'),
+(87, 1, 1, 'Treino Segunda-Feira', '2023-11-03', 45, 'Treino educativo no começo da semana');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `ft_exe`
+-- Estrutura para tabela `ft_exe`
 --
 
 CREATE TABLE `ft_exe` (
@@ -129,11 +130,11 @@ CREATE TABLE `ft_exe` (
   `repeticoes` smallint(6) NOT NULL,
   `carga` smallint(6) NOT NULL,
   `descSeries` smallint(6) NOT NULL,
-  `modo` varchar(20) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `modo` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `ft_exe`
+-- Despejando dados para a tabela `ft_exe`
 --
 
 INSERT INTO `ft_exe` (`idFT_EXE`, `idFichas_Treino`, `idExercicios`, `series`, `repeticoes`, `carga`, `descSeries`, `modo`) VALUES
@@ -153,17 +154,17 @@ INSERT INTO `ft_exe` (`idFT_EXE`, `idFichas_Treino`, `idExercicios`, `series`, `
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `pagamentos`
+-- Estrutura para tabela `pagamentos`
 --
 
 CREATE TABLE `pagamentos` (
   `id` int(11) NOT NULL,
-  `tipo` varchar(11) CHARACTER SET utf8 NOT NULL,
+  `tipo` varchar(11) NOT NULL,
   `idUsuarios` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `pagamentos`
+-- Despejando dados para a tabela `pagamentos`
 --
 
 INSERT INTO `pagamentos` (`id`, `tipo`, `idUsuarios`) VALUES
@@ -174,16 +175,16 @@ INSERT INTO `pagamentos` (`id`, `tipo`, `idUsuarios`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `perfis`
+-- Estrutura para tabela `perfis`
 --
 
 CREATE TABLE `perfis` (
   `id` int(11) NOT NULL,
-  `nome` varchar(50) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `nome` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `perfis`
+-- Despejando dados para a tabela `perfis`
 --
 
 INSERT INTO `perfis` (`id`, `nome`) VALUES
@@ -201,34 +202,34 @@ INSERT INTO `perfis` (`id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Estrutura para tabela `usuarios`
 --
 
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `password` varchar(80) CHARACTER SET utf8 NOT NULL,
-  `nome` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(80) NOT NULL,
+  `nome` varchar(100) NOT NULL,
   `autenticado` tinyint(1) NOT NULL,
-  `CPF` varchar(15) CHARACTER SET utf8 NOT NULL,
-  `sexo` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `CPF` varchar(15) NOT NULL,
+  `sexo` varchar(25) NOT NULL,
   `altura` int(11) NOT NULL,
   `peso` float NOT NULL,
   `saldo_solici` int(11) NOT NULL,
-  `foto` varchar(70) CHARACTER SET utf8 NOT NULL,
-  `descricao` varchar(500) CHARACTER SET utf8 NOT NULL,
-  `objetivo` varchar(250) CHARACTER SET utf8 NOT NULL,
+  `foto` varchar(70) NOT NULL,
+  `descricao` varchar(500) NOT NULL,
+  `objetivo` varchar(250) NOT NULL,
   `idPerso_trainer` int(11) NOT NULL,
   `idPerfis` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `usuarios`
+-- Despejando dados para a tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `email`, `password`, `nome`, `autenticado`, `CPF`, `sexo`, `altura`, `peso`, `saldo_solici`, `foto`, `descricao`, `objetivo`, `idPerso_trainer`, `idPerfis`) VALUES
 (1, 'admin@gmail.com', '202cb962ac59075b964b07152d234b70', 'Administrador', 1, '000.000.000-00', 'Masculino', 200, 200, 7, '', '', '', 1, 1),
-(50, 'jose@gmail.com', '202cb962ac59075b964b07152d234b70', 'José Silva da SIlva nogueira', 0, '', 'Masculino', 175, 75, 0, 'treinando.jpg', '', 'Quero melhorar minha saúde e bem-estar, além de me sentir mais confiante e energizado. Estou animado para começar a treinar e alcançar meus objetivos de fitness.', 0, 0),
+(50, 'jose@gmail.com', '202cb962ac59075b964b07152d234b70', 'José Silva da SIlva', 0, '', 'Masculino', 175, 75, 0, 'treinando.jpg', '', 'Quero melhorar minha saúde e bem-estar, além de me sentir mais confiante e energizado. Estou animado para começar a treinar e alcançar meus objetivos de fitness.', 0, 0),
 (51, 'maria@gmail.com', '202cb962ac59075b964b07152d234b70', 'Maria Fernandes', 0, '', 'Masculino', 155, 76, 0, 'moca.jpg', '', 'Quero melhorar minha saúde e bem-estar, além de me sentir mais confiante e energizado. Estou animado para começar a treinar e alcançar meus objetivos de fitness.', 0, 0),
 (52, 'jailson@gmail.com', '202cb962ac59075b964b07152d234b70', 'Jailson Hermes', 0, '', 'Masculino', 188, 93, 0, 'JailsonHermes.jpg', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac sapien id risus rutrum iaculis sit amet et nunc. Vivamus sed metus pharetra, mollis risus sed, ullamcorper erat. Vestibulum imperdiet neque nec ex consequat sagittis. In hac habitasse ', 0, 0),
 (53, 'ana@gmail.com', '202cb962ac59075b964b07152d234b70', 'Ana Não Sei das Quantas', 0, '456.789.012-34', 'Feminino', 171, 55, 7, 'anaNseidasquantas.jpg', '', 'Quero melhorar minha saúde e bem-estar, além de me sentir mais confiante e energizada. Estou animada para começar a treinar e alcançar meus objetivos de fitness.', 0, 0),
@@ -243,68 +244,68 @@ INSERT INTO `usuarios` (`id`, `email`, `password`, `nome`, `autenticado`, `CPF`,
 --
 
 --
--- Índices para tabela `assinaturas`
+-- Índices de tabela `assinaturas`
 --
 ALTER TABLE `assinaturas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `crefs`
+-- Índices de tabela `crefs`
 --
 ALTER TABLE `crefs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `exercicios`
+-- Índices de tabela `exercicios`
 --
 ALTER TABLE `exercicios`
   ADD PRIMARY KEY (`idExercicios`);
 
 --
--- Índices para tabela `fichas_treino`
+-- Índices de tabela `fichas_treino`
 --
 ALTER TABLE `fichas_treino`
   ADD PRIMARY KEY (`idFichas_treino`);
 
 --
--- Índices para tabela `ft_exe`
+-- Índices de tabela `ft_exe`
 --
 ALTER TABLE `ft_exe`
   ADD PRIMARY KEY (`idFT_EXE`);
 
 --
--- Índices para tabela `pagamentos`
+-- Índices de tabela `pagamentos`
 --
 ALTER TABLE `pagamentos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `perfis`
+-- Índices de tabela `perfis`
 --
 ALTER TABLE `perfis`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `usuarios`
+-- Índices de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `assinaturas`
 --
 ALTER TABLE `assinaturas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `crefs`
 --
 ALTER TABLE `crefs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `exercicios`
@@ -328,19 +329,19 @@ ALTER TABLE `ft_exe`
 -- AUTO_INCREMENT de tabela `pagamentos`
 --
 ALTER TABLE `pagamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `perfis`
 --
 ALTER TABLE `perfis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

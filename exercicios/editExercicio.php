@@ -129,7 +129,7 @@ if(!empty($nomeExercicio && $atividadeFisica && $linkTutorial && $descricao)){
 
 function redirecionaInvalido(){
     
-    header("Location:admPanelExercicios.php?msg=Nenhum exericio foi selecionado para ser editado.");
+    header("Location:admPanelExercicios.php?eroor=Nenhum exericio foi selecionado para ser editado.");
 
 }
 
@@ -263,11 +263,11 @@ function redirecionaInvalido(){
             <div class="form-group">
                 <label for="atividadeFisica">Atividade física: </label>
                 <select name="atividadeFisica" id="selectAtv">
-                    <option value="ACADEMIA">Academia</option>
-                    <option value="CALISTENIA">Calistenia</option>
-                    <option value="AEROBICO">Aeróbico</option>
-                    <option value="CROSSFIT">Crossfit</option>
-                    <option value="BOXE">Boxe</option>
+                    <option value="Academia">Academia</option>
+                    <option value="Calistenia">Calistenia</option>
+                    <option value="Aeróbico">Aeróbico</option>
+                    <option value="Crossfit">Crossfit</option>
+                    <option value="Boxe">Boxe</option>
                 </select><br/>
             </div>
             <div class="form-group">

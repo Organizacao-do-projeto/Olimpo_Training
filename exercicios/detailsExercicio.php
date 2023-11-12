@@ -4,7 +4,7 @@
 //     header("Location:index.php?msg=Ops! talvez você não tenha acesso àquela pagina.");
 // }
 
-isset($_GET['id']) ? $idExercicios = $_GET['id'] : header("Location:index.php?msg=Ops! nenhum exercicio selecionado");
+isset($_GET['id']) ? $idExercicios = $_GET['id'] : header("Location:index.php?error=Ops! nenhum exercicio selecionado");
 // $idExercicios = 6;
 
 require_once 'src/conexao.php';

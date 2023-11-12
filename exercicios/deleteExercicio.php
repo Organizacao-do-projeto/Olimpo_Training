@@ -19,8 +19,8 @@ $nome = $_POST['nome'];
     //exclui o arquivo do exercicio da pasta no PC
     unlink('animacoes/'.$nome);
 
-    header("Location:admPanelExercicios.php?msg=Exercicio Excluído com sucesso!");
+    header("Location:admPanelExercicios.php?success=Exercicio Excluído com êxito!");
 
 }else{
-    header("Location:admPanelExercicios.php?msg=Ops! Não foi enviado nenhum exercicio.");
+    header("Location:admPanelExercicios.php?error=Ops! Não foi enviado nenhum exercicio.");
 }

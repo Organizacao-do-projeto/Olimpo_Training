@@ -46,7 +46,7 @@
     $dbh = null;
     if (!$usuarios || !$perfis || !$assinaturas || !$pagamentos ) 
     {
-        header('location: index.php?msg=Usuário não encontrado para o ID: {$id}');
+        header("location: index.php?error=Usuário não encontrado para o ID: $id");
         exit;
     }
 ?>
