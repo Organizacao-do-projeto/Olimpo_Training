@@ -72,7 +72,7 @@ $quantidadeRegistros =  $stmt->rowCount();
             <tr>
                 <th>Foto</th>
                 <th>Nome</th>
-                <th>Saldo de fichas</th>
+                <th>Saldo de treinos</th>
                 <th></th>
             </tr>
         </thead>

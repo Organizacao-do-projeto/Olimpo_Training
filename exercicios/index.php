@@ -24,12 +24,6 @@
 
 //verificação pra ver se o usuario é admin
 
-if(isset($_GET['msg'])){
-
-    $msg = $_GET['msg'];
-    echo $msg;
-
-};
 
     include_once 'src/conexao.php';
 

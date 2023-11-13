@@ -70,10 +70,12 @@ margin-bottom: 20px;
 
 .link{
     display: flex;
-    align-items: center;
+    // align-items: center;
     justify-content: center;
-    text-align: center;
-    width: 50%;
+    // text-align: center;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 </style>
 
@@ -111,6 +113,7 @@ endif;
 <div class="descricao">
 <p><?php  echo "<p><font color='black' face='Arial' size='5'>".$exercicio['descricao']."</font>";;?></p><br>
 </div>
+
 
 <div class="link">
 <iframe width="850" height="479" src="https://www.youtube.com/embed/<?=$exercicio['link_tutorial']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>

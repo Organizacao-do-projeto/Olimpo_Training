@@ -176,7 +176,7 @@ $_SESSION['sessaoFicha'] = [];
     </div>
     <?php endif; ?>
 
-    <h1 class="mainTitulo">Fichas de Treino</h1>
+    <h1 class="mainTitulo">Treinos</h1>
     
     <section class="sectionFichas">
 <?php

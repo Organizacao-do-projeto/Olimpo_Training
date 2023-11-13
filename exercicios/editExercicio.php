@@ -90,22 +90,22 @@ if(!empty($nomeExercicio && $atividadeFisica && $linkTutorial && $descricao)){
                         $stmtexercicios->execute();
 
 
-                        echo "Exercicio Editado com suesso!";
+                        header('Location: admPanelExercicios.php?success=Exercício editado com sucesso!');
                     
                         }else{
-                            echo "Tamanho excedido!";
+                            header('Location: admPanelExercicios.php?error=Tamanho do arquivo excedido!');
                         }
                     }else{
-                        echo "Formato não permitido!";
+                        header('Location: admPanelExercicios.php?error=Formato não permitido!');
                     };
 
             else:
-                echo "O link inserido não é valido<br>";
-                echo "Vá no video do youtube, clique em compartilhar>incorporar e pegue o link que contem https://www.youtube.com/embed/";
+                header('Location: admPanelExercicios.php?error=O link inserido não é valido!, pegue o link embed do youtube');
             endif;
 
         }elseif(isset($_POST['nomeExercicio'])){
-            echo "<p><font color='red'>Algum campo está em branco!</font></p>";
+                header('Location: admPanelExercicios.php?error=Algum campo está em branco!');
+
         };
         
 
@@ -129,7 +129,7 @@ if(!empty($nomeExercicio && $atividadeFisica && $linkTutorial && $descricao)){
 
 function redirecionaInvalido(){
     
-    header("Location:admPanelExercicios.php?eroor=Nenhum exericio foi selecionado para ser editado.");
+    header("Location: admPanelExercicios.php?error=Nenhum exericio foi selecionado para ser editado.");
 
 }
 
