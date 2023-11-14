@@ -171,7 +171,8 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         align-items: center;
         border-radius: 10px;
         box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-        margin: 15px;
+        margin: 10px;
+        margin-top: 18px;
 
     }
 

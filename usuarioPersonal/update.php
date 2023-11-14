@@ -120,8 +120,7 @@
 
                         <label for="natureza">Natureza do CREF: <font color="red">*</font></label>
                       <select name="natureza" id="natureza">
-                                  <option value="Bacharelado">Bacharelado</option>
-                                  <option value="Licenciatura">Licenciatura</option>
+                                    <option value="Bacharelado/Licenciatura">Bacharelado/Licenciatura</option>
                                   <option value="Provisionado">Provisionado</option>
                       </select>
 
