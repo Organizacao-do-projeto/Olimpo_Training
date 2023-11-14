@@ -8,6 +8,11 @@
 
     # solicita a conexão com o banco de dados e guarda na váriavel dbh.
     $dbh = Conexao::getConexao();
+
+    // testando o get
+    if(isset($_GET['filtro'])){
+        $filtro = $_GET['filtro'] ;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +40,7 @@
 
         <article class="wrap_filtros">  
             <div class="filtros">
-                <form method="POST">
+                <form method="POST" action="listAdmin.php">
                     <label>Selecione o tipo de usuario: </label>&nbsp;
                     <input type="radio" name="filtro" value="COMUM" <?php if($filtro == 'COMUM' || $filtro == "") echo "checked"; ?>>&nbsp;Comum&nbsp;
                     <input type="radio" name="filtro" value="ALUNO" <?php if($filtro == 'ALUNO') echo "checked"; ?> >&nbsp;Aluno &nbsp;
@@ -211,3 +216,4 @@
  
 </style>
 </html>
+
