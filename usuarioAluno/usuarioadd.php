@@ -16,8 +16,6 @@
     $pagamento = $_POST['pagamento'];
     $CPF = $_POST['CPF'];
 
-    var_dump($pagamento);
-
     $assinatura == 'ANUAL' ? $saldo_solici = 7 : $saldo_solici = 3;
     
 
@@ -25,13 +23,13 @@
 
     if($fotoAtributos['size'] > 0){
         //query de adiocinar com o foto
-        $query = "INSERT INTO olimpo.usuarios ( nome , email , password ,  sexo , altura, peso , saldo_solici , objetivo , foto , CPF )
-        VALUES( :nome , :email , :password , :sexo , :altura, :peso ,  :saldo_solici, :objetivo , :foto , :CPF); ";
+        $query = "INSERT INTO olimpo.usuarios ( nome , email , password ,  sexo , altura, peso , saldo_solici , objetivo , foto , CPF, idPerfis )
+        VALUES( :nome , :email , :password , :sexo , :altura, :peso ,  :saldo_solici, :objetivo , :foto , :CPF, 3 ); ";
         $addFoto = true;
     }else{
         //query de adicionar sem foto
-        $query = "INSERT INTO olimpo.usuarios ( nome , email , password ,  sexo , altura, peso , saldo_solici, objetivo , CPF )
-        VALUES( :nome , :email , :password , :sexo , :altura, :peso , :saldo_solici, :objetivo , :CPF); ";
+        $query = "INSERT INTO olimpo.usuarios ( nome , email , password ,  sexo , altura, peso , saldo_solici, objetivo , CPF , idPerfis)
+        VALUES( :nome , :email , :password , :sexo , :altura, :peso , :saldo_solici, :objetivo , :CPF, 3 ); ";
         $addFoto = false;
     }
 
@@ -103,4 +101,3 @@
         print_r($error);
     }
     $dbh = null;
-    echo "<p><a href='index.php'>Voltar</a></p>";

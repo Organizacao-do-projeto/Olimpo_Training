@@ -325,3 +325,8 @@ $dadosTabelaPerfis = $stmtTabelaPerfis->fetch();
 
 </style>
 </html>
+
+<?php
+        $path = getenv('DOCUMENT_ROOT');
+        include_once $path."/Olimpo_Training/layouts/footer.php";
+?>

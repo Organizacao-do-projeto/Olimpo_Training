@@ -49,7 +49,7 @@
     {
         if(isset($_GET['redirect'])){
 
-        header('location: '.$_GET['redirect'].'?success=Usuario excluido com êxito!');
+        header('location: '.$_GET['redirect'].'?success=Usuario excluido com êxito!&filtro=ALUNO');
         exit;
         }else{
         header('location: ../index.php?success=Conta excluída com sucesso.');

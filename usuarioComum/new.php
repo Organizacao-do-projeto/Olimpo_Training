@@ -55,14 +55,14 @@
                             <div>
                                 <label for="altura">Altura:<font color="red">*</font></label>
                                 <div class="flex-row center-text">
-                                <input type="number" name="altura" class="shortInput" placeholder="Ex.:175" minwidth="1" maxlength="7" required>cm
+                                <input type="text" name="altura" class="shortInput" placeholder="Ex.:175" minlentgh="1" maxlength="7" required>cm
                                 </div>
                             </div>
                             &nbsp;&nbsp;
                             <div>
                             <label for="peso">Peso:<font color="red">*</font></label>
                                 <div class="flex-row center-text">
-                                    <input type="number" name="peso" class="shortInput" placeholder="Ex.:65.5" 
+                                    <input type="text" name="peso" class="shortInput" placeholder="Ex.:65.5" 
                                     maxlength="7" minlength="1"
                                     required>kg
                                 </div>

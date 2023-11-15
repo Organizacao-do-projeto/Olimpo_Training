@@ -14,6 +14,7 @@
     # busca todos os dados da tabela usuário.
     // $usuarios = $stmt->fetchAll();
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -97,7 +98,10 @@
                             <td><?=$usuario['email'];?></td>
                             <td class="td__operacao">
                                 <a class="btnalterar" href="updateCREF.php?id=<?=$usuario['id'];?>">Autenticar</a>
-                                <a class="btnexcluir" href="deleteCREF.php?id=<?=$usuario['id'];?>" onclick="return confirm('Deseja realmente rejeitar este usuário?');">Rejeitar</a>
+                                <!-- <a class="btnexcluir" href="deleteCREF.php?id=<?=$usuario['id'];?>" onclick="return confirm('Deseja realmente rejeitar este Personal trainer?');">Rejeitar</a> -->
+                                <form class="formDelete" method="POST" action="deleteCREF.php?id=<?=$usuario['id']?>">
+                                        <button type="button" class="btnexcluir" onclick="swalConfirm(this,'Rejeitar personal','Deseja realmente rejeitar este Personal trainer');">Rejeitar</button>
+                                </form>
                             </td>
                         </tr>
                         <?php endwhile; ?>
@@ -113,4 +117,9 @@ iframe{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 </style>
+<?php
+        $path = getenv('DOCUMENT_ROOT');
+        include_once $path."/Olimpo_Training/layouts/footer.php";
+?>
+
 </html>

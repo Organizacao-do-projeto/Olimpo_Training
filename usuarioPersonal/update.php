@@ -116,7 +116,7 @@
                             placeholder="Ex: 000.000.000-00" onkeyup="mascara_cpf()" onkeypress="TestaCPF()" required><br>
 
                         <label for="numero">Numero do CREF: <font color="red">*</font></label>
-                        <input type="number" name="numero" value="<?=$CREFS['numero']?>" minwidth="6" maxwidth="6" required placeholder="Informe os digitos do seu CREF"><br>
+                        <input type="text" name="numero" value="<?=$CREFS['numero']?>" minlength="6" maxlength="6" required placeholder="Informe os digitos do seu CREF"><br>
 
                         <label for="natureza">Natureza do CREF: <font color="red">*</font></label>
                       <select name="natureza" id="natureza">

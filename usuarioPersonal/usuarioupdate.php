@@ -16,9 +16,6 @@
     $id = $_POST['id'];
     $fotoAnterior = $_POST['fotoAnterior'];
 
-    echo "<pre>";
-    var_dump($fotoAnterior);
-    echo "</pre>";
 
     $dbh = Conexao::getConexao();
 
@@ -73,10 +70,10 @@
     {
         if(isset($_POST['redirect'])){
 
-            header('location: '.$_POST['redirect'].'?success=Usuario editado com êxito!');
+            header('location: '.$_POST['redirect'].'?success=Usuario editado com êxito!&filtro=PERSONAL-TRAINER');
 
         }else{
-            header('location: ../index.php?success=Conta atualizada com sucesso.');
+            header('location: ../views/index.php?success=Conta atualizada com sucesso.');
         }
     } else {
         header("location: index.php?error=Não foi possível atualizar o usuário com ID: $id");

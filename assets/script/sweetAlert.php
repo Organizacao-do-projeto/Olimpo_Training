@@ -15,7 +15,7 @@
         }});
     }
 
-    function swalSuccess(e, titulo="Sucesso", text="Ação foi executada com sucesso"){
+    function swalSuccess( titulo="Sucesso", text="Ação foi executada com sucesso"){
     swal({
         title: titulo,
         text: text ,
@@ -23,7 +23,7 @@
         })
     }
 
-    function swalError(e, titulo="Erro", text="Algo de errado aconteceu!"){
+    function swalError( titulo="Erro", text="Algo de errado aconteceu!"){
     swal({
         title: titulo,
         text: text ,
@@ -34,8 +34,8 @@
 
     window.addEventListener('DOMContentLoaded', ()=>{     
 
-        <?php if(isset($_GET['success'])) echo "swalSuccess(this,'Sucesso','".$_GET['success']."');"; ?>
-        <?php if(isset($_GET['error'])) echo "swalError(this,'Erro','".$_GET['error']."');"; ?>
+        <?php if(isset($_GET['success'])) echo "swalSuccess('Sucesso','".$_GET['success']."');"; ?>
+        <?php if(isset($_GET['error'])) echo "swalError('Erro','".$_GET['error']."');"; ?>
 
     })
 

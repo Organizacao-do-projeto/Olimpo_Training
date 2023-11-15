@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+if(empty($_SESSION['sessaoFicha'])){ 
+    header('Location: index.php?error=Você tentou adicionar um treino vazio, adicione no mínimo um exercicio');
+    exit();
+}
+
+
 !empty($_POST['idFichas_treino']) ? $idFichas_treino = $_POST['idFichas_treino'] : $idFichas_treino = 0 ;
 
 
@@ -625,7 +631,7 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
     <!-- INCIO PARTE COLADA -->
     <div class="wrapper_preFicha">
         <form action="addEditFicha.php" method="POST">
-            <label class="label_tituloFicha">Título da ficha de treino: </label><input type="text" name="tituloFicha" value="<?=$_SESSION['cabecalhoFichaEdit']['titulo']?>" id="tituloFicha" autofocus><br>
+            <label class="label_tituloFicha">Título da ficha de treino: </label><input type="text" name="tituloFicha" value="<?=$_SESSION['cabecalhoFichaEdit']['titulo']?>" id="tituloFicha" minlength="1" maxlength="70" required autofocus><br>
             
             <div class="preFicha">
                 <div id="barra">

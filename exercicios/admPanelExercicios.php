@@ -5,6 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Exercicios Admin </title>
 </head>
+<body>
+
+<?php
+        $path = getenv('DOCUMENT_ROOT');
+        include_once $path."/Olimpo_Training/layouts/header.php";
+?>
+
+<a href="index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
+<section class="btAdmin">
+    <a href="newExercicio.php" class="wrapbtn">Cadastrar exercicio</a>
+</section>
+
+<?php 
+
+//verificação pra ver se o usuario é admin
+
+    include_once 'src/conexao.php';
+
+    $dbh = Conexao::getConexao();
+
+    $query = "SELECT * FROM olimpo.exercicios";
+
+    $stmt = $dbh->prepare($query);
+    $stmt->execute();
+    $exercicios = $stmt->fetchAll();
+
+?>
+
+
+
+<section class="showExercicios">
+<?php   
+    foreach($exercicios as $exercicio):
+?>
+   <div class="wrapperBloco">
+        <div class="blocoExercicio" id="<?=$exercicio['idExercicios']?>">
+            <div class="blocoExercicio_content">
+                    <h1><?=$exercicio['nome']?></h1>
+                <a href="detailsExercicio.php?id=<?=$exercicio['idExercicios']?>" target="_blank">
+                <!-- essa imagem tem 200x150 -->
+                <?php
+
+                    $extensao = $exercicio['nome_arq'];
+                    $extensao = pathinfo($extensao, PATHINFO_EXTENSION);
+
+                    if($extensao == 'mp4' || $extensao == 'mov' || $extensao == 'webm'): ?>
+                    <video class="videoAnimacao" autoplay muted loop>
+                        <source src="animacoes/<?=$exercicio['nome_arq']?>">
+                    </video>
+                    <?php   else: ?>
+                    <img class="videoAnimacao" src="animacoes/<?=$exercicio['nome_arq']?>">
+                    <?php
+                    endif;
+                    ?>         
+                </a>
+                <div class="botoesAcao">
+
+                    <form class="formAction" action='deleteExercicio.php' method='POST'>
+                            <input type='hidden' name='idExercicios' value='<?=$exercicio['idExercicios']?>'>
+                            <!-- colocar o nome aqui -->
+                            <input type='hidden' name='nome' value='<?=$exercicio['nome_arq']?>'>
+                            <button title="Excluir" type="button" onclick="swalConfirm(this,'Exlcuir exercicio','Tem certeza que deseja excluir este exercicio?')" id="btExcluir"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Cross_icon_%28white%29.svg/120px-Cross_icon_%28white%29.svg.png" width="16px" height="17px"  alt="Excluir"></button>
+                    </form>
+                    <form class="formAction" action='editExercicio.php' method='POST'>
+                            <input type='hidden' name='idEdit' value='<?=$exercicio['idExercicios']?>'>
+                            <button title="Editar" type="submit" id="btEdit"><img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" width="20px" height="17px"  alt="Editar" ></button>
+                            
+                    </form>
+                </div>
+                <div class="tipoExercicio">
+                    <?=$exercicio['ativ_fisica']?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+<?php endforeach; ?>
+
+</section>
+
+</body>
 <style>
 
 .wrapbtn{
@@ -238,90 +320,9 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
     /* FIM DOBRA EXERCICIOS */
 
 </style>
-<body>
 
 <?php
         $path = getenv('DOCUMENT_ROOT');
-        include_once $path."/Olimpo_Training/layouts/header.php";
-?>
-
-<a href="index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
-<section class="btAdmin">
-            <a href="newExercicio.php" class="wrapbtn">Cadastrar exercicio</a>
-</section>
-
-<?php 
-
-//verificação pra ver se o usuario é admin
-
-    include_once 'src/conexao.php';
-
-    $dbh = Conexao::getConexao();
-
-    $query = "SELECT * FROM olimpo.exercicios";
-
-    $stmt = $dbh->prepare($query);
-    $stmt->execute();
-    $exercicios = $stmt->fetchAll();
-
-?>
-
-
-
-<section class="showExercicios">
-<?php   
-    foreach($exercicios as $exercicio):
-?>
-   <div class="wrapperBloco">
-        <div class="blocoExercicio" id="<?=$exercicio['idExercicios']?>">
-            <div class="blocoExercicio_content">
-                    <h1><?=$exercicio['nome']?></h1>
-                <a href="detailsExercicio.php?id=<?=$exercicio['idExercicios']?>" target="_blank">
-                <!-- essa imagem tem 200x150 -->
-                <?php
-
-                    $extensao = $exercicio['nome_arq'];
-                    $extensao = pathinfo($extensao, PATHINFO_EXTENSION);
-
-                    if($extensao == 'mp4' || $extensao == 'mov' || $extensao == 'webm'): ?>
-                    <video class="videoAnimacao" autoplay muted loop>
-                        <source src="animacoes/<?=$exercicio['nome_arq']?>">
-                    </video>
-                    <?php   else: ?>
-                    <img class="videoAnimacao" src="animacoes/<?=$exercicio['nome_arq']?>">
-                    <?php
-                    endif;
-                    ?>         
-                </a>
-                <div class="botoesAcao">
-
-                    <form class="formAction" action='deleteExercicio.php' method='POST'>
-                            <input type='hidden' name='idExercicios' value='<?=$exercicio['idExercicios']?>'>
-                            <!-- colocar o nome aqui -->
-                            <input type='hidden' name='nome' value='<?=$exercicio['nome_arq']?>'>
-                            <button title="Excluir" type="submit" onclick="return confirm('Tem certeza que deseja excluir este exercicio?')" id="btExcluir"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Cross_icon_%28white%29.svg/120px-Cross_icon_%28white%29.svg.png" width="16px" height="17px"  alt="Excluir"></button>
-                    </form>
-                    <form class="formAction" action='editExercicio.php' method='POST'>
-                            <input type='hidden' name='idEdit' value='<?=$exercicio['idExercicios']?>'>
-                            <button title="Editar" type="submit" id="btEdit"><img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" width="20px" height="17px"  alt="Editar" ></button>
-                    </form>
-                </div>
-                <div class="tipoExercicio">
-                    <?=$exercicio['ativ_fisica']?>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <br><br>
-<?php endforeach; ?>
-
-</section>
-
-</body>
-
-<?php
-        // $path = getenv('DOCUMENT_ROOT');
-        // include_once $path."/Olimpo_Training/teste5/layouts/header.php";
+        include_once $path."/Olimpo_Training/layouts/footer.php";
 ?>
 </html>

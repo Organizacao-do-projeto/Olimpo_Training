@@ -19,13 +19,13 @@
 
     if($fotoAtributos['size'] > 0){
         //query de adiocinar com o foto
-        $query = "INSERT INTO olimpo.usuarios ( nome , email , password ,  sexo , altura, peso , objetivo , foto  )
-        VALUES( :nome , :email , :password , :sexo , :altura, :peso , :objetivo , :foto); ";
+        $query = "INSERT INTO olimpo.usuarios ( nome , email , password ,  sexo , altura, peso , objetivo , foto, idPerfis )
+        VALUES( :nome , :email , :password , :sexo , :altura, :peso , :objetivo , :foto, 2 ); ";
         $addFoto = true;
     }else{
         //query de adicionar sem foto
-        $query = "INSERT INTO olimpo.usuarios ( nome , email , password ,  sexo , altura, peso , objetivo )
-        VALUES( :nome , :email , :password , :sexo , :altura, :peso , :objetivo ); ";
+        $query = "INSERT INTO olimpo.usuarios ( nome , email , password ,  sexo , altura, peso , objetivo, idPerfis )
+        VALUES( :nome , :email , :password , :sexo , :altura, :peso , :objetivo , 2); ";
         $addFoto = false;
     }
 

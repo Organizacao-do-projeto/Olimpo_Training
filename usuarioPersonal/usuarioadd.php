@@ -8,7 +8,7 @@
     $password = md5($_POST['password']);
     $sexo = $_POST['sexo'];
     $descricao = $_POST['descricao'];
-    $numero_CREFS = $_POST['numero'];
+    $numero_CREFS = (int) $_POST['numero'];
     $natureza = $_POST['natureza'];
     $UF_registro = $_POST['UF_registro'];
     $fotoAtributos = $_FILES['foto'];
@@ -30,8 +30,8 @@
 
     $dbh = Conexao::getConexao();
 
-    $query = "INSERT INTO olimpo.usuarios (nome, email, password, sexo, cpf, descricao, foto, idPerso_trainer ) 
-                VALUES (:nome, :email, :password, :sexo, :cpf, :descricao, :foto, :idPerso_trainer);"; 
+    $query = "INSERT INTO olimpo.usuarios (nome, email, password, sexo, cpf, descricao, foto, idPerso_trainer, idPerfis ) 
+                VALUES (:nome, :email, :password, :sexo, :cpf, :descricao, :foto, :idPerso_trainer, 4 );"; 
     
     $stmt = $dbh->prepare($query);
 
@@ -70,7 +70,7 @@
 
     if ($result AND $resultPerfis AND $resultCREFS)
     {
-        header('location: ../index.php?success=Cadastro realizado com sucesso.');
+        header('location: ../index.php?success=Cadastro realizado, aguarde seu CREF ser autenticado.');
         exit;
     } else {
         echo '<p>Não foi fossível inserir Usuário!</p>';
@@ -78,4 +78,4 @@
         print_r($error);
     }
     $dbh = null;
-    echo "<p><a href='index.php'>Voltar</a></p>";
+   

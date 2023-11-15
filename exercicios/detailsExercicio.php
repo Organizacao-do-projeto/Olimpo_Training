@@ -122,7 +122,7 @@ endif;
 
 </body>
 <?php
-        // $path = getenv('DOCUMENT_ROOT');
-        // include_once $path."/Olimpo_Training/teste5/layouts/header.php";
+        $path = getenv('DOCUMENT_ROOT');
+        include_once $path."/Olimpo_Training/layouts/footer.php";
 ?>
 </html>

@@ -257,7 +257,7 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
 
 </style>
 <?php
-        // $path = getenv('DOCUMENT_ROOT');
-        // include_once $path."/Olimpo_Training/teste5/layouts/header.php";
+        $path = getenv('DOCUMENT_ROOT');
+        include_once $path."/Olimpo_Training/layouts/footer.php";
 ?>
 </html>

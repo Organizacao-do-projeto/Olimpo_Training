@@ -90,21 +90,21 @@ if(!empty($nomeExercicio && $atividadeFisica && $linkTutorial && $descricao)){
                         $stmtexercicios->execute();
 
 
-                        header('Location: admPanelExercicios.php?success=Exercício editado com sucesso!');
+                        echo "<script>swalSuccess('Sucesso!','Exercício atualizado com sucesso!')</script>";
                     
                         }else{
-                            header('Location: admPanelExercicios.php?error=Tamanho do arquivo excedido!');
+                            echo "<script>swalError('Erro!','Tamanho excedido!')</script>";
                         }
                     }else{
-                        header('Location: admPanelExercicios.php?error=Formato não permitido!');
+                        echo "<script>swalError('Erro!','Arquivo não permitido!')</script>";
                     };
 
             else:
-                header('Location: admPanelExercicios.php?error=O link inserido não é valido!, pegue o link embed do youtube');
+                echo "<script>swalError('Erro','Link inválido, pegue o link embed do video no youtube!')</script>";
             endif;
 
         }elseif(isset($_POST['nomeExercicio'])){
-                header('Location: admPanelExercicios.php?error=Algum campo está em branco!');
+                echo "<script>swalError('Erro','Algum campo está em branco!')</script>";
 
         };
         
@@ -258,7 +258,7 @@ function redirecionaInvalido(){
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nomeExercicio">Nome do exercicio: </label>
-                <input type="text" name="nomeExercicio" placeholder="Flexão" value="<?=$fetchValues['nome']?>"><br/>
+                <input type="text" name="nomeExercicio" placeholder="Flexão" value="<?=$fetchValues['nome']?>" minlength="1" maxlength="70" required><br/>
             </div>
             <div class="form-group">
                 <label for="atividadeFisica">Atividade física: </label>
@@ -272,15 +272,15 @@ function redirecionaInvalido(){
             </div>
             <div class="form-group">
                 <label for="linkTuorial">Link do tutorial: </label>
-                <input type="url" name="linkTutorial" placeholder="Insira um link do youtube" pattern="https://www.youtube.com/embed/.*" size="100" required value="https://www.youtube.com/embed/<?=$fetchValues['link_tutorial']?>"><br/>
+                <input type="url" name="linkTutorial" placeholder="Insira um link do youtube" pattern="https://www.youtube.com/embed/.*" size="100" required value="https://www.youtube.com/embed/<?=$fetchValues['link_tutorial']?>" maxlength="350" ><br/>
             </div>
             <div class="form-group">
             <label for="animacao">Video de animação:</label><br/>
-                <input type="file" name="animacao" accept=".gif,.mp4,.mov,.webm" id="animacao" onchange="pressed()" title="Escolha um video porfavor"><label id="fileLabel"><?=$fetchValues['nome_arq']?></label><br/>
+                <input type="file" name="animacao" accept=".gif,.mp4,.mov,.webm" id="animacao" onchange="pressed()" title="Escolha um video porfavor"><label id="fileLabel" required ><?=$fetchValues['nome_arq']?></label><br/>
             </div>
             <div class="form-group">
                 <label for="descricao">Descrição do exercício:</label><br/>
-                <textarea name="descricao" placeholder="Insira os detalhes sobre o exericio."><?=$fetchValues['descricao']?></textarea><br/>
+                <textarea name="descricao" placeholder="Insira os detalhes sobre o exericio." maxlength="500" ><?=$fetchValues['descricao']?></textarea><br/>
             </div><br>
             <input type="hidden" name="idEdit" value="<?=$_POST['idEdit']?>">
             <div class="form-group_btn">
@@ -310,8 +310,8 @@ window.pressed = function(){
 </script>
 </body>
 <?php
-        // $path = getenv('DOCUMENT_ROOT');
-        // include_once $path."/Olimpo_Training/teste5/layouts/header.php";
+        $path = getenv('DOCUMENT_ROOT');
+        include_once $path."/Olimpo_Training/layouts/footer.php";
 ?>
 </html>
              

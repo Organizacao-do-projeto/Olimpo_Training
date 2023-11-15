@@ -224,6 +224,10 @@ body{
     opacity: 1;
   }
 
+  .formDelete{
+    display: inline-block;
+  }
+
   .linkagem{
     text-decoration: none;
     color: black;

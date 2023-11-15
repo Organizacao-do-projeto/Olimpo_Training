@@ -23,29 +23,12 @@
     $stmtPerfis->bindParam(":id",$id);
     $resultPerfis= $stmtPerfis->execute();
 
-    // // QUERY ASSINATURAS
-    // $dbhAssinaturas = Conexao::getConexao();
-
-    // $queryAssinaturas = "DELETE FROM olimpo.assinaturas WHERE idUsuarios = :idUsuarios;";
-    
-    // $stmtAssinaturas = $dbhAssinaturas->prepare($queryAssinaturas);
-    // $stmtAssinaturas->bindParam(":idUsuarios",$id);
-    // $resultAssinaturas = $stmtAssinaturas->execute();
-
-    // // QUERY ASSINATURAS
-    // $dbhPagamentos = Conexao::getConexao();
-
-    // $queryPagamentos = "DELETE FROM olimpo.pagamentos WHERE idUsuarios = :idUsuarios;";
-    
-    // $stmtPagamentos = $dbhPagamentos->prepare($queryPagamentos);
-    // $stmtPagamentos->bindParam(":idUsuarios",$id);
-    // $resultPagamentos = $stmtPagamentos->execute();
 
     if(isset($_GET['foto'])){
         unlink('../assets/img/usuarios/'.$foto);
     }
 
-    if($stmt->rowCount() > 0 && $stmtPerfis->rowCount() > 0 /* && $stmtAssinaturas->rowCount() > 0 && $stmtPagamentos->rowCount() > 0 */)
+    if($stmt->rowCount() > 0 && $stmtPerfis->rowCount() > 0 )
     {
         if(isset($_GET['redirect'])){
 
@@ -60,7 +43,5 @@
     }
 
     $dbh = null;
-    // $dbhAssinaturas = null;
-    // $dbhPagamentos =  null;
     $dbhPerfis = null;
     echo "<p><a href='index.php'>Voltar</a></p>";

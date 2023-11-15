@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="../assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/boot.css">
     <!-- <link href="../assets/css/boot.css" rel="stylesheet"> -->
     <title>Pagina principal</title>
     <style>
@@ -136,8 +137,27 @@ $stmt->execute();
 $nomePerfis = $stmt->fetch();
 
 
-?>
+if(isset($_GET['updated'])){
 
+    $dbhUsuarios = Conexao::getConexao();
+
+    $query = "SELECT * 
+    FROM olimpo.usuarios 
+    WHERE id = :id;";
+
+    $stmtUsuarios = $dbhUsuarios->prepare($query);
+    $stmtUsuarios->bindParam(':id', $id);
+    $stmtUsuarios->execute();
+
+    $user = $stmtUsuarios->fetch(PDO::FETCH_BOTH);
+
+
+    $dadosUsuario = $user;
+    $_SESSION['dadosUsuario'] = $dadosUsuario;
+    $dbh = null;
+}
+?>
+<?php include_once __DIR__.'/../assets/script/sweetAlert.php'; ?>
 <body>
 
     <div class="redirects">
@@ -179,3 +199,8 @@ $nomePerfis = $stmt->fetch();
 </body>
 
 </html>
+
+<?php
+        $path = getenv('DOCUMENT_ROOT');
+        include_once $path."/Olimpo_Training/layouts/footer.php";
+?>

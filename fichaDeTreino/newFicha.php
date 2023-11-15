@@ -562,7 +562,7 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
     <!-- DOBRA DA BARRA DE DADOS DA FICHA -->
     <div class="wrapper_preFicha">
         <form action="addFicha.php" method="POST">
-            <label class="label_tituloFicha">Título da ficha de treino: </label><input type="text" name="tituloFicha" value="Treino A" id="tituloFicha" autofocus><br>
+            <label class="label_tituloFicha">Título da ficha de treino: </label><input type="text" name="tituloFicha" value="Treino A" id="tituloFicha" minlength="1" maxlength="70" required autofocus><br>
             
             <div class="preFicha">
                 <div id="barra">

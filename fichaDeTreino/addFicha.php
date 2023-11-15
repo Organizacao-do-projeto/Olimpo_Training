@@ -4,6 +4,11 @@ session_start();
 
 include_once "src/conexao.php";
 
+if(empty($_SESSION['sessaoFicha'])){ 
+        header('Location: index.php?error=Você tentou adicionar um treino vazio, adicione no mínimo um exercicio');
+        exit();
+ }
+
 
 $idAluno = 1;
 $idPersonal = 1;
@@ -22,11 +27,6 @@ $queryFichaDeTreino = "INSERT INTO olimpo.fichas_Treino ( idAluno, titulo, descE
 
 $queryft_exe = "INSERT INTO olimpo.FT_EXE (idFichas_Treino, idExercicios, series, repeticoes, carga, descSeries, modo)
                     VALUES(:idFichas_Treino, :idExercicios, :series, :repeticoes, :carga, :descSeries, :modo)";
-
-
-
-echo "<br><br>Ficha de treino adicionada com sucesso!!!<br>";
-echo "<a href='index.php'>Visualizar fichas de treino</a>";
 
 
 

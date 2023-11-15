@@ -14,7 +14,7 @@
     $assinatura = $_POST['assinatura'];
     $pagamento = $_POST['pagamento'];
     $CPF = $_POST['CPF'];
-    $id = $_POST['id'];
+    $id = (int) $_POST['id'];
     $fotoAnterior = $_POST['fotoAnterior'];
 
     
@@ -86,10 +86,10 @@
     {
         if(isset($_POST['redirect'])){
 
-            header('location: '.$_POST['redirect'].'?success=Usuario editado com êxito!');
+            header('location: '.$_POST['redirect'].'?success=Usuario editado com êxito!&filtro=ALUNO');
 
         }else{
-            header('location: ../index.php?success=Conta atualizada com sucesso.');
+            header('location: ../views/index.php?success=Conta atualizada com sucesso.&updated=true');
         }
     } else {
         header("location: index.php?error=Não foi possível atualizar o usuário com ID: $id");

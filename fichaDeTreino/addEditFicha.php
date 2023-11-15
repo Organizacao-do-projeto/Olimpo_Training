@@ -58,11 +58,6 @@ forEach($_SESSION['sessaoFicha'] as $dados){
 
 
 
-echo "<br><br>Ficha de treino editada com sucesso!!!<br>";
-echo "<a href='index.php'>Visualizar fichas de treino</a>";
-
-
-
 
 
 

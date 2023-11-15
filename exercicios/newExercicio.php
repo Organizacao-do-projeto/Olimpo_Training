@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Adicionar Exercício </title>
 </head>
-
 <?php
+ include_once __DIR__.'/../assets/script/sweetAlert.php';
         $path = getenv('DOCUMENT_ROOT');
         include_once $path."/Olimpo_Training/layouts/header.php";
 
@@ -66,25 +66,24 @@ if(!empty($nomeExercicio && $atividadeFisica && $linkTutorial && $descricao) && 
                         $stmtexercicios->bindParam(':nome_arq', $nomeAnimacao);
                         $stmtexercicios->execute();
 
-                        echo "Exercício adicionado com sucesso!";
+                        echo "<script>swalSuccess('Sucesso!','Exercício adicionado com sucesso!')</script>";
                     
                         }else{
-                            echo "Tamanho excedido!";
+                            echo "<script>swalError('Erro!','Tamanho excedido!')</script>";
                         }
                     }else{
-                        echo "Não permitido!";
+                        echo "<script>swalError('Erro!','Arquivo não permitido!')</script>";
                     };
                 }else{
-                    echo "Arquivo já existe no site!";
+                    echo "<script>swalError('Erro!','Arquivo já existente no site!')</script>";
                 }
 
             else:
-                echo "O link inserido não é valido<br>";
-                echo "Vá no video do youtube, clique em compartilhar>incorporar e pegue o link que contem https://www.youtube.com/embed/";
+                echo "<script>swalError('Erro','Link inválido, pegue o link embed do video no youtube!')</script>";
             endif;
 
         }elseif(isset($_POST['nomeExercicio'])){
-            echo "<p><font color='red'>Algum campo está em branco!</font></p>";
+            echo "<script>swalError('Erro','Algum campo está em branco!')</script>";
         };
 
 
@@ -106,6 +105,47 @@ if(!empty($nomeExercicio && $atividadeFisica && $linkTutorial && $descricao) && 
 
 
 ?>
+
+<body>
+
+<a href="admPanelExercicios.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
+
+    <h1>Cadastrar Exercício</h1>
+    <section class="container">
+        <form action="" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="nomeExercicio">Nome do Exercício: </label>
+                <input type="text" name="nomeExercicio" placeholder="Flexão" minlength="1" maxlength="70" required ><br/>
+            </div>
+            <div class="form-group">
+                <label for="atividadeFisica">Atividade Física: </label>
+                <select name="atividadeFisica">
+                    <option value="Academia">Academia</option>
+                    <option value="Calistenia">Calistenia</option>
+                    <option value="Aeróbico">Aeróbico</option>
+                    <option value="Crossfit">Crossfit</option>
+                    <option value="Boxe">Boxe</option>
+                </select><br/>
+            </div>
+            <div class="form-group">
+                <label for="linkTuorial">Link do Tutorial: </label>
+                <input type="url" name="linkTutorial" placeholder="Insira um link do youtube" pattern="https://www.youtube.com/embed/.*" size="100" maxlength="350" required><br/>
+            </div>
+            <div class="form-group">
+                <label for="animacao">Video de Animação:</label><br/>
+                <input type="file" name="animacao" accept=".gif,.mp4,.mov,.webm" required ><br/>
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição do Exercício:</label><br/>
+                <textarea name="descricao" placeholder="Insira os detalhes sobre o exericio." maxlength="500"></textarea><br/>
+            </div><br>
+            <div class="form-group_btn">
+            <input type="submit" id="Enviar" value="Enviar">
+            </div>
+        </form>
+    </section>
+    
+</body>
 <style>
     *{
     padding: 0;
@@ -215,52 +255,11 @@ if(!empty($nomeExercicio && $atividadeFisica && $linkTutorial && $descricao) && 
     }
 
 </style>
-
-<body>
-
-<a href="admPanelExercicios.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
-
-    <h1>Cadastrar Exercício</h1>
-    <section class="container">
-        <form action="" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="nomeExercicio">Nome do Exercício: </label>
-                <input type="text" name="nomeExercicio" placeholder="Flexão"><br/>
-            </div>
-            <div class="form-group">
-                <label for="atividadeFisica">Atividade Física: </label>
-                <select name="atividadeFisica">
-                    <option value="Academia">Academia</option>
-                    <option value="Calistenia">Calistenia</option>
-                    <option value="Aeróbico">Aeróbico</option>
-                    <option value="Crossfit">Crossfit</option>
-                    <option value="Boxe">Boxe</option>
-                </select><br/>
-            </div>
-            <div class="form-group">
-                <label for="linkTuorial">Link do Tutorial: </label>
-                <input type="url" name="linkTutorial" placeholder="Insira um link do youtube" pattern="https://www.youtube.com/embed/.*" size="100" required><br/>
-            </div>
-            <div class="form-group">
-                <label for="animacao">Video de Animação:</label><br/>
-                <input type="file" name="animacao" accept=".gif,.mp4,.mov,.webm" ><br/>
-            </div>
-            <div class="form-group">
-                <label for="descricao">Descrição do Exercício:</label><br/>
-                <textarea name="descricao" placeholder="Insira os detalhes sobre o exericio."></textarea><br/>
-            </div><br>
-            <div class="form-group_btn">
-            <input type="submit" id="Enviar" value="Enviar">
-            </div>
-        </form>
-    </section>
-    
-</body>
-
 <?php
-        // $path = getenv('DOCUMENT_ROOT');
-        // include_once $path."/Olimpo_Training/teste5/layouts/footer.php";
+        $path = getenv('DOCUMENT_ROOT');
+        include_once $path."/Olimpo_Training/layouts/footer.php";
 ?>
+
 </html>
-             
+   
 <?=$dbh=null;

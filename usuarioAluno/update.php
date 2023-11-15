@@ -108,14 +108,14 @@
                             <div>
                                 <label for="altura">Altura:<font color="red">*</font></label>
                                 <div class="flex-row center-text">
-                                <input type="number" name="altura" value="<?=$usuarios['altura']?>"  class="shortInput" placeholder="Ex.: 175"  minlenght="1" maxlength="3" required>cm
+                                <input type="text" name="altura" value="<?=$usuarios['altura']?>"  class="shortInput" placeholder="Ex.: 175"  minlenght="1" maxlength="3" required>cm
                                 </div>
                             </div>
                             &nbsp;&nbsp;
                             <div>
                             <label for="peso">Peso:<font color="red">*</font></label>
                                 <div class="flex-row center-text">
-                                    <input type="number" name="peso" value="<?=$usuarios['peso']?>" class="shortInput" maxlength="7" minlength="1"  placeholder="Ex.: 65.5" required>kg
+                                    <input type="text" name="peso" value="<?=$usuarios['peso']?>" class="shortInput" maxlength="7" minlength="1"  placeholder="Ex.: 65.5" required>kg
                                 </div>
                             </div>
                         </div><br>

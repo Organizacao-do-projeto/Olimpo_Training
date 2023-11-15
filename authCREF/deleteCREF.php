@@ -26,7 +26,7 @@
     
     if ($stmt->rowCount() > 0 or $stmtUsuarios->reowCount() > 0)
     {
-        header('location: index.php?success=CREF deletado com sucesso');
+        header('location: index.php?success=Usuário rejeitado com sucesso');
         exit;
     } else {
         echo "location: index.php?error=Não existe usuário cadastrado com id = $id";

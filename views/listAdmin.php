@@ -91,7 +91,9 @@
                                 <td><?=$row['foto']?></td>
                                 <td>
                                     <a class="btnalterar" href="../usuarioAluno/update.php?id=<?=$row['id']?>&redirect=../views/listAdmin.php">Editar</a>&nbsp;
-                                    <a class="btnexcluir" href="../usuarioAluno/delete.php?id=<?=$row['id']?>&redirect=../views/listAdmin.php" onclick=" return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
+                                    <form class="formDelete" method="POST" action="../usuarioAluno/delete.php?id=<?=$row['id']?>&foto=<?=$row['foto']?>&redirect=../views/listAdmin.php">
+                                        <button type="button" class="btnexcluir" onclick="swalConfirm(this,'Confirmar ação?','Tem certeza que deseja excluir este usuário?');">Excluir</button>
+                                    </form>
                                 </td>
                         </tr>
                 <?php
@@ -150,13 +152,21 @@
                                 <td><?=$row['email']?></td>
                                 <td><?=$row['CPF']?></td>
                                 <td><?php
-                                echo "CREF ".$CREF['numero']."-".substr($CREF['natureza'], 0, 1)."/".$CREF['UF_registro'];
+                                echo "CREF ".$CREF['numero']."-";
+                                if($CREF['natureza'] == 'Bacharelado/Licenciatura'){
+                                    echo 'G';
+                                }else{ 
+                                    echo 'P';
+                                }
+                                echo "/".$CREF['UF_registro'];
                                 ?></td>
                                 <td><?=$row['sexo']?></td>
                                 <td><?=$row['foto']?></td>
                                 <td>
                                     <a class="btnalterar" href="../usuarioPersonal/update.php?id=<?=$row['id']?>&redirect=../views/listAdmin.php">Editar</a>&nbsp;
-                                    <a class="btnexcluir" href="../usuarioPersonal/delete.php?id=<?=$row['id']?>&foto=<?=$row['foto']?>&redirect=../views/listAdmin.php" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
+                                    <form class="formDelete" method="POST" action="../usuarioPersonal/delete.php?id=<?=$row['id']?>&foto=<?=$row['foto']?>&redirect=../views/listAdmin.php">
+                                        <button type="button" class="btnexcluir" onclick="swalConfirm(this,'Confirmar ação?','Tem certeza que deseja excluir este usuário?');">Excluir</button>
+                                    </form>
                                 </td>
                         </tr>
 
@@ -199,7 +209,9 @@
                             <td><?=$row['foto']?></td>
                             <td>
                                 <a class="btnalterar" href="../usuarioComum/update.php?id=<?=$row['id']?>&redirect=../views/listAdmin.php">Editar</a>&nbsp;
-                                <a class="btnexcluir" href="../usuarioComum/delete.php?id=<?=$row['id']?>&foto=<?=$row['foto']?>&redirect=../views/listAdmin.php" onclick="return confirm('Tem certeza que deseja excluir este usuário?');">Excluir</a>
+                                <form class="formDelete" method="POST" action="../usuarioComum/delete.php?id=<?=$row['id']?>&foto=<?=$row['foto']?>&redirect=../views/listAdmin.php">
+                                    <button type="button" class="btnexcluir" onclick="swalConfirm(this,'Confirmar ação?','Tem certeza que deseja excluir este usuário?');">Excluir</button>
+                                </form>
                             </td>
                     </tr>
                 <?php
@@ -216,4 +228,3 @@
  
 </style>
 </html>
-

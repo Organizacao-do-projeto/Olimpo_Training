@@ -406,7 +406,11 @@ $cabecalhofichas_treino = $stmtfichas_treino->fetch();
                     </form>
                     <form action="deleteFicha.php" method="POST">
                         <input type="hidden" value="<?=$cabecalhofichas_treino['idFichas_treino']?>" name="idFichas_treino">
-                        <button title="Excluir" type="submit" onclick="return confirm('Tem certeza que deseja excluir sua ficha de treino?')" id="btExcluir"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Cross_icon_%28white%29.svg/120px-Cross_icon_%28white%29.svg.png" width="16px" height="17px"  alt="Excluir"></button>
+                        <button title="Excluir" type="button" onclick="swalConfirm(this,'Excluir treino')" id="btExcluir"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Cross_icon_%28white%29.svg/120px-Cross_icon_%28white%29.svg.png" width="16px" height="17px"  alt="Excluir"></button>
+                        
+                        <!-- <form class="formDelete" method="POST" action="../usuarioPersonal/delete.php?id=<?=$row['id']?>&foto=<?=$row['foto']?>&redirect=../views/listAdmin.php">
+                                        <button type="button" class="btnexcluir" onclick="swalConfirm(this,'Confirmar ação?','Tem certeza que deseja excluir este usuário?');">Excluir</button> -->
+                        </form>
                     </form>
                 </div>
             </article>
@@ -495,3 +499,8 @@ $cabecalhofichas_treino = $stmtfichas_treino->fetch();
 $dbhExercicios = null;
 $dbhfichas_treino = null;
 $dbhft_exe =  null;
+?>
+<?php
+    $path = getenv('DOCUMENT_ROOT');
+    include_once $path."/Olimpo_Training/layouts/footer.php";
+?>
