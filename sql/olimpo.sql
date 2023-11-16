@@ -215,7 +215,7 @@ CREATE TABLE `usuarios` (
   `sexo` varchar(25) NOT NULL,
   `altura` int(11) NOT NULL,
   `peso` float NOT NULL,
-  `saldo_solici` int(11) NOT NULL,
+  `saldo_treinos` int(11) NOT NULL,
   `foto` varchar(70) NOT NULL,
   `descricao` varchar(500) NOT NULL,
   `objetivo` varchar(250) NOT NULL,

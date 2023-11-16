@@ -172,7 +172,7 @@ $_SESSION['sessaoFicha'] = [];
 
     if($dadosUsuario['tipo'] == 'ADMINISTRADOR' || $dadosUsuario['tipo'] == 'PERSONAL-TRAINER'): ?>
     <div class="wrapbtn">
-        <a href="usersRequires.php" class="btnCriar">Criar Ficha de treino</a>
+        <a href="usersRequires.php" class="btnCriar">Criar treino</a>
     </div>
     <?php endif; ?>
 

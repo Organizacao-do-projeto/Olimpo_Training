@@ -1,10 +1,15 @@
-
 <?php
 session_start();
 
 if(!isset($_SESSION['sessaoFicha']) || empty($_SESSION['sessaoFicha'])) {
     $_SESSION['sessaoFicha'] = array();
 
+}
+
+if(isset($_POST['usuarioAddTreino'])){
+    $usuarioAddTreino = $_POST['usuarioAddTreino'];
+}else if(isset($_GET['usuarioAddTreino'])){
+    $usuarioAddTreino = $_GET['usuarioAddTreino'];
 }
 
 
@@ -32,7 +37,6 @@ if(isset($_GET['acao'])) {
     }
 
 };
-
 
 ?>
 
@@ -449,10 +453,10 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
     font-style: normal;
     align-self: end;
     font-weight: 600;
-    background: #7CFC00;
+    background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%);
     border: transparent;
     border-radius: 10px;
-    width: 80px;
+    /* width: 80px; */
     height: 30px;
     color: black;
     cursor: pointer;
@@ -472,7 +476,7 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
             <h2>Aluno: Jefferson Romero</h2>
         </a>
 
-        <a href="index.php?idUsuarios=2" class="btIndex" target="_blank">Fichas de treino do aluno</a>
+        <a href="index.php?idUsuarios=2" class="btIndex" target="_blank">Treinos do aluno</a>
     </header>
 
 
@@ -504,6 +508,7 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
                         <input type="hidden" name="id" value="<?=$exercicio['idExercicios']?>">
                         <input type="hidden" name="nome" value="<?=$exercicio['nome']?>"> 
                         <input type="hidden" name="acao" value="addExercicio">
+                        <input type="hidden" name="usuarioAddTreino" value="<?=$usuarioAddTreino?>">
                     <a href="detailsExercicio.php?id=<?=$exercicio['idExercicios']?>" target="_blank">
                     <!-- essa imagem tem 200x150 -->
                     <?php
@@ -603,7 +608,7 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
                     </div>
                 </div>
 
-                                    <!-- INICIO DOBRA CABEÇALHO DA FICHA -->
+                <!-- INICIO DOBRA CABEÇALHO DA FICHA -->
 
                 <div class="cabecalhoFicha">
                     <div class="wrapper_dados_ficha">
@@ -611,8 +616,9 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
                             <label for="intervaloExercicios" class="labelIntervaloExe">Intervalo entre exercícios: </label><input type="number" name="intervaloExercicios" value="45"><Strong class="labelIntervaloExe">s</Strong><br><br>
                             <label for="observacoes" class="labelObs">Observações <textarea name="observacoes" id="observacoes"></textarea><br>
                             <input type="hidden" id="resultObs" name="resultObs">
+                            <input type="hidden" name="usuarioAddTreino" value="<?=$usuarioAddTreino?>">
                             <div class="wrapEnviar">
-                                <input type="submit" value="Enviar" id="Enviar">
+                                <input type="submit" value="Criar Treino" id="Enviar">
                             <div>
                         </fieldset>
                     </div>

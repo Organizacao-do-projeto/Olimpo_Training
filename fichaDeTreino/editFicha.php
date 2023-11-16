@@ -1,12 +1,6 @@
 <?php
 session_start();
 
-if(empty($_SESSION['sessaoFicha'])){ 
-    header('Location: index.php?error=Você tentou adicionar um treino vazio, adicione no mínimo um exercicio');
-    exit();
-}
-
-
 !empty($_POST['idFichas_treino']) ? $idFichas_treino = $_POST['idFichas_treino'] : $idFichas_treino = 0 ;
 
 
@@ -109,7 +103,7 @@ if(isset($_GET['acao'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar ficha de treino</title>
+    <title>Editar treino</title>
 </head>
 <style>
     /* INICIO DOBRA EXERCICIOS */ 
@@ -516,16 +510,17 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
     font-style: normal;
     align-self: end;
     font-weight: 600;
-    background: #7CFC00;
+    background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%);
     border: transparent;
     border-radius: 10px;
-    width: 80px;
+    /* width: 80px; */
     height: 30px;
     color: black;
     cursor: pointer;
     margin: 0px;
 
     }
+
 
     /* FIM DOBRA FICHA */
 </style>
@@ -539,7 +534,7 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
             <h2>Aluno: Jefferson Romero</h2>
         </a>
 
-        <a href="index.php?idUsuarios=2" class="btIndex" target="_blank">Fichas de treino do aluno</a>
+        <a href="index.php?idUsuarios=2" class="btIndex" target="_blank">Treinos do aluno</a>
     </header>
 
 
@@ -681,7 +676,7 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
                             <label for="observacoes" class="labelObs">Observações <textarea name="observacoes" id="observacoes"><?=$_SESSION['cabecalhoFichaEdit']['observacoes']?></textarea><br>
                             <input type="hidden" id="resultObs" name="resultObs">
                             <div class="wrapEnviar">
-                                <input type="submit" value="Enviar" id="Enviar">
+                                <input type="submit" value="Editar Treino" id="Enviar">
                             <div>
                         </fieldset>
                     </div>

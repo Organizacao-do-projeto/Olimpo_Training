@@ -20,17 +20,20 @@ include_once "src/conexao.php";
 $dbh = Conexao::getConexao();
 
 //seleciona todos se for adm e seleciona apenas os do personal caso seja personal trainer
-if($dadosUsuario['tipo'] == 'ADMINISTRADOR'){
+// if($dadosUsuario['tipo'] == 'ADMINISTRADOR'){
     
-    $query = "SELECT * FROM olimpo.usuarios  WHERE saldo_solici > 0;";
-    $stmt = $dbh->prepare($query);
+//     $query = "SELECT * FROM olimpo.usuarios  WHERE saldo_treinos > 0;";
+//     $stmt = $dbh->prepare($query);
     
-}else if($dadosUsuario['tipo'] == 'PERSONAL-TRAINER'){
+// }else if($dadosUsuario['tipo'] == 'PERSONAL-TRAINER'){
     
-    $query = "SELECT * FROM olimpo.usuarios WHERE idPerso_trainer = :idPerso_trainer AND saldo_solici > 0 ; ";
-    $stmt = $dbh->prepare($query);  
-    $stmt->bindParam(":idPerso_trainer", $idPerso_trainer);
-}
+//     $query = "SELECT * FROM olimpo.usuarios WHERE idPerso_trainer = :idPerso_trainer AND saldo_treinos > 0 ; ";
+//     $stmt = $dbh->prepare($query);  
+//     $stmt->bindParam(":idPerso_trainer", $idPerso_trainer);
+// }
+
+$query = "SELECT * FROM olimpo.usuarios  WHERE saldo_treinos > 0;";
+$stmt = $dbh->prepare($query);
 
 $stmt->execute();
 $usersRequires = $stmt->fetchAll();
@@ -80,7 +83,7 @@ $quantidadeRegistros =  $stmt->rowCount();
         <tbody>
             <?php if ($quantidadeRegistros == "0"): ?>
                 <tr>
-                    <td colspan="4">Não existem usuários com fichas pendentes.</td>
+                    <td colspan="4">Não existem usuários com treinos pendentes.</td>
                 </tr>
             <?php else: ?>
                 <?php foreach($usersRequires as $userRequire): ?>
@@ -88,16 +91,19 @@ $quantidadeRegistros =  $stmt->rowCount();
                     <td><img class="userPhoto" <?php
                     
                     if(empty($userRequire['foto'])){
-                      echo "src='../views/assets/img/usuarioGenerico.jpg'";
+                      echo "src='../assets/img/usuarios/usuarioGenerico.jpg'";
                     }else{
-                      echo "src='../usuarios/assests/img/usuarios/".$userRequire['foto']."'";
+                      echo "src='../assets/img/usuarios/".$userRequire['foto']."'";
                     };
 
                      ?> alt="Foto do usuário"></td>
                     <td><?= $userRequire['nome'];?></td>
-                    <td><?= $userRequire['saldo_solici'];?></td>
+                    <td><?= $userRequire['saldo_treinos'];?></td>
                     <td>
-                        <a class="btnalterar" href="newFicha.php?id=<?=$userRequire['id'];?>">Criar ficha</a>
+                      <form action="newFicha.php" method="POST">
+                        <input type="hidden" name="usuarioAddTreino" value="<?=$userRequire['id']?>">
+                        <button type="submit" class="btnalterar">Criar Treino</button>
+                      </form>
                     </td>
                 </tr>
                 <?php endforeach;
