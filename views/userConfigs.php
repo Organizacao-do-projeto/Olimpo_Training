@@ -42,10 +42,10 @@ $nomePerfis = $stmt->fetch(PDO::FETCH_BOTH);
     <nav>
         <ul>
             <li>
-                <a href="../auth/logout.php" title="realizar logout">Realizar logout</a>
+                <a class="bts_usr_configs" href="../auth/logout.php" title="realizar logout">Realizar logout</a>
             </li>
             <li>
-                <a href="../<?php 
+                <a class="bts_usr_configs" href="../<?php 
                 if($nomePerfis['nome'] == 'COMUM'){
                     echo "usuarioComum"; 
                 }else if($nomePerfis['nome'] == 'ALUNO' ){
@@ -55,14 +55,16 @@ $nomePerfis = $stmt->fetch(PDO::FETCH_BOTH);
                 }?>/update.php?id=<?=$dadosUsuario['id']?>" title="Editar conta">Editar conta</a>
             </li>
             <li>
-                    <a href="../<?php 
-                    if($nomePerfis['nome'] == 'COMUM'){
-                        echo "usuarioComum"; 
-                    }else if($nomePerfis['nome'] == 'ALUNO' ){
-                        echo "usuarioAluno";
-                    }else{
-                        echo "usuarioPersonal"; 
-                    }?>/delete.php?id=<?=$dadosUsuario['id']?>&foto=<?=$dadosUsuario['foto']?>" title="Excluir conta" onclick="return confirm('tem certeza que deseja excluir sua conta?')"><font color="red">Excluir conta</font></a>
+                <form method="POST" action="../<?php 
+                if($nomePerfis['nome'] == 'COMUM'){
+                    echo "usuarioComum"; 
+                }else if($nomePerfis['nome'] == 'ALUNO' ){
+                    echo "usuarioAluno";
+                }else{
+                    echo "usuarioPersonal"; 
+                }?>/delete.php?id=<?=$dadosUsuario['id']?>&foto=<?=$dadosUsuario['foto']?>" >
+                    <button type="button" class="bts_usr_configs" title="Excluir conta" onclick="swalConfirm(this,'Excluir conta', 'Tem certeza que deseja excluir sua conta?')"><font color="red">Excluir conta</font></button>
+                </form>
             </li>
         </ul>
     </nav>
@@ -94,7 +96,7 @@ main ul{
 }
 
 
-main a, button{
+main .bts_usr_configs{
 
     justify-content: center;
     align-items: center;
@@ -123,3 +125,4 @@ main a:hover,button:hover {
 }
 </style>
 </html>
+<?php //include_once __DIR__.'/../assets/script/sweetAlert.php'; ?>

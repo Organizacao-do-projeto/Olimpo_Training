@@ -501,6 +501,6 @@ $dbhfichas_treino = null;
 $dbhft_exe =  null;
 ?>
 <?php
-    $path = getenv('DOCUMENT_ROOT');
-    include_once $path."/Olimpo_Training/layouts/footer.php";
+    // $path = getenv('DOCUMENT_ROOT');
+    // include_once $path."/Olimpo_Training/layouts/footer.php";
 ?>

@@ -102,6 +102,7 @@ https://i.pinimg.com/originals/1e/e2/fb/1ee2fb9717554a1dbb09b924f19f8e72.png */
       min-height: 900px;
       display: inline-block;
       position: relative;
+      font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
     }
 
     #backgroundFicha {
@@ -110,19 +111,27 @@ https://i.pinimg.com/originals/1e/e2/fb/1ee2fb9717554a1dbb09b924f19f8e72.png */
       position: absolute;
     }
 
-    #nome_olimpo {
+    .nome_olimpo {
       position: absolute;
       margin-left: 20px;
       margin-top: 10px;
       width: 210px;
       height: 150px;
-      filter: invert(100%);
+      color: black;
+      font-size: 2.5em;
+      font-weight: 600;
+      font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
+    }
+
+    .h1_olimpo{
+      width: 30px;
+      margin: 20px;
     }
 
 
     .fichaFundo {
       position: absolute;
-      margin-top: 125px;
+      margin-top: 28px;
       width: 100%;
       height: 800px;
       display: flex;
@@ -134,20 +143,20 @@ https://i.pinimg.com/originals/1e/e2/fb/1ee2fb9717554a1dbb09b924f19f8e72.png */
     .ficha {
       position: absolute;
       width: 700px;
-      border: 5px solid goldenrod;
+      border: 6px solid goldenrod;
       border-radius: 16px 16px;
     }
 
-    .fichaCabecalho {
-      background-color: white;
-      border-radius: 10px 10px 0px 0px;
-      width: 100%;
-
+    .tr_observacoes{
+      height: 100%;
     }
 
     #observacoes {
       text-align: end;
       font-size: 18px;
+    }
+    #observacoes table{
+      height: 178px;
     }
 
     #observacoes p {
@@ -160,6 +169,23 @@ https://i.pinimg.com/originals/1e/e2/fb/1ee2fb9717554a1dbb09b924f19f8e72.png */
       max-width: 50%;
     }
 
+    #observacoes table td{
+      font-weight: 400;
+      
+    }
+    
+    #observacoes table td span{
+      font-size: 0.9rem;
+    }
+    
+    #observacoes table td p{
+      font-size: 1.1rem;
+    }
+
+    .infos_observacoes{
+      border: 1px solid #f0f3fa;
+      border-radius: 5%;;
+    }
     
     .tableCabecalho > td {
       max-width: 50%;
@@ -178,12 +204,12 @@ https://i.pinimg.com/originals/1e/e2/fb/1ee2fb9717554a1dbb09b924f19f8e72.png */
 
     #tableCabecalho_1td > p{
       font-size: 1.2rem;
+      font-weight: 400;
     }
 
     #tabelaFicha {
-      background-color: #C0C0C0;
+      /* background-color: #C0C0C0; */
       width: 100%;
-      border: 1px solid;
       border-collapse: collapse;
       table-layout: fixed;
     }
@@ -194,16 +220,26 @@ https://i.pinimg.com/originals/1e/e2/fb/1ee2fb9717554a1dbb09b924f19f8e72.png */
     }
     
     #tabelaFicha td {
-      border: 1px solid #fff;
+      border: 1px solid goldenrod;
       border-collapse: collapse;
       font-size: 18px;
       height: 60px;
     }
+    #tabelaFicha thead {
+      border: none;
+      /* background-color: #C0C0C0; */
+      background-color: goldenrod;
+      border: 1px solid goldenrod;
+    }
     
     #tabelaFicha th {
+      border-collapse: collapse;
       font-size: 18px;
       height: 60px;
+      border-bottom-style: none;
+      border-right-style: none;
     }
+
 
     /* DOBRA FOOTER*/
 
@@ -238,22 +274,37 @@ https://i.pinimg.com/originals/1e/e2/fb/1ee2fb9717554a1dbb09b924f19f8e72.png */
 <body>
 
   <div id='body_container'>
-     <img src='http://localhost/site_etc/teste/fichaDeTreino/genPDF/img/background_claro.jpg' id='backgroundFicha' width='1300px' height='100%'> 
-     <img src='http://localhost/site_etc/teste/fichaDeTreino/genPDF/img/nome_olimpo.png' id='nome_olimpo'>
+  <!--<img src='http://localhost/site_etc/teste/fichaDeTreino/genPDF/img/background_claro.jpg' id='backgroundFicha' width='1300px' height='100%'> -->
+  <!--<img src='http://localhost/site_etc/teste/fichaDeTreino/genPDF/img/nome_olimpo.png' id='nome_olimpo'> -->
+
      <!--<img src='http://localhost/Olimpo_Training/fichaDeTreino/genPDF/img/background_claro.jpg' id='backgroundFicha' width='1300px' height='100%'>  -->
      <!-- <img src='http://localhost/Olimpo_Training/fichaDeTreino/genPDF/img/nome_olimpo.png' id='nome_olimpo'> -->
+     <h1 class='h1_olimpo'>
+      Olimpo Training
+     </h1>
     <div class='fichaFundo'>
       <div class='ficha'>
         <div class='fichaCabecalho'>
           <table width='100%' class='tableCabecalho'>
             <td id='tableCabecalho_1td'>
               <h1>".$cabecalhofichas_treino['titulo']."</h1>
-              <p>Descanso: ".$cabecalhofichas_treino['descExercicios']."s</p>
+              <p>Desc/exercício: ".$cabecalhofichas_treino['descExercicios']."s</p>
             </td>
             <td id='observacoes'>
-              <span>Obs.: ".$cabecalhofichas_treino['observacoes'].".</span>
-              <p>Data de criação: ".date("d/m/Y", strtotime($cabecalhofichas_treino['data_criacao']))."</p>
+              <table>
+                <tr>
+                  <td>
+                  <span>Obs.: <span class='infos_observacoes'>".$cabecalhofichas_treino['observacoes'].".</span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Data de criação: ".date("d/m/Y", strtotime($cabecalhofichas_treino['data_criacao']))."</p>
+                  </td>
+                </tr>
+              </table>
             </td>
+
           </table>
         </div>
         <table id='tabelaFicha'>
@@ -275,6 +326,7 @@ https://i.pinimg.com/originals/1e/e2/fb/1ee2fb9717554a1dbb09b924f19f8e72.png */
 
 </html>";
 
+//############# DESCOMENTAR ESSA PARTE PARA PERSONALIZAR O PDF ####################
 // echo "Este é o resultado
 // $htmlFicha";
 

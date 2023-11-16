@@ -15,7 +15,7 @@
     <title>Pagina principal</title>
     <style>
         .redirects {
-            height: 1600px;
+            height: 1140px;
             width: 90px;
             position: absolute;
             background-color: #fff;
@@ -50,6 +50,8 @@
         }
 
         h1 {
+            margin-top: 30px;
+            margin-left: 15px;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
 
@@ -95,6 +97,7 @@
             width: 100%;
             border-radius: 10px;
             flex-wrap: wrap;
+            margin-bottom: 40px;
 
         }
 
@@ -117,6 +120,18 @@
             color: gold;
             text-transform: uppercase;
         }
+
+        .article_down{
+            margin: 10px;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            /* flex-direction: column; */
+        }
+        .article_down img{
+            height: 100%;
+        }
+
     </style>
 </head>
 
@@ -189,8 +204,14 @@ if(isset($_GET['updated'])){
             <section>
                 <article class="banner">
                     <div class="banner_content">
-                        <p>O melhor dia para <span>começar<br></span> é <span>hoje!</span></p>
+                        <p>O melhor dia para <br><span>começar<br></span> é <span>hoje!</span></p>
                     </div>
+                </article>
+            </section>
+            <section>
+                <article class="article_down">
+                    <img src="../assets/img/logos/logo_borda.png" >
+                    <img src="../assets/img/logos/nome_olimpo.png" >
                 </article>
             </section>
 
