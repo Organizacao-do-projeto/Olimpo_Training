@@ -101,7 +101,7 @@
                 </a>
 
                 <h2><a href="" class="title">
-                        Renato Cariani é Fisiculturista e Empresário. É um dos principais Influenciadores de Fisiculturismo e Idealizador da “Casa dos Campeões”, considerado o maior projeto no formato de Reality Show da história do Youtube da musculação. Renato nasceu em 1976 no bairro Cidade Dutra, em São Paulo capital.!
+                Bárbara é uma personal trainer altamente qualificada e especialista em emagrecimento. Com sua paixão pela saúde e bem-estar, ela combina seu conhecimento científico e experiência prática para ajudar seus clientes a atingirem seus objetivos de perda de peso de forma eficaz e sustentável.
                     </a></h2>
             </article>
             <article>
@@ -110,7 +110,7 @@
                 </a>
 
                 <h2><a href="" class="title">
-                        Renato Cariani é Fisiculturista e Empresário. É um dos principais Influenciadores de Fisiculturismo e Idealizador da “Casa dos Campeões”, considerado o maior projeto no formato de Reality Show da história do Youtube da musculação. Renato nasceu em 1976 no bairro Cidade Dutra, em São Paulo capital.!
+                Lucas Gabriel é um renomado personal trainer especializado em hipertrofia e ganho de massa muscular. Com vasta experiência na área, ele se destaca por ajudar seus clientes a alcançarem seus objetivos de forma eficiente e saudável.Com um conhecimento aprofundado em treinamento resistido e exercícios específicos para a hipertrofia muscular. 
                     </a></h2>
             </article>
             <article>
@@ -119,7 +119,8 @@
                 </a>
 
                 <h2><a href="" class="title">
-                        Renato Cariani é Fisiculturista e Empresário. É um dos principais Influenciadores de Fisiculturismo e Idealizador da “Casa dos Campeões”, considerado o maior projeto no formato de Reality Show da história do Youtube da musculação. Renato nasceu em 1976 no bairro Cidade Dutra, em São Paulo capital.!
+                Micaele é uma personal trainer altamente qualificada em formação de atletas de corrida. Com um vasto conhecimento na área, ela dedica-se a ajudar seus clientes a alcançarem seus objetivos e superarem limites.
+                Com uma abordagem personalizada, Micaele cria programas de treinamento individualizados, levando em consideração as necessidades e metas específicas de cada atleta.
                     </a></h2>
             </article>
             <article>
@@ -128,7 +129,8 @@
                 </a>
 
                 <h2><a href="" class="title">
-                        Renato Cariani é Fisiculturista e Empresário. É um dos principais Influenciadores de Fisiculturismo e Idealizador da “Casa dos Campeões”, considerado o maior projeto no formato de Reality Show da história do Youtube da musculação. Renato nasceu em 1976 no bairro Cidade Dutra, em São Paulo capital.!
+                Gláuber Viana é um personal trainer altamente qualificado e especializado em exercícios com peso do corpo. Com uma vasta experiência no campo do treinamento físico, ele auxilia seus clientes a alcançarem seus objetivos de forma eficaz, utilizando apenas o peso do próprio corpo.Gláuber é dedicado em fornecer treinamentos personalizados e adaptados às necessidades individuais de cada cliente. 
+                
                     </a></h2>
             </article>
 
