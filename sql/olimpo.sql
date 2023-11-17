@@ -227,7 +227,7 @@ CREATE TABLE `usuarios` (
 -- Despejando dados para a tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `email`, `password`, `nome`, `autenticado`, `CPF`, `sexo`, `altura`, `peso`, `saldo_solici`, `foto`, `descricao`, `objetivo`, `idPerso_trainer`, `idPerfis`) VALUES
+INSERT INTO `usuarios` (`id`, `email`, `password`, `nome`, `autenticado`, `CPF`, `sexo`, `altura`, `peso`, `saldo_treinos`, `foto`, `descricao`, `objetivo`, `idPerso_trainer`, `idPerfis`) VALUES
 (1, 'admin@gmail.com', '202cb962ac59075b964b07152d234b70', 'Administrador', 1, '000.000.000-00', 'Masculino', 200, 200, 7, '', '', '', 1, 1),
 (50, 'jose@gmail.com', '202cb962ac59075b964b07152d234b70', 'José Silva da SIlva', 0, '', 'Masculino', 175, 75, 0, 'treinando.jpg', '', 'Quero melhorar minha saúde e bem-estar, além de me sentir mais confiante e energizado. Estou animado para começar a treinar e alcançar meus objetivos de fitness.', 0, 0),
 (51, 'maria@gmail.com', '202cb962ac59075b964b07152d234b70', 'Maria Fernandes', 0, '', 'Masculino', 155, 76, 0, 'moca.jpg', '', 'Quero melhorar minha saúde e bem-estar, além de me sentir mais confiante e energizado. Estou animado para começar a treinar e alcançar meus objetivos de fitness.', 0, 0),
