@@ -86,7 +86,7 @@
                                 <td><a class="linkagem" href="perfil.php?idPerfil=<?=$row['id']?>"><?=$row['nome']?></a></td>
                                 <td><?=$row['email']?></td>
                                 <td><?=$row['CPF']?></td>
-                                <td><?=$row['saldo_solici']?></td>
+                                <td><?=$row['saldo_treinos']?></td>
                                 <td><?=$row['sexo']?></td>
                                 <td><?=$row['foto']?></td>
                                 <td>

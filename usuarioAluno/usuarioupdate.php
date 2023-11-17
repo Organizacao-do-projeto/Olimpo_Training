@@ -18,17 +18,17 @@
     $fotoAnterior = $_POST['fotoAnterior'];
 
     
-    $assinatura == 'ANUAL' ? $saldo_solici = 7 : $saldo_solici = 3;
+    $assinatura == 'ANUAL' ? $saldo_treinos = 7 : $saldo_treinos = 3;
 
     $dbh = Conexao::getConexao();
 
     if($fotoAtributos['size'] > 0){
         //query de adiocinar com o foto
-        $query = "UPDATE olimpo.usuarios SET nome = :nome, email = :email, password = :password, sexo = :sexo, altura = :altura, peso = :peso, saldo_solici = :saldo_solici, objetivo = :objetivo, foto = :foto, CPF = :CPF WHERE id = :id; ";
+        $query = "UPDATE olimpo.usuarios SET nome = :nome, email = :email, password = :password, sexo = :sexo, altura = :altura, peso = :peso, saldo_treinos = :saldo_treinos, objetivo = :objetivo, foto = :foto, CPF = :CPF WHERE id = :id; ";
         $addFoto = true;
     }else{
         //query de adicionar sem foto
-        $query = "UPDATE olimpo.usuarios SET nome = :nome, email = :email, password = :password, sexo = :sexo, altura = :altura, peso = :peso, saldo_solici = :saldo_solici, objetivo = :objetivo, CPF = :CPF WHERE id = :id; ";
+        $query = "UPDATE olimpo.usuarios SET nome = :nome, email = :email, password = :password, sexo = :sexo, altura = :altura, peso = :peso, saldo_treinos = :saldo_treinos, objetivo = :objetivo, CPF = :CPF WHERE id = :id; ";
         $addFoto = false;
     }
 
@@ -46,7 +46,7 @@
     $stmt->bindParam(':sexo', $sexo);
     $stmt->bindParam(':altura', $altura);
     $stmt->bindParam(':peso', $peso);
-    $stmt->bindParam(':saldo_solici', $saldo_solici);
+    $stmt->bindParam(':saldo_treinos', $saldo_treinos);
     $stmt->bindParam(':objetivo', $objetivo);
     if($addFoto){
         $stmt->bindParam(':foto', $foto);
