@@ -50,7 +50,7 @@ $_SESSION['sessaoFicha'] = [];
     font-weight: 800;
     font-size: 1.1rem;
     box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;;
+   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
 }
 
 .sectionFichas{
@@ -60,13 +60,13 @@ $_SESSION['sessaoFicha'] = [];
     /* justify-content: space-between; */
     margin-bottom: 100px;
     flex-wrap: wrap;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 
 .showficha{
-    margin-top: 20px;
+    margin-top: 30px;
     color: white;
     border-radius: 5%;
     
@@ -79,7 +79,9 @@ $_SESSION['sessaoFicha'] = [];
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 8px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
     
 }
 
@@ -192,7 +194,7 @@ require_once 'src/conexao.php';
 $dbh = Conexao::getConexao();
 
 
-$query = "SELECT * FROM olimpo.fichas_treino ";
+$query = "SELECT * FROM olimpo.fichas_treino ORDER BY idFichas_Treino DESC ";
 
 
 $stmt = $dbh->prepare($query);
