@@ -1,12 +1,7 @@
 <?php
-// session_start();
-// if(!isset($_SERVER['dadosUsuario'])){
+session_start();
 
-//     header("Location: index.php");
-
-// }
-
-//$dadosUsuario = $_SERVER['dadosUsuario'];
+include_once __DIR__.'/../auth/restrito.php';
 
 // varivael estática para testar o programa
 $dadosUsuario = [ "id" => 7, "nome" => "Fernando", "idPerso_trainer" => 8 ];

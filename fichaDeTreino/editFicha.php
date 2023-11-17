@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include_once __DIR__.'/../auth/restrito.php';
+
 !empty($_POST['idFichas_treino']) ? $idFichas_treino = $_POST['idFichas_treino'] : $idFichas_treino = 0 ;
 
 

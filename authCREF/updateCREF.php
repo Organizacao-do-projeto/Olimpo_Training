@@ -1,4 +1,9 @@
 <?php
+
+    session_start();
+
+    include_once __DIR__.'/../auth/restrito.php';
+
     header('Content-Type: text/html; charset=utf-8;');
     
     require_once '../src/conexao.php';

@@ -1,3 +1,10 @@
+<?php
+
+    session_start();
+
+    include_once __DIR__.'/../auth/restrito.php';
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -310,8 +317,8 @@ window.pressed = function(){
 </script>
 </body>
 <?php
-        $path = getenv('DOCUMENT_ROOT');
-        include_once $path."/Olimpo_Training/layouts/footer.php";
+        // $path = getenv('DOCUMENT_ROOT');
+        // include_once $path."/Olimpo_Training/layouts/footer.php";
 ?>
 </html>
              

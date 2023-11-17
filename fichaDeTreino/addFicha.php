@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+include_once __DIR__.'/../auth/restrito.php';
+
 //puxar dados da variavel de sessão e registrar no banco de dados
 
 include_once "src/conexao.php";

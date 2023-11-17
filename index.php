@@ -41,13 +41,6 @@
     <!--FIM DOBRA CABEÇALHO-->
 
     <!-- POP LOGIN -->
-    <?php if (isset($_GET['msg']) || isset($_GET['error'])) : ?>
-                        <div align="center" class="<?= (isset($_GET['error']) ? 'msg__success' : 'msg__error') ?>">
-                            <p><font color="red"><?= $_GET['msg'] ?? $_GET['error'] ?></font></p>
-                        </div>
-                    <?php endif; ?>
-
-    
     <div class="overlay"></div>
     <div class="modal">
         <div class="div_login">
@@ -129,7 +122,7 @@
                 </a>
 
                 <h2><a href="" class="title">
-                Gláuber Viana é um personal trainer altamente qualificado e especializado em exercícios com peso do corpo. Com uma vasta experiência no campo do treinamento físico, ele auxilia seus clientes a alcançarem seus objetivos de forma eficaz, utilizando apenas o peso do próprio corpo.Gláuber é dedicado em fornecer treinamentos personalizados e adaptados às necessidades individuais de cada cliente. 
+                Emerson Viana é um personal trainer altamente qualificado e especializado em exercícios com peso do corpo. Com uma vasta experiência no campo do treinamento físico, ele auxilia seus clientes a alcançarem seus objetivos de forma eficaz, utilizando apenas o peso do próprio corpo.Gláuber é dedicado em fornecer treinamentos personalizados e adaptados às necessidades individuais de cada cliente. 
                 
                     </a></h2>
             </article>

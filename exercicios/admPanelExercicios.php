@@ -1,3 +1,9 @@
+<?php
+    session_start();
+
+    include_once __DIR__.'/../auth/restrito.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -137,7 +143,7 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
     
     /* INICIO DOBRA EXERCICIOS */
     .showExercicios{
-            margin: 20px;
+            margin: 4px;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -173,7 +179,7 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
         align-items: center;
         border-radius: 10px;
         box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-        margin: 10px;
+        margin: 5px;
         margin-top: 18px;
 
     }

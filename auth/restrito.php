@@ -3,34 +3,63 @@
     $usuario = $_SESSION['dadosUsuario'] ?? null;
     if (!$usuario) {
         session_destroy();
-        header("location: ../index.php?error=Usuário sem permissão!");
+        header("location: ../index.php?error=Faça o login!");
         exit();
     }
 
-    function isPersonal($perfil){
-        if($perfil != 'PERSONAL-TRAINER' || $perfil != 'ADMINISTRADOR'){
-            header('Location: ../index.php?error=Você não é um Personal trainer.');        
-            exit();
+    // redireciona se precisar, senão só verifica se é o tipo de usuario
+    function isPersonal($perfil, $autenticado, $redirect = false ){
+        if($perfil != "PERSONAL-TRAINER" && $perfil != "ADMINISTRADOR"){
+            if($redirect){
+                header('Location: ../index.php?error=Ops! Você não é um Personal trainer.');        
+                exit();
+            }else{
+                return false;
+            }
+        }else{
+            if($perfil == "ADMINISTRADOR") $autenticado = 1;
+            return isPersonalAuth($autenticado, $redirect);
         };
     }
 
-    function isPersonalAuth($autenticado){
+    function isPersonalAuth($autenticado, $redirect){
+        //colocar uma condição de autenticado
         if($autenticado != 1 ){
-            header('Location: ../index.php?error=Você ainda não foi autenticado na plataforma.');        
-            exit();
+            // verifica se precisa redirecionar
+            if($redirect){
+                header('Location: ../index.php?error=Você ainda não foi autenticado na plataforma.');        
+                exit();
+            }else{
+                return false;
+            }
+        }else{//é autenticado
+            return true;
+        };
+
+    }
+
+    function isAluno($perfil, $redirect = false){
+        if($perfil != 'ALUNO' && $perfil != 'ADMINISTRADOR'){
+            if($redirect){
+                header('Location: ../index.php?error=Sem permissão para acessar essa página.');        
+                exit();
+            }else{
+                return false;
+            }
+        }else{
+            return true;
         };
     }
 
-    function isAluno($perfil){
-        if( $perfil != 'ALUNO' || $perfil != 'ADMINISTRADOR' ){
-            header('Location: ../index.php?error=Você não tem permissão para acessar esse site.');
-            exit();
-        };
-    }
-
-    function isAdministrador($perfil){
-        if( $perfil != 'ADMINISTRADOR' ){
-            header('Location: ../index.php?error=Você não tem permissão para acessar esse site.');
-            exit();
+    function isAdministrador($perfil, $redirect = false){
+        if($perfil != 'ADMINISTRADOR'){
+            if($redirect){
+                header('Location: ../index.php?error=Sem permissão para acessar essa página.');
+                exit();
+            }else{
+                return false;
+            }
+        }else{
+            return true;
         };
     }

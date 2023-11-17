@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+include_once __DIR__.'/../auth/restrito.php';
 
 include_once "src/conexao.php";
 

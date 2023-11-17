@@ -1,4 +1,9 @@
 <?php
+
+    session_start();
+
+    include_once __DIR__.'/../auth/restrito.php';
+
     require_once '../src/conexao.php';
 
     # solicita a conexão com o banco de dados e guarda na váriavel dbh.

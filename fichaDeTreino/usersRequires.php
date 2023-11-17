@@ -1,15 +1,10 @@
 <?php
-//session_start();
-// $dadosUsuario = $_SERVER['dadosUsuario'];
+session_start();
+
+include_once __DIR__.'/../auth/restrito.php';
+
 $dadosUsuario = array();
 $dadosUsuario['tipo'] = 'PERSONAL-TRAINER';
-//$dadosUsuario['tipo'] = 'ADMINISTRADOR';
-
-//verifica se pode entrar nesta tela
-// if($dadosUsuario['tipo'] != 'ADMINISTRADOR' || $dadosUsuario['tipo'] != 'PERSONAL-TRAINER'):
-//     header("Location: index.php?msg=Você não tem permissão para criar ficha de treino.");
-//     exit;
-// endif;
 
 // $idPerso_trainer = $dadosUsuario['id'];
 

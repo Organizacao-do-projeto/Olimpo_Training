@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php session_start();
+
+ include_once __DIR__.'/../auth/restrito.php';
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,7 +19,7 @@
     <title>Pagina principal</title>
     <style>
         .redirects {
-            height: 1140px;
+            height: 1130px;
             width: 90px;
             position: absolute;
             background-color: #fff;
@@ -49,9 +53,12 @@
             opacity: 1;
         }
 
-        h1 {
+        .wraph1{
             margin-top: 30px;
-            margin-left: 15px;
+        }
+
+        .tipoUser {
+            margin-left: 12px;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
 
@@ -186,7 +193,10 @@ if(isset($_GET['updated'])){
         <a href="listAdmin.php" title="Painel de usuários"><img src="assets/img/usuarios.svg" height="40px"></a>
     </div>
     <div class="wrapper">
-        <h1><?=$nomePerfis['nome']?></h1>
+        <div height="40px">
+            &nbsp;
+        </div>
+        <h1 class="tipoUser"><?=$nomePerfis['nome']?></h1>
         <section>
             <article class="info_user">
                 <h2><?=$dadosUsuario['nome']?></h2>

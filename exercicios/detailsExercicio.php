@@ -1,8 +1,7 @@
 <?php
+session_start();
 
-// if(!$_SESSION['usuario']){
-//     header("Location:index.php?msg=Ops! talvez você não tenha acesso àquela pagina.");
-// }
+include_once __DIR__.'/../auth/restrito.php';
 
 isset($_GET['id']) ? $idExercicios = $_GET['id'] : header("Location:index.php?error=Ops! nenhum exercicio selecionado");
 // $idExercicios = 6;

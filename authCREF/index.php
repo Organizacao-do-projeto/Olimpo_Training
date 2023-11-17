@@ -1,5 +1,9 @@
 <?php
 
+    session_start();
+
+    include_once __DIR__.'/../auth/restrito.php';
+
     require_once '../src/conexao.php';
 
     $dbh = Conexao::getConexao();

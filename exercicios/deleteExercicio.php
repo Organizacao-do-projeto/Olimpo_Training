@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+
+include_once __DIR__.'/../auth/restrito.php';
+
 if(isset($_POST['idExercicios']) && isset($_POST['nome'])){
 
 $idExercicios = $_POST['idExercicios'];

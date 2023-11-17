@@ -1,4 +1,5 @@
 <?php
+session_start();
 //IR NO programa do XAMPP>config>php.ini e tirar o ";" da linha "extension=gd"
 
 include_once "../src/conexao.php";

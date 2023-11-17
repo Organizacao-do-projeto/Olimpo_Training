@@ -2,6 +2,8 @@
 session_start();
 $_SESSION['sessaoFicha'] = [];
 
+include_once __DIR__.'/../auth/restrito.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
