@@ -67,7 +67,7 @@
                         <th>Nome</th>
                         <th>Email</th>
                         <th>CPF</th>
-                        <th>Saldo fichas</th>
+                        <th>Saldo de treinos</th>
                         <th>Sexo</th>
                         <th>Foto</th>
                         <th>Ação</th>

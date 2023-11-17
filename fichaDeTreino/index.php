@@ -82,7 +82,13 @@ $_SESSION['sessaoFicha'] = [];
     margin-bottom: 4px;
     margin-left: 4px;
     margin-right: 4px;
+    cursor: pointer;
     
+}
+
+.showficha:hover{
+    transform: scale(1.09);
+    transition: all .5s;
 }
 
 .showficha_margin{

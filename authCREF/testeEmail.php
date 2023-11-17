@@ -103,7 +103,7 @@ require_once '../src/plugins/PHPMailer/src/SMTP.php';
 require_once '../src/plugins/PHPMailer/src/Exception.php';
 
 
-$mail = new PHPMailer(true);
+$mail = new PHPMailer();
 
 try{
     $mail->SMTPDebug = SMTP::DEBUG_SERVER;
@@ -128,5 +128,5 @@ try{
 
 
 }catch(Exception $e){
-    echo "Não foi possível enviar a mensagem. Mailer error: {$mail->ErroInfo()}";
+    echo "Não foi possível enviar a mensagem. Mailer error: {$mail->ErrorInfo}";
 }
