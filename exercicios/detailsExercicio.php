@@ -27,14 +27,107 @@ $exercicio = $stmt->fetch();
     <title> <?=$exercicio['nome']?> </title>
 </head>
 <style> 
-.nome_exer{
-    font-size: 2rem;
-    font-weight: 500;
-    margin: 20px 15px;
-    text-align: center;
+
+
+.all{
+    width: 100%;
+    display: flex;
+}
+.img_exer{
+    width: 700px;
+    display: flex;
+    height: 500px;
+     margin-left:20px;
+     margin-bottom: 30px;
+    border-radius: 83.206px;
+     font-weight: 800;
+     font-size: 1.1rem;
+      box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22)
 }
 
-.img_exer{
+.nome_exer{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+}
+
+
+.descricao{
+    width: 100%;
+    display: flex;
+     margin-top: 80px;
+     margin-right: 50px;
+     background-color: aqua;
+     padding: 15px 20px;
+     margin-bottom: 200px;
+     border: solid black;
+
+}
+.link{
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    // text-align: center;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+</style>
+
+<?php
+        $path = getenv('DOCUMENT_ROOT');
+        include_once $path."/Olimpo_Training/layouts/header.php";
+?>
+<a href="index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
+
+<h1 class="nome_exer" ><?=$exercicio['nome']?></h1>
+
+<body>
+<?php
+
+$extensao = $exercicio['nome_arq'];
+$extensao = pathinfo($extensao, PATHINFO_EXTENSION);
+
+if($extensao == 'mp4' || $extensao == 'mov' || $extensao == 'webm'): ?>
+
+    <video width="500px" height="500px" autoplay muted loop>
+        <source src="animacoes/<?=$exercicio['nome_arq']?>">
+    </video>
+   
+<?php
+else:
+?>
+    <div class="all">
+    <img width="700px" height="700px" class="img_exer" src="animacoes/<?=$exercicio['nome_arq']?>"><br>
+<?php
+endif;
+?>
+
+<h3>Atividade física</h3>
+<p class="ativ"><?=$exercicio['ativ_fisica']?></p>
+
+<div class="descricao">
+<p><?php echo "<p><font color='black' face='Arial' size='5'>".$exercicio['descricao']."</font></p>";;?></p><br>
+</div>
+
+</div>
+
+<iframe width="850" height="479" src="https://www.youtube.com/embed/<?=$exercicio['link_tutorial']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
+   
+<?=$dbh=null;?>
+
+</body>
+<?php
+        $path = getenv('DOCUMENT_ROOT');
+        include_once $path."/Olimpo_Training/layouts/footer.php";
+?>
+
+
+
+<!-- .img_exer{
     
     width: 700px;
     height: 500px;
@@ -65,63 +158,6 @@ margin-bottom: 20px;
     padding: 20px auto;
     font-size: 1.5rem;
     font-weight: 10000 ;
-}
+} -->
 
-.link{
-    display: flex;
-    // align-items: center;
-    justify-content: center;
-    // text-align: center;
-    width: 100%;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-</style>
-
-<?php
-        $path = getenv('DOCUMENT_ROOT');
-        include_once $path."/Olimpo_Training/layouts/header.php";
-?>
-<a href="index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
-
-<h1 aling="center" class="nome_exer" ><?=$exercicio['nome']?></h1>
-
-<body>
-<?php
-
-$extensao = $exercicio['nome_arq'];
-$extensao = pathinfo($extensao, PATHINFO_EXTENSION);
-
-if($extensao == 'mp4' || $extensao == 'mov' || $extensao == 'webm'): ?>
-
-    <video width="500px" height="500px" autoplay muted loop>
-        <source src="animacoes/<?=$exercicio['nome_arq']?>">
-    </video>
-   
-<?php
-else:
-?>
-    <img width="700px" height="700px" class="img_exer" src="animacoes/<?=$exercicio['nome_arq']?>"><br>
-<?php
-endif;
-?>
-<div class="nome">
-<h3>Atividade física</h3>
-<p><?=$exercicio['ativ_fisica']?></p>
-</div>
-<div class="descricao">
-<p><?php  echo "<p><font color='black' face='Arial' size='5'>".$exercicio['descricao']."</font>";;?></p><br>
-</div>
-
-
-<div class="link">
-<iframe width="850" height="479" src="https://www.youtube.com/embed/<?=$exercicio['link_tutorial']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
-</div>
-<?=$dbh=null;?>
-
-</body>
-<?php
-        $path = getenv('DOCUMENT_ROOT');
-        include_once $path."/Olimpo_Training/layouts/footer.php";
-?>
 </html>
