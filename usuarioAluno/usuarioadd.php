@@ -92,7 +92,7 @@
 
     if ($result AND $resultPerfis AND $resultAssinaturas AND $resultPagamentos)
     {
-        header('location: ../index.php?success=Cadastro realizado com sucesso.');
+        header('location: paymentMercadoPagoEfetuar.php?assinatura='.$assinatura);
         exit;
     } else {
         echo '<p>Não foi fossível inserir Usuário!</p>';
