@@ -122,7 +122,7 @@
                 </a>
 
                 <h2><a href="" class="title">
-                Emerson Viana é um personal trainer altamente qualificado e especializado em exercícios com peso do corpo. Com uma vasta experiência no campo do treinamento físico, ele auxilia seus clientes a alcançarem seus objetivos de forma eficaz, utilizando apenas o peso do próprio corpo.Gláuber é dedicado em fornecer treinamentos personalizados e adaptados às necessidades individuais de cada cliente. 
+                Gláuber Viana Magalhães é um personal trainer altamente qualificado e especializado em exercícios com peso do corpo. Com uma vasta experiência no campo do treinamento físico, ele auxilia seus clientes a alcançarem seus objetivos de forma eficaz, utilizando apenas o peso do próprio corpo.Gláuber é dedicado em fornecer treinamentos personalizados e adaptados às necessidades individuais de cada cliente. 
                 
                     </a></h2>
             </article>

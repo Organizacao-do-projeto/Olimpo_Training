@@ -32,14 +32,15 @@ $exercicio = $stmt->fetch();
     width: 100%;
     display: flex;
 }
+    
 .img_exer{
     width: 700px;
     display: flex;
     max-width: 600px;
     max-height: 500px;
-    height: 500px;
      margin-left:90px;
      margin-bottom: 30px;
+     margin-right: 40px;
     border-radius: 83.206px;
      font-weight: 800;
      font-size: 1.1rem;
@@ -52,30 +53,49 @@ $exercicio = $stmt->fetch();
     justify-content: center;
     margin-top: 15px;
     margin-bottom: 40px;
+    font-size: 2.5rem;
     
+}
+
+.ativ{
+    display: flex;
+    
+
 }
 
 
 .descricao{
     width: 100%;
     display: flex;
-     margin-top: 80px;
-     margin-right: 200px;
-     background-color: transparent;
+     margin-top: 10px;
+     margin-right: 250px;
+     margin-left: 20px;
+     background: linear-gradient(to right, rgb(255, 245, 187), rgb(255, 212, 173));
      padding: 15px 20px;
      margin-bottom: 300px;
      border: solid black;
      max-height: 500px;
+     border-radius: 10px;
      overflow: auto;
+     opacity: 0.8;
 
 }
-.link{
-    width: 100%;
-    display: flex;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    
+
+.descricao:hover{
+    opacity: 1;
+    background: linear-gradient(to right, rgb(255, 241, 162), rgb(255, 198, 145));
 }
+
+.link{
+    width: 50%;
+    display: flex;
+    margin-left: 450px;
+    max-width: 700px;
+    border: solid black;
+    border-radius: 20px;
+    margin-top: 60px;
+}
+
 </style>
 
 <?php
@@ -108,7 +128,7 @@ endif;
 ?>
 
 
-<p class="ativ"><?=$exercicio['ativ_fisica']?></p>
+
 
 <div class="descricao">
 <p><?php echo "<p><font color='black' face='Arial' size='5'>".$exercicio['descricao']."</font></p>";;?></p><br>
@@ -116,7 +136,7 @@ endif;
 
 </div>
 
-<iframe width="850" height="479" src="https://www.youtube.com/embed/<?=$exercicio['link_tutorial']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
+<iframe width="850" height="479" class="link" src="https://www.youtube.com/embed/<?=$exercicio['link_tutorial']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
    
 <?=$dbh=null;?>
 
