@@ -28,7 +28,6 @@ $exercicio = $stmt->fetch();
 </head>
 <style> 
 
-
 .all{
     width: 100%;
     display: flex;
@@ -36,8 +35,10 @@ $exercicio = $stmt->fetch();
 .img_exer{
     width: 700px;
     display: flex;
+    max-width: 600px;
+    max-height: 500px;
     height: 500px;
-     margin-left:20px;
+     margin-left:90px;
      margin-bottom: 30px;
     border-radius: 83.206px;
      font-weight: 800;
@@ -48,10 +49,10 @@ $exercicio = $stmt->fetch();
 .nome_exer{
     width: 100%;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     margin-top: 15px;
-    margin-bottom: 20px;
-    margin-left: 100px;
+    margin-bottom: 40px;
+    
 }
 
 
@@ -59,21 +60,21 @@ $exercicio = $stmt->fetch();
     width: 100%;
     display: flex;
      margin-top: 80px;
-     margin-right: 50px;
-     background-color: aqua;
+     margin-right: 200px;
+     background-color: transparent;
      padding: 15px 20px;
-     margin-bottom: 200px;
+     margin-bottom: 300px;
      border: solid black;
+     max-height: 500px;
+     overflow: auto;
 
 }
 .link{
-    display: flex;
-    // align-items: center;
-    justify-content: center;
-    // text-align: center;
     width: 100%;
+    display: flex;
     margin-top: 50px;
     margin-bottom: 50px;
+    
 }
 </style>
 
@@ -106,7 +107,7 @@ else:
 endif;
 ?>
 
-<h3>Atividade física</h3>
+
 <p class="ativ"><?=$exercicio['ativ_fisica']?></p>
 
 <div class="descricao">
