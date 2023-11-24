@@ -1,13 +1,23 @@
 <?php
 session_start();
 
+$dadosUsuario = $_SESSION['dadosUsuario'];
+
 include_once __DIR__.'/../auth/restrito.php';
+include_once __DIR__.'/../src/dao/crefdao.php';
+
+$autenticado = new CREF();
+
+//verifica se o usuário é personal
+if(!isPersonal($dadosUsuario['perfil'], $autenticado->getAuthCREF($dadosUsuario['id']))){
+    header('Location: ../index.php?error=Voce não tem permissão para Editar treinos.');
+}
 
 !empty($_POST['idFichas_treino']) ? $idFichas_treino = $_POST['idFichas_treino'] : $idFichas_treino = 0 ;
 
 
 //fazendo a conexão com o banco de dados
-include 'src/conexao.php';
+// include 'src/conexao.php';
 
 $dbhft_exe = Conexao::getConexao();
 $dbhfichas_treino = Conexao::getConexao();
@@ -547,7 +557,7 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
     
     <?php  
 
-    include_once 'src/conexao.php';
+    // include_once 'src/conexao.php';
 
     $dbh = Conexao::getConexao();
 

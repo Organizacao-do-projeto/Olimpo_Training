@@ -5,6 +5,10 @@
     include_once __DIR__.'/../auth/restrito.php';
     
     include_once '../src/conexao.php';
+    
+    $dadosUsuario = $_SESSION['dadosUsuario'];
+
+    isAdmin($dadosUsuario['perfil'], true);
 
     $dbh = Conexao::getConexao();
     

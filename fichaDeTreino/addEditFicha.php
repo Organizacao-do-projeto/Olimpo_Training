@@ -1,10 +1,18 @@
 <?php
 session_start();
 
+
+$dadosUsuario = $_SESSION['dadosUsuario'];
+
 include_once __DIR__.'/../auth/restrito.php';
+include_once __DIR__.'/../src/dao/crefdao.php';
 
-include_once "src/conexao.php";
+$autenticado = new CREF();
 
+//verifica se o usuário é personal
+if(!isPersonal($dadosUsuario['perfil'], $autenticado->getAuthCREF($dadosUsuario['id']))){
+    header('Location: ../index.php?error=Voce não tem permissão para Editar treinos.');
+}
 
 $idAluno = 1;
 $idPersonal = 1;

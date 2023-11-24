@@ -4,10 +4,7 @@
 
     include_once __DIR__.'/../auth/restrito.php';
 
-    //TESTE COM TIPO DE USUÁRIO
-    // $tipo = 'ALUNO';
-    // isPersonal($tipo, 0);
-
+    $dadosUsuario = $_SESSION['dadosUsuario'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -23,11 +20,14 @@
         $path = getenv('DOCUMENT_ROOT');
         include_once $path."/Olimpo_Training/layouts/header.php";
         ?>
-    <section class="btAdmin">
-        <div class="wrapbtn">
-            <a href="admPanelExercicios.php" class="btnCriar">Painel de Administrador</a>
-        </div>    
-    </section>
+    <?php   //verifica se o usuário é admin
+            if(isAdmin($dadosUsuario['perfil'])): ?>
+                <section class="btAdmin">
+                    <div class="wrapbtn">
+                        <a href="admPanelExercicios.php" class="btnCriar">Painel de Administrador</a>
+                    </div>    
+                </section>
+    <?php   endif; ?>
     <h1 class="mainTitulo">Exercícios</h1>
     
     <section class="showExercicios">

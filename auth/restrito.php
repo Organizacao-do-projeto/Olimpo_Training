@@ -51,7 +51,7 @@
         };
     }
 
-    function isAdministrador($perfil, $redirect = false){
+    function isAdmin($perfil, $redirect = false){
         if($perfil != 'ADMINISTRADOR'){
             if($redirect){
                 header('Location: ../index.php?error=Sem permissão para acessar essa página.');

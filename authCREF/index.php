@@ -6,6 +6,10 @@
 
     require_once '../src/conexao.php';
 
+    $dadosUsuario = $_SESSION['dadosUsuario'];
+
+    isAdmin($dadosUsuario['perfil'], true);
+
     $dbh = Conexao::getConexao();
     $dbhUsuarios = Conexao::getConexao();
     
@@ -46,8 +50,8 @@
 <a href="../views/index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
 
     <main>
-        <h1 class="titulo">Personal Trainers</h1>
 
+        <h1 class="titulo">Autenticar CREF</h1>
         <section class="list_container">
         <iframe src="https://www.confef.org.br/confef/registrados/" height="400px" width="100%" ></iframe>
         <!-- <article class="wrap_bt_buscar">
@@ -56,6 +60,8 @@
         <br>
         <br>
         <br>
+
+        <h2 class="titulo">Personal Trainers</h2>
 
             <table width="1150px" >
                 <thead>

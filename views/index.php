@@ -157,6 +157,7 @@ $stmt= $dbh->prepare($query);
 $stmt->bindParam(":id",$id);
 $stmt->execute();
 $nomePerfis = $stmt->fetch();
+$_SESSION['dadosUsuario']['perfil'] = $nomePerfis['nome'];
 
 
 if(isset($_GET['updated'])){

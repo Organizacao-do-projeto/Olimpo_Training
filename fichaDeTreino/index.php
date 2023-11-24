@@ -4,6 +4,18 @@ $_SESSION['sessaoFicha'] = [];
 
 include_once __DIR__.'/../auth/restrito.php';
 
+$dadosUsuario = $_SESSION['dadosUsuario'];
+
+// require_once 'src/conexao.php';
+require_once '../src/dao/crefdao.php';
+
+$autenticado = new CREF();
+
+// verifica se é personal autenticado ou é aluno
+if(!isPersonal($dadosUsuario['perfil'], $autenticado->getAuthCREF($dadosUsuario['id']) ) && !isAluno($dadosUsuario['perfil'])){
+    header('Location: ../views/index.php?error=Voce não pode acessar essa página, faça assintura.');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -175,12 +187,8 @@ include_once __DIR__.'/../auth/restrito.php';
 <a href="../views/index.php" alt="voltar"><img height="60px" src="../views/assets/img/voltar.svg"></a>
 
     <?php 
-    // session_start();
-    // $dadosUsuario = $_SESSION['dadosUsuario'];
-    $dadosUsuario = array();
-    $dadosUsuario['tipo'] = 'ADMINISTRADOR';
-
-    if($dadosUsuario['tipo'] == 'ADMINISTRADOR' || $dadosUsuario['tipo'] == 'PERSONAL-TRAINER'): ?>
+    //verifica se é personal para imprimir o botão
+    if(isPersonal($dadosUsuario['perfil'], $autenticado->getAuthCREF($dadosUsuario['id']))): ?>
     <div class="wrapbtn">
         <a href="usersRequires.php" class="btnCriar">Criar treino</a>
     </div>
@@ -197,8 +205,6 @@ isset($_GET['idUsuarios']) ? $usuarioId = $_GET['idUsuarios'] : $usuarioId = 1;
 
 //algoritmo para mostrar todos as registro da ficha de treino
 
-require_once 'src/conexao.php';
-
 $dbh = Conexao::getConexao();
 
 
@@ -210,10 +216,10 @@ $stmt->execute();
 $fichas = $stmt->fetchAll();
 $quantFichas = count($fichas);
 
-    $i = 0;
+    $i = $quantFichas;
 
     foreach($fichas as $row): 
-    $i++;
+
     ?>
 
 
@@ -242,7 +248,9 @@ $quantFichas = count($fichas);
             <input type="hidden" name="idFichas_treino" value="<?=$row['idFichas_treino']?>">
         </button>
     </form>
-<?php endforeach; ?>
+<?php 
+    $i--;
+    endforeach; ?>
     </section>
 </body>
 </html>

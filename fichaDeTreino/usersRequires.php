@@ -1,31 +1,23 @@
 <?php
 session_start();
+$dadosUsuario = $_SESSION['dadosUsuario'];
 
 include_once __DIR__.'/../auth/restrito.php';
 
-$dadosUsuario = array();
-$dadosUsuario['tipo'] = 'PERSONAL-TRAINER';
+include_once __DIR__.'/../src/dao/crefdao.php';
 
-// $idPerso_trainer = $dadosUsuario['id'];
+$autenticado = new CREF();
 
-$idPerso_trainer = 1;
+//verifica se o usuário é personal
+if(!isPersonal($dadosUsuario['perfil'], $autenticado->getAuthCREF($dadosUsuario['id']))){
+    header('Location: ../index.php?error=Voce não tem permissão para criar treinos.');
+}
 
-include_once "src/conexao.php";
+
+// include_once "src/conexao.php";
 
 $dbh = Conexao::getConexao();
 
-//seleciona todos se for adm e seleciona apenas os do personal caso seja personal trainer
-// if($dadosUsuario['tipo'] == 'ADMINISTRADOR'){
-    
-//     $query = "SELECT * FROM olimpo.usuarios  WHERE saldo_treinos > 0;";
-//     $stmt = $dbh->prepare($query);
-    
-// }else if($dadosUsuario['tipo'] == 'PERSONAL-TRAINER'){
-    
-//     $query = "SELECT * FROM olimpo.usuarios WHERE idPerso_trainer = :idPerso_trainer AND saldo_treinos > 0 ; ";
-//     $stmt = $dbh->prepare($query);  
-//     $stmt->bindParam(":idPerso_trainer", $idPerso_trainer);
-// }
 
 $query = "SELECT * FROM olimpo.usuarios  WHERE saldo_treinos > 0;";
 $stmt = $dbh->prepare($query);

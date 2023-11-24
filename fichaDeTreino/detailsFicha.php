@@ -1,6 +1,17 @@
 <?php
 session_start();
+
+$dadosUsuario = $_SESSION['dadosUsuario'];
+
 include_once __DIR__.'/../auth/restrito.php';
+include_once __DIR__.'/../src/dao/crefdao.php';
+
+$autenticado = new CREF();
+
+//verifica se não é aluno ou personal acessando a ficha de treino
+if(!isPersonal($dadosUsuario['perfil'], $autenticado->getAuthCREF($dadosUsuario['id']) ) && !isAluno($dadosUsuario['perfil'])){
+    header('Location: ../views/index.php?error=Voce não pode acessar essa página, faça assintura.');
+}
 ?>
 
 <!DOCTYPE html>
@@ -358,7 +369,7 @@ $idFichas_treino = $_POST['idFichas_treino'];
 // echo "O número que choegou no teste foi: ".$_POST['teste'];
 // $idFichas_treino = 70;
 
-require_once 'src/conexao.php';
+// require_once 'src/conexao.php';
 
 
 $dbhft_exe = Conexao::getConexao();
@@ -402,13 +413,15 @@ $cabecalhofichas_treino = $stmtfichas_treino->fetch();
                 <br><br>
                 <h1><?=$cabecalhofichas_treino['titulo']?></h1>
 
+
                 <div class='botoesCabecalho flex-row'>
                     <span id="spanDesc_exercicios">Desc/exercicio: <?=$cabecalhofichas_treino['descExercicios']?>s</span>
-
+                    <?php if(isPersonal($dadosUsuario['perfil'], $autenticado->getAuthCREF($dadosUsuario['id']))){ ?>
                     <form action="editFicha.php" method="POST">
                         <input type="hidden" value="<?=$cabecalhofichas_treino['idFichas_treino']?>" name="idFichas_treino">
                         <button title="Editar" type="submit" id="btEdit"><img src="https://cdn-icons-png.flaticon.com/512/1827/1827933.png" width="20px" height="17px"  alt="Editar" ></button>   
                     </form>
+                    <?php }; ?>
                     <form action="deleteFicha.php" method="POST">
                         <input type="hidden" value="<?=$cabecalhofichas_treino['idFichas_treino']?>" name="idFichas_treino">
                         <button title="Excluir" type="button" onclick="swalConfirm(this,'Excluir treino')" id="btExcluir"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Cross_icon_%28white%29.svg/120px-Cross_icon_%28white%29.svg.png" width="16px" height="17px"  alt="Excluir"></button>
@@ -417,6 +430,7 @@ $cabecalhofichas_treino = $stmtfichas_treino->fetch();
                                         <button type="button" class="btnexcluir" onclick="swalConfirm(this,'Confirmar ação?','Tem certeza que deseja excluir este usuário?');">Excluir</button> -->
                         </form>
                     </form>
+
                 </div>
             </article>
 
@@ -471,12 +485,12 @@ $cabecalhofichas_treino = $stmtfichas_treino->fetch();
                 <!-- INICIO DOBRA INFOS PERSONAL -->
                 <article class="infoPersonal">
                     <hr>
-                    <h1>Criador: </h1>
+                    <!-- <h1>Criador: </h1> -->
                     <div class="infosPersonal_content flex-row">
-                        <div class="dadosPerfilPersonal">
+                        <!-- <div class="dadosPerfilPersonal">
                                     <img width="150px" height="150px" src="https://nationalpti.org/wp-content/uploads/2014/02/Personal-Trainer.jpg" id="fotoUsuario">
                                     <h3> Renato Cariani</h3>
-                        </div>
+                        </div> -->
                         <div class="outras_infos">
                             <h2>Observações: </h2>
                             <p id="content_observacoes"><span><?=$cabecalhofichas_treino['observacoes']?><span></p>

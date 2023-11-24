@@ -1,11 +1,17 @@
 <?php
 session_start();
 
+$dadosUsuario = $_SESSION['dadosUsuario'];
+
 include_once __DIR__.'/../auth/restrito.php';
+include_once __DIR__.'/../src/dao/crefdao.php';
 
-//puxar dados da variavel de sessão e registrar no banco de dados
+$autenticado = new CREF();
 
-include_once "src/conexao.php";
+//verifica se o usuário é personal
+if(!isPersonal($dadosUsuario['perfil'], $autenticado->getAuthCREF($dadosUsuario['id']))){
+    header('Location: ../index.php?error=Voce não tem permissão para Editar treinos.');
+}
 
 if(empty($_SESSION['sessaoFicha'])){ 
         header('Location: index.php?error=Você tentou adicionar um treino vazio, adicione no mínimo um exercicio');

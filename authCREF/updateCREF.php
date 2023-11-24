@@ -7,6 +7,10 @@
     header('Content-Type: text/html; charset=utf-8;');
     
     require_once '../src/conexao.php';
+    
+    $dadosUsuario = $_SESSION['dadosUsuario'];
+
+    isAdmin($dadosUsuario['perfil'], true);
 
     # recebe os valores enviados do formulário via método post.
     $id = $_GET['id'];
