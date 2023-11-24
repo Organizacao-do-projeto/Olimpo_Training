@@ -188,6 +188,20 @@
                 </article>
             </div>
             <hr>
+            <!-- INICIO SESSÃO PREÇOS -->
+            <div class="card">
+
+                <div class="mensal">
+                <h4>Plano Mensal</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste excepturi delectus quia minus architecto error animi temporibus ducimus? Neque ipsam ab voluptates cumque sequi sint, facere laboriosam atque reprehenderit officia.</p>
+                </div>
+                <div class="anual">
+                <h4>Plano Anual</h4>
+                <p>R$   345,99</p>
+                </div>
+            </div>
+            <!-- FIM SESSÃO PREÇOS -->
+
             <!-- FIM SESSÃO DOBRA  CURSOS-->
 
             <!--INICIO DOBRA REVIEWS-->
@@ -208,13 +222,11 @@
                             </p>
                             <h2>Tudo o que você precisa para praticar exercícios em um só lugar</h2>
                         </header>
-                        <p>Desde 1980 a ETC - vem criando os melhores cursos do mercado, entregamos ao aluno
-                            conhecimento
-                            prático e testado sem enrolção.Você tem acesso a aulas com a melhor qualidade, recursos que
-                            aceleram seu aprendizado e muito mais...</p>
-                        <p>Que tal estudar, e ter o certificado da escola eleita a melhor do Brasil com reconhecimento
-                            em
-                            mais de 17 países pela Latin American Quality Institute?</p>
+                        <p>Bem-vindo ao Olimpo Training! Aqui você encontrará tudo o que precisa para atingir seus objetivos de condicionamento físico.
+                        Oferecemos uma ampla variedade de treinos especializados para todas as idades e níveis de condicionamento. Seja você um iniciante procurando se exercitar pela primeira vez ou um atleta experiente em busca de um novo desafio, temos programas personalizados que se adequarão às suas necessidades.</p>
+                        <p>Nosso site apresenta uma abordagem equilibrada, combinando treinamento cardiovasculares, força, flexibilidade e exercícios de mobilidade. Você terá acesso a vídeos instrutivos, guias de treinamento e dicas valiosas dos nossos especialistas em fitness, que o ajudarão a maximizar seus esforços e alcançar resultados duradouros.</p>
+
+
                     </article>
 
 

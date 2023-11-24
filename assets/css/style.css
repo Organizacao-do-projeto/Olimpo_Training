@@ -433,6 +433,85 @@ transition: transform 0.5s;
 }
 /*FIM DOBRA REVIEWS*/
 
+/* INICIO SESSÃO PREÇOS */
+.card{
+    width: 750px;
+    display: flex;
+    height: 500px;
+    margin: 0px auto ;
+    
+}
+.mensal{
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 60px 30px;
+    margin-top: 100px;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: rgb(247, 237, 185) 3px 5px 6px 8px;
+    opacity: 0.8;
+    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    
+    
+}
+
+.mensal:hover{
+    opacity: 1;
+    background: linear-gradient(to right, rgb(248, 239, 190), rgb(252, 212, 177));
+    transition: ease-in-out .3s;
+    transform: scale(1.08);
+    cursor: pointer;
+    
+}
+
+.mensal > h4{
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 5px;
+
+}
+.anual{
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 60px 30px;
+    margin-top: 100px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: rgb(247, 237, 185) 3px 5px 6px 8px;
+    opacity: 0.8;
+    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    
+    
+}
+
+.anual:hover{
+    opacity: 1;
+    background: linear-gradient(to right, rgb(248, 239, 190), rgb(252, 212, 177));
+    transition: ease-in-out .3s;
+    transform: scale(1.08);
+    cursor: pointer;
+    
+}
+.anual > h4{
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 5px;
+
+}
+.anual > p{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #777;
+}
+/* FIM SESSÃO PREÇOS */
+
 /*INICIO DOBRA A ESCOLA*/
 .main_school{
     width: 100%;
