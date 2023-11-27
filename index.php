@@ -193,11 +193,13 @@
 
                 <div class="mensal">
                 <h4>Plano Mensal</h4>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste excepturi delectus quia minus architecto error animi temporibus ducimus? Neque ipsam ab voluptates cumque sequi sint, facere laboriosam atque reprehenderit officia.</p>
+                <p>R$ 34,99</p>
+                <img src="assets/img/mensal.gif" alt="mensal" title="mensal">
                 </div>
                 <div class="anual">
                 <h4>Plano Anual</h4>
                 <p>R$   345,99</p>
+                <img src="assets/img/anual.gif" alt="anual" title="anual">
                 </div>
             </div>
             <!-- FIM SESSÃO PREÇOS -->
