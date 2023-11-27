@@ -177,6 +177,7 @@ if(isset($_GET['updated'])){
 
     $dadosUsuario = $user;
     $_SESSION['dadosUsuario'] = $dadosUsuario;
+    $_SESSION['dadosUsuario']['perfil'] = $nomePerfis['nome'];
     $dbh = null;
 }
 ?>

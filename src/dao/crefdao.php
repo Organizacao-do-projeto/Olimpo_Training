@@ -1,7 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../databases/conexao.php';
-
 class CREF 
 {
 

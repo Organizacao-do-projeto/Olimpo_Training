@@ -6,8 +6,8 @@ include_once __DIR__.'/../auth/restrito.php';
 
 $dadosUsuario = $_SESSION['dadosUsuario'];
 
-// require_once 'src/conexao.php';
-require_once '../src/dao/crefdao.php';
+include_once __DIR__.'/../src/databases/conexao.php';
+include_once __DIR__.'/../src/dao/crefdao.php';
 
 $autenticado = new CREF();
 
