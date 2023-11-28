@@ -486,10 +486,10 @@ font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
 
     <header class="headerInfos">
         <a href="../views/perfil.php?idPerfil=10" target="_blank" >
-            <h2>Aluno: Jefferson Romero</h2>
+             <!-- <h2>Aluno: Jefferson Romero</h2> -->
         </a>
 
-        <a href="index.php?idUsuarios=2" class="btIndex" target="_blank">Treinos do aluno</a>
+        <a href="index.php" class="btIndex" target="_blank">Treinos do aluno</a>
     </header>
 
 

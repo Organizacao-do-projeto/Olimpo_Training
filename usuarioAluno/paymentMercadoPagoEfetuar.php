@@ -88,6 +88,7 @@
         font-size: 1.7rem;
         cursor: pointer;
         text-decoration: none;
+        text-align: center;
     }
 
 </style>
@@ -182,7 +183,7 @@
         setTimeout(() => {
             console.log('Sim');
             addBtProsseguir();
-        }, 3000);
+        }, 6000);
 
     });
 

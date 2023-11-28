@@ -270,7 +270,7 @@ hr {
 }
 
 .infosPersonal_content{
-    justify-content: space-between;
+    justify-content: end;
     margin-left: 30px;
     margin-bottom: 30px;
     margin-right: 30px;

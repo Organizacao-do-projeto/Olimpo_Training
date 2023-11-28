@@ -131,7 +131,7 @@ endif;
 
 
 <div class="descricao">
-<p><?php echo "<p><font color='black' face='Arial' size='5'>".$exercicio['descricao']."</font></p>";;?></p><br>
+<p><?php echo "<p><font color='black' face='Arial' size='5'>".$exercicio['descricao']."</font></p>";?></p><br>
 </div>
 
 </div>

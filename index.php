@@ -191,16 +191,16 @@
             <!-- INICIO SESSÃO PREÇOS -->
             <div class="card">
 
-                <div class="mensal">
+                <a class="mensal" href="usuarioAluno/new.php">
                 <h4>Plano Mensal</h4>
                 <p>R$ 34,99</p>
                 <img src="assets/img/mensal.gif" alt="mensal" title="mensal">
-                </div>
-                <div class="anual">
+                </a>
+                <a class="anual" href="usuarioAluno/new.php">
                 <h4>Plano Anual</h4>
                 <p>R$   345,99</p>
                 <img src="assets/img/anual.gif" alt="anual" title="anual">
-                </div>
+                </a>
             </div>
             <!-- FIM SESSÃO PREÇOS -->
 

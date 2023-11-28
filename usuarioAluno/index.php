@@ -6,6 +6,11 @@
 
     require_once '../src/conexao.php';
 
+    $dadosUsuario = $_SESSION['dadosUsuario'];
+
+    #verifica se é admin
+    isAdmin($dadosUsuario['perfil'], true);
+
     # solicita a conexão com o banco de dados e guarda na váriavel dbh.
     $dbh = Conexao::getConexao();
 

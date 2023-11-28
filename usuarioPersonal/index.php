@@ -2,6 +2,11 @@
     session_start();
 
     include_once __DIR__.'/../auth/restrito.php';
+    
+    $dadosUsuario = $_SESSION['dadosUsuario'];
+
+    #verifica se é admin
+    isAdmin($dadosUsuario['perfis'], true);
 
     require_once '../src/conexao.php';
 

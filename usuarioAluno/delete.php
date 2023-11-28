@@ -5,6 +5,12 @@
 
     include_once '../src/conexao.php';
 
+    $dadosUsuario = $_SESSION['dadosUsuario'];
+
+    # verifica se é aluno, senao redireciona
+    isAluno($dadosUsuario['perfil'], true);
+    
+
     $dbh = Conexao::getConexao();
 
     # usando funcionalidade nova do PHP 8 chamada null coalescing operatior

@@ -7,6 +7,11 @@
     
     require_once '../src/conexao.php';
 
+    $dadosUsuario = $_SESSION['dadosUsuario'];
+
+    #verifica se é aluno
+    echo isAluno($dadosUsuario['perfil']);
+
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $password = md5($_POST['password']);

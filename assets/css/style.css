@@ -454,9 +454,12 @@ transition: transform 0.5s;
     box-shadow: rgb(247, 237, 185) 3px 5px 6px 8px;
     opacity: 0.9;
     box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    text-decoration: none;
+    color: black;
     
     
 }
+
 
 .mensal:hover{
     opacity: 1;
@@ -496,6 +499,8 @@ transition: transform 0.5s;
     box-shadow: rgb(247, 237, 185) 3px 5px 6px 8px;
     opacity: 0.9;
     box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    text-decoration: none;
+    color: black;
     
     
 }

@@ -3,6 +3,11 @@
 
     include_once __DIR__.'/../auth/restrito.php';
 
+    $dadosUsuario = $_SESSION['dadosUsuario'];
+
+    #redireciona não admin
+    isAdmin($dadosUsuario['perfil'], true);
+
         $path = getenv('DOCUMENT_ROOT');
         include_once $path."/Olimpo_Training/layouts/header.php";
 

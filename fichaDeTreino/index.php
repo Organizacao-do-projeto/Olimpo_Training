@@ -11,7 +11,7 @@ include_once __DIR__.'/../src/dao/crefdao.php';
 
 $autenticado = new CREF();
 
-// verifica se é personal autenticado ou é aluno
+// verifica se é admin, personal autenticado ou aluno
 if(!isPersonal($dadosUsuario['perfil'], $autenticado->getAuthCREF($dadosUsuario['id']) ) && !isAluno($dadosUsuario['perfil'])){
     header('Location: ../views/index.php?error=Voce não pode acessar essa página, faça assintura.');
 }
@@ -207,16 +207,33 @@ isset($_GET['idUsuarios']) ? $usuarioId = $_GET['idUsuarios'] : $usuarioId = 1;
 
 $dbh = Conexao::getConexao();
 
+// seleciona a query de acordo com o tipo de usuario
+if(isPersonal($dadosUsuario['perfil'], $autenticado->getAuthCREF($dadosUsuario['id']))){
 
-$query = "SELECT * FROM olimpo.fichas_treino ORDER BY idFichas_Treino DESC ";
+    $query = "SELECT * FROM olimpo.fichas_treino ORDER BY idFichas_Treino DESC ";
+}else{
+
+    $query =    "SELECT * FROM olimpo.fichas_treino
+                WHERE  idAluno = :idAluno 
+                ORDER BY idFichas_Treino DESC";
+}
+
 
 
 $stmt = $dbh->prepare($query);
+if($dadosUsuario['perfil'] == "ALUNO"){
+    $stmt->bindParam(':idAluno', $dadosUsuario['id']);
+}
 $stmt->execute();
 $fichas = $stmt->fetchAll();
 $quantFichas = count($fichas);
 
     $i = $quantFichas;
+    if($quantFichas <= 0){ ?>
+        <br><br>
+        <p style="text-align: center; width: 100%; font-size: 1.3rem;">Você ainda não possui nenhum treino.</p>
+    <?php
+    }
 
     foreach($fichas as $row): 
 

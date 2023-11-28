@@ -5,6 +5,7 @@
 
     include_once '../src/conexao.php';
 
+
     $dbh = Conexao::getConexao();
 
     # usando funcionalidade nova do PHP 8 chamada null coalescing operatior

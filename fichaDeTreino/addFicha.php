@@ -9,7 +9,7 @@ include_once __DIR__.'/../src/dao/crefdao.php';
 
 $autenticado = new CREF();
 
-//verifica se o usuário é personal
+//verifica se o usuário não é personal autenticado
 if(!isPersonal($dadosUsuario['perfil'], $autenticado->getAuthCREF($dadosUsuario['id']))){
     header('Location: ../index.php?error=Voce não tem permissão para Editar treinos.');
 }

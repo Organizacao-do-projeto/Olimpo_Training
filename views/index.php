@@ -1,6 +1,10 @@
 <?php session_start();
 
  include_once __DIR__.'/../auth/restrito.php';
+ include_once __DIR__.'/../src/conexao.php';
+ include_once __DIR__.'/../src/dao/crefdao.php';
+
+ $dadosUsuario = $_SESSION['dadosUsuario'];
 
 ?>
 <!DOCTYPE html>
@@ -147,8 +151,6 @@ $dadosUsuario = $_SESSION['dadosUsuario'];
 
 $id = $dadosUsuario['id'];
 
-include_once "src/conexao.php";
-
 $query = "SELECT nome FROM olimpo.perfis WHERE id = :id";
 
 $dbh = Conexao::getConexao();
@@ -158,6 +160,9 @@ $stmt->bindParam(":id",$id);
 $stmt->execute();
 $nomePerfis = $stmt->fetch();
 $_SESSION['dadosUsuario']['perfil'] = $nomePerfis['nome'];
+
+$dadosUsuario = $_SESSION['dadosUsuario'];
+
 
 
 if(isset($_GET['updated'])){
@@ -174,10 +179,9 @@ if(isset($_GET['updated'])){
 
     $user = $stmtUsuarios->fetch(PDO::FETCH_BOTH);
 
-
-    $dadosUsuario = $user;
-    $_SESSION['dadosUsuario'] = $dadosUsuario;
+    $_SESSION['dadosUsuario'] = $user;
     $_SESSION['dadosUsuario']['perfil'] = $nomePerfis['nome'];
+    $dadosUsuario = $_SESSION['dadosUsuario'];
     $dbh = null;
 }
 ?>
@@ -187,12 +191,30 @@ if(isset($_GET['updated'])){
     <div class="redirects">
         <a href="../index.php" title="Tela Inicial"><img src="assets/img/home.svg" height="40px"></a>
         <a href="pesquisarUsuario.php" title="Pesquisar usuário"><img src="assets/img/search.svg" height="40px"></a>
+        <?php
+
+        $autenticado = new CREF();
+        // printa para usuário não comum
+        if(isAluno($dadosUsuario['perfil']) || isPersonal($dadosUsuario['perfil'], $autenticado->getAuthCREF($dadosUsuario['id']))):
+        ?>
         <a href="../exercicios/index.php" title="Exercicios"><img src="assets/img/excercise.png" height="40px"></a>
         <a href="../fichaDeTreino/index.php" title="Fichas de treino"><img src="assets/img/ficha-treino.png" height="40px"></a>
+        <?php
+        // printa para usuário não comum
+        endif;
+        ?>
         <!-- <a href="../auth/logout.php" title="Efetuar logout"><img src="assets/img/exit.svg" height="40px"></a> -->
         <a href="userConfigs.php" title="Configurações da conta"><img src="../assets/img/engrenagem.png" height="40px"></a>
+        <?php
+        // permite apenas admin
+        if(isAdmin($dadosUsuario['perfil'])):
+        ?>
         <a href="../authCREF/index.php" title="Autenticar CREF"><img src="assets/img/autenticar.svg" height="40px"></a>
         <a href="listAdmin.php" title="Painel de usuários"><img src="assets/img/usuarios.svg" height="40px"></a>
+        <?php
+        // barra usuário comum
+        endif;
+        ?>
     </div>
     <div class="wrapper">
         <div height="40px">
