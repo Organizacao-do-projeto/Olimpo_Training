@@ -62,6 +62,7 @@
         header('location: '.$_GET['redirect'].'?success=Usuario excluido com êxito!&filtro=ALUNO');
         exit;
         }else{
+        session_destroy();
         header('location: ../index.php?success=Conta excluída com sucesso.');
         exit;
         }

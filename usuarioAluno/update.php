@@ -141,8 +141,8 @@
 
                         <div class="wrapInputRadio">
                             <label for="pagamento">Tipo de Pagamento:<font color="red">*</font></label><br><br>
-                            <input type="radio" name="pagamento" value="PIX" <?php if($pagamentos['tipo'] == 'PIX'){ echo "checked";};?>>PIX
-                        <input type="radio" name="pagamento" value="BOLETO" <?php if($pagamentos['tipo'] == 'BOLETO'){ echo "checked";};?>>Boleto<br><br>
+                            <input type="radio" name="pagamento" value="PIX" <?php if($pagamentos['tipo'] == 'PIX'){ echo "checked";};?>>&nbsp;Cartão de crédito
+                        <input type="radio" name="pagamento" value="BOLETO" <?php if($pagamentos['tipo'] == 'BOLETO'){ echo "checked";};?>>&nbsp;Boleto<br><br>
                         </div>
                         
                         <label>CPF:<font color="red">*</font></label>

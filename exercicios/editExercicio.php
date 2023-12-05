@@ -295,7 +295,7 @@ function redirecionaInvalido(){
             </div><br>
             <input type="hidden" name="idEdit" value="<?=$_POST['idEdit']?>">
             <div class="form-group_btn">
-            <input type="submit" id="Enviar" value="Enviar">
+            <input type="submit" id="Enviar" value="Editar">
             </div>
         </form>
     </section>

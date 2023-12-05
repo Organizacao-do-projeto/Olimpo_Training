@@ -152,7 +152,7 @@ if(!empty($nomeExercicio && $atividadeFisica && $linkTutorial && $descricao) && 
                 <textarea name="descricao" placeholder="Insira os detalhes sobre o exericio." maxlength="500"></textarea><br/>
             </div><br>
             <div class="form-group_btn">
-            <input type="submit" id="Enviar" value="Enviar">
+            <input type="submit" id="Enviar" value="Salvar">
             </div>
         </form>
     </section>

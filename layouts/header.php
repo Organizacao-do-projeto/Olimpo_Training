@@ -37,7 +37,7 @@
                 <ul>
                     <li><a href="/Olimpo_Training/views/index.php">Home</a></li>
                     <li><a href="/Olimpo_Training/exercicios/index.php">Exercícios</a></li>
-                    <li><a href="/Olimpo_Training/fichaDeTreino/index.php">Fichas</a></li>
+                    <li><a href="/Olimpo_Training/fichaDeTreino/index.php">Treinos</a></li>
                     <li><a href="/Olimpo_training/views/sele.html">Cadastre-se</a></li>
                     <li><a href="/Olimpo_Training/auth/logout.php" class="modal-link">Logout</a></li>
                 </ul>

@@ -81,8 +81,8 @@
 
                         <div class="wrapInputRadio">
                             <label for="pagamento">Tipo de Pagamento:<font color="red">*</font></label><br><br>
-                            <input type="radio" name="pagamento" value="PIX" checked>PIX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="radio" name="pagamento" value="BOLETO">Boleto<br><br>
+                            <input type="radio" name="pagamento" value="PIX" checked>&nbsp;Cartão de crédito&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="pagamento" value="BOLETO">&nbsp;Boleto<br><br>
                         </div>
                         
                         <label>CPF:<font color="red">*</font></label>
