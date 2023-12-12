@@ -28,9 +28,22 @@ $exercicio = $stmt->fetch();
 </head>
 <style> 
 
+.all_wrapper{
+    background-image: url('animacoes/<?=$exercicio['nome_arq']?>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 2200px 2200px;
+
+    /* filter: blur(60px); */
+}
+
 .all{
     width: 100%;
+    height: 660px;
     display: flex;
+    align-items: center;
+    background: radial-gradient(rgba(0,0,0,0.0),  #efede2);
+    backdrop-filter: blur(40px);
 }
     
 .img_exer{
@@ -38,13 +51,13 @@ $exercicio = $stmt->fetch();
     display: flex;
     max-width: 600px;
     max-height: 500px;
-     margin-left:90px;
-     margin-bottom: 30px;
-     margin-right: 40px;
+    margin-left:90px;
+    margin-bottom: 30px;
+    margin-right: 40px;
     border-radius: 83.206px;
-     font-weight: 800;
-     font-size: 1.1rem;
-      box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22)
+    font-weight: 800;
+    font-size: 1.1rem;
+    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22)
 }
 
 .nome_exer{
@@ -52,7 +65,7 @@ $exercicio = $stmt->fetch();
     display: flex;
     justify-content: center;
     margin-top: 15px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     font-size: 2.5rem;
     
 }
@@ -63,16 +76,22 @@ $exercicio = $stmt->fetch();
 
 }
 
+.desc_iframe_transition{
+    height: 250px;
+    width: 100%;
+    background: linear-gradient(180deg, #efede2,#efede9,#efede2 );
+}
+
 
 .descricao{
-    width: 100%;
+    width: 475px;
     display: flex;
      margin-top: 10px;
-     margin-right: 250px;
-     margin-left: 20px;
+     /* margin-right: 250px; */
+     margin-left: 28px;
      background: linear-gradient(to right, rgb(255, 245, 187), rgb(255, 212, 173));
      padding: 15px 20px;
-     margin-bottom: 300px;
+     margin-bottom: 80px;
      border: solid black;
      max-height: 500px;
      border-radius: 10px;
@@ -86,14 +105,23 @@ $exercicio = $stmt->fetch();
     background: linear-gradient(to right, rgb(255, 241, 162), rgb(255, 198, 145));
 }
 
+.wrap_iframe{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 10px; */
+    margin-bottom: 100px;
+
+}
+
 .link{
     width: 50%;
     display: flex;
-    margin-left: 450px;
+    /* margin-left: 450px; */
     max-width: 700px;
     border: solid black;
     border-radius: 20px;
-    margin-top: 60px;
+    /* margin-top: 60px; */
 }
 
 </style>
@@ -121,7 +149,9 @@ if($extensao == 'mp4' || $extensao == 'mov' || $extensao == 'webm'): ?>
 <?php
 else:
 ?>
+<div class='all_wrapper'>
     <div class="all">
+        <!-- colocar aqui a parte de tras -->
     <img width="700px" height="700px" class="img_exer" src="animacoes/<?=$exercicio['nome_arq']?>"><br>
 <?php
 endif;
@@ -131,12 +161,19 @@ endif;
 
 
 <div class="descricao">
-<p><?php echo "<p><font color='black' face='Arial' size='5'>".$exercicio['descricao']."</font></p>";?></p><br>
+<p><?php echo "<p><font size='5'>".$exercicio['descricao']."</font></p>";?></p><br>
 </div>
 
 </div>
+</div>
 
+<div class='desc_iframe_transition'>
+    &nbsp;
+</div>
+
+<div class='wrap_iframe'>
 <iframe width="850" height="479" class="link" src="https://www.youtube.com/embed/<?=$exercicio['link_tutorial']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
+</div>
    
 <?=$dbh=null;?>
 
