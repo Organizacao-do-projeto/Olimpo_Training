@@ -11,7 +11,7 @@
 </ul>
 <h3>Link do projeto funcionando</h3>
 <a href='https://olimpotraining.free.nf/Olimpo_Training/'>https://olimpotraining.free.nf/Olimpo_Training/</a>
-<p>Conta do Admin()</br>
+<p>Conta do Admin<span style='font: 10px;'>(possui todas funcionalidade sem restrição)</span></br>
   <Strong>Email:</Strong>&nbsp;admin@gmail.com</br>
   <Strong>Password:</Strong>&nbsp;123</br>
 </p>
