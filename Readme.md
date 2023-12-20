@@ -9,3 +9,9 @@
   <li>DomPDF</li>
   <li>PHPMailer</li>
 </ul>
+<h3>Link do projeto funcionando</h3>
+<a href='https://olimpotraining.free.nf/Olimpo_Training/'>https://olimpotraining.free.nf/Olimpo_Training/</a>
+<p>Conta do Admin()</br>
+  <Strong>Email:</Strong>&nbsp;admin@gmail.com</br>
+  <Strong>Password:</Strong>&nbsp;123</br>
+</p>
